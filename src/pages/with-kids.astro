@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const activities = [
+  { name: "Shanghai Disneyland", age: "All ages", desc: "Mainland China's first Disney park. TRON Lightcycle Power Run is a must for older kids. The Enchanted Storybook Castle is the largest Disney castle anywhere.", img: "/images/picsum-39-4q42.webp" },
+  { name: "Shanghai Ocean Aquarium", age: "All ages", desc: "One of the world's longest underwater viewing tunnels (155 meters). Sharks, rays, and a walk-through glass tunnel that kids love. In Pudong near the Pearl Tower.", img: "/images/picsum-40-4sj7.webp" },
+  { name: "Shanghai Natural History Museum", age: "4+", desc: "A stunning modern museum with life-size dinosaur skeletons, a butterfly house, and interactive exhibits. The building itself is an architectural marvel.", img: "/images/picsum-41-4uxl.webp" },
+  { name: "Century Park", age: "All ages", desc: "Shanghai's largest park. Boating lake, playgrounds, bike rentals, and huge open lawns. Perfect for a picnic and letting kids burn off energy.", img: "/images/picsum-42-4xdo.webp" },
+  { name: "Shanghai Zoo", age: "All ages", desc: "See giant pandas, red pandas, golden monkeys, and the rare South China tiger. The giant panda enclosure is a highlight.", img: "/images/picsum-43-4zso.webp" },
+  { name: "Shanghai Science and Technology Museum", age: "6+", desc: "Hands-on science with a dedicated children's zone. Animal kingdom exhibits, robot demos, and a 4D cinema. The building is as impressive as the exhibits.", img: "/images/picsum-44-52bl.webp" },
+  { name: "Bund Sightseeing Tunnel", age: "All ages", desc: "A trippy, light-show tunnel under the Huangpu River connecting the Bund to Pudong. Cheesy but kids love the psychedelic ride.", img: "/images/picsum-45-54pc.webp" },
+  { name: "Shanghai Circus World", age: "4+", desc: "ERA: Intersection of Time is the headline show. Acrobatics, motorcycles in giant spheres, and aerial acts. A polished, Cirque-style production.", img: "/images/picsum-46-574z.webp" },
+];
+---
+
+<BaseLayout
+  title="Shanghai with Kids: Family Fun"
+  description="Family-friendly Shanghai: Disneyland, aquariums, museums, parks and more. Your guide to the best activities for kids of all ages in Shanghai."
+>
+  <section class="bg-neutral-900 py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-300">Families</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold leading-none tracking-tight text-white md:text-6xl">
+        Shanghai with Kids
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-300">
+        From Disney magic to giant panda encounters, Shanghai is surprisingly family-friendly. Here are the best things to do with kids of every age.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-6">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-900">Shanghai is surprisingly family-friendly</h2>
+      <p class="mt-4 leading-relaxed text-neutral-600">
+        Many travelers assume Shanghai is a concrete jungle built for business travelers and nightlife. The reality surprises them: the city has one of the world's best Disney parks, an aquarium with a 155-meter underwater tunnel, natural history exhibits with life-size dinosaur skeletons, and more green space per capita than most Asian megacities. Chinese culture is deeply family-oriented, which means restaurants welcome children, Metro stations have family restrooms, and you will never get side-eye for bringing a stroller into a nice restaurant.
+      </p>
+      <p class="mt-3 leading-relaxed text-neutral-600">
+        For families with young children (under 6), prioritize <strong>Shanghai Ocean Aquarium</strong>, <strong>Century Park</strong>, and the <strong>Bund Sightseeing Tunnel</strong> — all are stroller-friendly and engaging without being overwhelming. For older kids (6+), the <strong>Science and Technology Museum</strong> and <strong>Shanghai Circus World</strong> are unforgettable. <strong>Shanghai Disneyland</strong> is a full-day commitment; book tickets online in advance and arrive at opening to maximize your time before afternoon crowds and heat set in.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {activities.map((a) => (
+          <article class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src={a.img} alt={a.name} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" width="1200" height="750" loading="lazy" decoding="async" />
+            </div>
+            <div class="p-5 md:p-6">
+             <span class="rounded-md bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700">{a.age}</span>
+             <h2 class="mt-3 text-lg font-bold text-neutral-900">{a.name}</h2>
+              <div class="mt-3 border-t border-neutral-100 pt-3">
+                <h3 class="mb-1 text-xs font-semibold uppercase tracking-wider text-neutral-400">About</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">{a.desc}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

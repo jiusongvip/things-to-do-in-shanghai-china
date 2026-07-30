@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const things = [
+  { name: "The Bund", desc: "The best view in Shanghai costs nothing. Walk the waterfront at sunset for the full skyline show. Free any time of day or night.", icon: "landmark" },
+  { name: "French Concession Wander", desc: "Lose yourself in the plane-tree-lined streets of the former French Concession. Wukang Road, Anfu Road, and Hunan Road are the prettiest.", icon: "tree" },
+  { name: "Shanghai Museum", desc: "World-class ancient Chinese art and artifacts. Free entry (reservation required online). The bronze and ceramics galleries are extraordinary.", icon: "museum" },
+  { name: "M50 Art District", desc: "Shanghai's contemporary art hub inside a converted textile mill. Dozens of galleries, all free to browse. The street art on the surrounding walls is a bonus.", icon: "palette" },
+  { name: "People's Park Marriage Market", desc: "Every weekend, parents gather with umbrellas displaying their adult children's CVs in search of a match. Bizarre, fascinating, and uniquely Shanghai.", icon: "heart" },
+  { name: "Longhua Temple Vicinity", desc: "The temple complex is worth the modest fee, but the surrounding grounds, pagoda views, and atmosphere are free. Especially atmospheric during festivals.", icon: "temple" },
+  { name: "Power Station of Art", desc: "China's first state-run contemporary art museum, housed in a former power station. Free entry to most exhibitions. On the Huangpu riverfront.", icon: "palette" },
+  { name: "Nanjing Road People-Watching", desc: "The pedestrian section is pure theater. Neon, crowds, street performers, and a sensory overload that costs nothing to experience.", icon: "eye" },
+];
+---
+
+<BaseLayout
+  title="Free Things to Do in Shanghai"
+  description="Discover the best free things to do in Shanghai: world-class museums, stunning parks, art galleries, and unforgettable experiences at zero cost."
+>
+  <section class="bg-neutral-900 py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-300">Budget-Friendly</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold leading-none tracking-tight text-white md:text-6xl">
+        Free Things to Do<br />in Shanghai
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-300">
+        Shanghai can be surprisingly affordable. Here are eight amazing experiences that cost absolutely nothing.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-6">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-900">Shanghai's best experiences cost nothing</h2>
+      <p class="mt-4 leading-relaxed text-neutral-600">
+        Shanghai has a reputation as an expensive city, and it can be if you stick to rooftop bars and Michelin-starred tasting menus. But the city's most memorable experiences — a dawn walk along the Bund with only tai chi practitioners for company, an afternoon exploring contemporary art inside a converted power station, watching parents negotiate their children's marriage prospects at the People's Park Marriage Market — cost exactly nothing. The trick is knowing where to look.
+      </p>
+      <p class="mt-3 leading-relaxed text-neutral-600">
+        Several of Shanghai's best museums are free, including the Shanghai Museum (ancient bronzes and ceramics) and the Power Station of Art (contemporary exhibitions in a riverside industrial space). Both require advance reservations via WeChat or their official websites — book two to three days ahead, especially on weekends. For outdoor experiences, the <a href="/attractions" class="text-brand-600 underline underline-offset-2 hover:text-brand-700">Bund</a> and French Concession are free 24/7 and reward repeat visits at different times of day. The M50 art district in a former textile mill has dozens of galleries with rotating exhibitions, all free to enter.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid gap-6 md:grid-cols-2">
+        {things.map((t) => (
+          <div class="rounded-2xl border border-neutral-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-8">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+              {t.icon === "landmark" && <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9v11"/><path d="M18 9v11"/><path d="M4 22h16"/><path d="M2 9h20"/><path d="M12 2l6 6"/><path d="M12 2l-6 6"/><path d="M12 2v7"/></svg>}
+              {t.icon === "tree" && <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-7"/><path d="M9 18l3-3 3 3"/><path d="M7 9a5 5 0 0 1 10 0c0 2.9-1.33 5.43-2.91 7.3"/></svg>}
+              {t.icon === "museum" && <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 7v14M8 7v14M13 7v14M18 7v14M3 7l9-5 9 5"/></svg>}
+              {t.icon === "palette" && <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.83-.13 2.68-.38a10 10 0 0 0 7.32-9.62C22 6.5 17.5 2 12 2z"/></svg>}
+              {t.icon === "heart" && <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>}
+              {t.icon === "temple" && <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17v-4a2 2 0 0 1 4 0v4"/><path d="M18 21H6"/><path d="M18 3H6l3 4H3l3 4h12l3-4h-6Z"/></svg>}
+              {t.icon === "eye" && <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>}
+            </div>
+           <h2 class="text-lg font-bold text-neutral-900">{t.name}</h2>
+            <div class="mt-3 border-t border-neutral-100 pt-3">
+              <h3 class="mb-1 text-xs font-semibold uppercase tracking-wider text-neutral-400">About</h3>
+              <p class="text-sm leading-relaxed text-neutral-500">{t.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

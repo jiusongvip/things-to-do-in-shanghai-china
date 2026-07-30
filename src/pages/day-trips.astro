@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const trips = [
+  { name: "Suzhou", time: "30 min by train", desc: "Classical Chinese gardens, stone bridges, and canals. Suzhou's Humble Administrator's Garden and Tiger Hill are UNESCO-listed. The old town feels like stepping into a Ming-dynasty painting.", img: "/images/picsum-33-4bkl.webp" },
+  { name: "Hangzhou", time: "45 min by train", desc: "Marco Polo called it the finest city in the world. West Lake, tea plantations, and ancient temples. The Lingyin Temple is one of China's most important Buddhist sites.", img: "/images/picsum-34-4dzg.webp" },
+  { name: "Zhujiajiao Water Town", time: "1 hour by Metro", desc: "Shanghai's closest water town. Stone bridges, wooden boats, and narrow canal-side alleys lined with tea houses. Go early to beat the tour groups.", img: "/images/picsum-35-4gfp.webp" },
+  { name: "Nanjing", time: "1 hour by train", desc: "Former imperial capital. Walk the ancient city wall, visit the Sun Yat-sen Mausoleum, and see the Ming Xiaoling Tomb. The Nanjing Massacre Memorial is sobering but essential.", img: "/images/picsum-36-4iud.webp" },
+  { name: "Moganshan", time: "2.5 hours by car", desc: "A bamboo-forested mountain retreat popular with Shanghai expats. Hike, bike, or just breathe fresh air. The Moganshan Historic District has beautifully restored 1920s villas.", img: "/images/picsum-37-4l9j.webp" },
+  { name: "Wuzhen Water Town", time: "2 hours by bus", desc: "One of China's most beautiful ancient water towns. Silk workshops, woodcarving studios, and stone bridges lit by lanterns after dark. Stay overnight for the full experience.", img: "/images/picsum-38-4noz.webp" },
+];
+---
+
+<BaseLayout
+  title="Day Trips from Shanghai"
+  description="Best day trips from Shanghai: ancient water towns, classical Chinese gardens in Suzhou, West Lake in Hangzhou, and more. Complete transport guide."
+>
+  <section class="bg-neutral-900 py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-300">Day Trips</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold leading-none tracking-tight text-white md:text-6xl">
+        Day Trips from Shanghai
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-300">
+        Ancient water towns, imperial gardens, and mountain retreats, all within easy reach. China's high-speed rail network makes it effortless.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-6">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-900">Escape the city in under three hours</h2>
+      <p class="mt-4 leading-relaxed text-neutral-600">
+        One of Shanghai's greatest advantages as a travel base is China's high-speed rail network. The trains are punctual to the minute, the stations are modern and well-signed in English, and a 300 km/h ride that would take four hours by car takes 45 minutes. Book tickets on Trip.com or at any Metro station — bring your passport, as tickets are tied to ID numbers. First-class seats cost about 50% more than second-class and are worth it for the extra legroom and quieter carriages.
+      </p>
+      <p class="mt-3 leading-relaxed text-neutral-600">
+        Each destination below offers something Shanghai itself cannot: Suzhou gives you Ming-dynasty gardens and canal-side teahouses. Hangzhou delivers West Lake's misty beauty and Buddhist temples carved into hillsides. The water towns — Zhujiajiao, Wuzhen, and others — feel like stepping into a Song-dynasty scroll painting, especially if you stay overnight after the day-trippers leave.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {trips.map((t) => (
+          <article class="overflow-hidden rounded-2xl border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src={t.img} alt={t.name} class="h-full w-full object-cover" width="1200" height="750" loading="lazy" decoding="async" />
+            </div>
+            <div class="p-5 md:p-6">
+              <p class="text-xs font-medium text-brand-500">{t.time}</p>
+             <h2 class="mt-2 text-lg font-bold text-neutral-900">{t.name}</h2>
+              <div class="mt-3 border-t border-neutral-100 pt-3">
+                <h3 class="mb-1 text-xs font-semibold uppercase tracking-wider text-neutral-400">About</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">{t.desc}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

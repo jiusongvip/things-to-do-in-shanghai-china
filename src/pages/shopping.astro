@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const places = [
+  { name: "Nanjing Road East", type: "Shopping Street", desc: "Shanghai's main commercial drag. 5.5 km of retail from high-street chains to flagship department stores. The pedestrian section between People's Square and the Bund is world-famous.", img: "/images/picsum-27-3wvj.webp" },
+  { name: "South Bund Fabric Market", type: "Market", desc: "Three floors of tailors who will copy anything. Bring a photo of what you want, choose your fabric, and pick it up in 48 hours. Cashmere coats, suits, dresses — bargain hard.", img: "/images/picsum-28-3zb0.webp" },
+  { name: "Huaihai Road", type: "Shopping Street", desc: "More upscale than Nanjing Road. International luxury brands, Shanghai's best department stores, and local fashion boutiques in the side streets.", img: "/images/picsum-29-41sr.webp" },
+  { name: "Tianzifang", type: "Arts & Crafts", desc: "Narrow alleyways packed with independent designers, art studios, and craft shops. Great for unique souvenirs that aren't mass-produced.", img: "/images/picsum-30-44a4.webp" },
+  { name: "AP Plaza (Fake Market)", type: "Market", desc: "The infamous underground market at the Science and Technology Museum Metro station. Bags, watches, electronics. Know what you're buying and negotiate aggressively.", img: "/images/picsum-31-46pl.webp" },
+  { name: "IFC Mall", type: "Luxury Mall", desc: "Pudong's premier luxury shopping complex. Every major brand is here, plus a superb food court and an Apple Store with Bund views.", img: "/images/picsum-32-493k.webp" },
+];
+---
+
+<BaseLayout
+  title="Shanghai Shopping Guide"
+  description="Complete Shanghai shopping guide: from luxury malls and high-street brands to fabric markets and antique shops. Where to shop and how to bargain."
+>
+  <section class="bg-neutral-900 py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-300">Shopping</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold leading-none tracking-tight text-white md:text-6xl">
+        Shanghai Shopping Guide
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-300">
+        From luxury flagships on the Bund to hidden fabric markets where tailors copy anything in 48 hours. Shanghai is a shopper's city.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-6">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-900">Shanghai is Asia's shopping capital for a reason</h2>
+      <p class="mt-4 leading-relaxed text-neutral-600">
+        Shanghai has been a trading city since 1842, and it shows. The shopping experience here ranges from air-conditioned luxury malls where sales associates speak four languages to underground markets where you bargain in broken Mandarin and hand gestures. The best strategy is to do both: spend a morning at IFC or Plaza 66 to understand what the high-end versions look and feel like, then head to the <strong>South Bund Fabric Market</strong> or <strong>AP Plaza</strong> to find impressively good versions at a fraction of the price.
+      </p>
+      <p class="mt-3 leading-relaxed text-neutral-600">
+        A word on bargaining: at the fabric market and AP Plaza, the first price you hear is usually 3-4 times what the vendor will actually accept. Start at 25-30% of their opening price and settle around 40-50%. Be friendly, be willing to walk away, and bring cash — many stalls do not accept international cards. For a more curated experience, <a href="/free" class="text-brand-600 underline underline-offset-2 hover:text-brand-700">Tianzifang</a> and the French Concession's independent boutiques offer fixed-price shopping with no haggling required.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {places.map((p) => (
+          <article class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src={p.img} alt={p.name} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" width="1200" height="750" loading="lazy" decoding="async" />
+            </div>
+            <div class="p-5 md:p-6">
+              <span class="rounded-md bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700">{p.type}</span>
+             <h2 class="mt-3 text-lg font-bold text-neutral-900">{p.name}</h2>
+              <div class="mt-3 border-t border-neutral-100 pt-3">
+                <h3 class="mb-1 text-xs font-semibold uppercase tracking-wider text-neutral-400">About</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">{p.desc}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

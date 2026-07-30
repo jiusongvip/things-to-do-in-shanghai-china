@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const posts = [
+  { title: "Shanghai in Summer: Survival Guide", date: "July 2026", category: "Seasonal", desc: "How to handle the heat and humidity while still enjoying the city. Best air-conditioned attractions, evening activities, and cooling local foods.", img: "/images/picsum-53-5o4i.webp" },
+  { title: "Where to See Cherry Blossoms in Shanghai", date: "March 2026", category: "Seasonal", desc: "The best parks and streets for sakura season. Gucun Park, Tongji University, and hidden spots the tour groups miss.", img: "/images/picsum-54-5qjq.webp" },
+  { title: "Shanghai's Best Rooftop Bars: 2026 Edition", date: "May 2026", category: "Nightlife", desc: "Ranked and reviewed. New openings, old favorites, and which ones are actually worth the price of a cocktail.", img: "/images/picsum-55-5tfg.webp" },
+  { title: "A Local's Guide to Shanghai Breakfast", date: "April 2026", category: "Food", desc: "Congee, youtiao, jianbing, and soy milk. Where to find the best traditional breakfast before 10 AM.", img: "/images/picsum-56-5w0l.webp" },
+  { title: "Shanghai Photography: 10 Best Locations", date: "February 2026", category: "Tips", desc: "From classic Bund sunrise shots to hidden lane-house angles. Locations, times, and gear tips for the best Shanghai photos.", img: "/images/picsum-57-5yet.webp" },
+  { title: "Chinese New Year in Shanghai: What to Expect", date: "January 2026", category: "Events", desc: "The city empties out, fireworks are banned, but the lantern displays and temple fairs are magical. How to plan around CNY.", img: "/images/picsum-58-60v7.webp" },
+];
+---
+
+<BaseLayout
+  title="Shanghai Travel Blog"
+  description="Latest Shanghai travel tips, seasonal guides, food discoveries, and event coverage. Updated regularly with honest, on-the-ground recommendations."
+>
+  <section class="bg-neutral-900 py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-300">Blog</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold leading-none tracking-tight text-white md:text-6xl">
+        Shanghai Travel Blog
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-300">
+        Seasonal tips, new discoveries, food finds, and honest takes on Shanghai's ever-changing landscape.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-6">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-900">On-the-ground updates from Shanghai</h2>
+      <p class="mt-4 leading-relaxed text-neutral-600">
+        Shanghai changes faster than guidebooks can keep up. Restaurants open and close within months. Neighborhoods transform from sleepy residential lanes into thriving cafe districts between visits. Our blog is where we capture these shifts in real time — seasonal guides, new openings, hidden discoveries, and honest takes on the city's ever-evolving landscape. Unlike the main guide pages, which focus on enduring recommendations, the blog is for what is happening now: <a href="/food" class="text-brand-600 underline underline-offset-2 hover:text-brand-700">seasonal food</a>, <a href="/nightlife" class="text-brand-600 underline underline-offset-2 hover:text-brand-700">new bars</a>, festival coverage, and practical tips that only make sense during specific times of year.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((p) => (
+          <article class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src={p.img} alt={p.title} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" width="1200" height="750" loading="lazy" decoding="async" />
+            </div>
+            <div class="p-5 md:p-6">
+              <div class="mb-2 flex items-center gap-2">
+                <span class="rounded-md bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700">{p.category}</span>
+                <span class="text-xs text-neutral-400">{p.date}</span>
+              </div>
+             <h2 class="text-lg font-bold leading-snug text-neutral-900 group-hover:text-brand-600">{p.title}</h2>
+              <div class="mt-3 border-t border-neutral-100 pt-3">
+                <h3 class="mb-1 text-xs font-semibold uppercase tracking-wider text-neutral-400">About</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">{p.desc}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

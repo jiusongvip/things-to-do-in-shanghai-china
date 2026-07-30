@@ -1,0 +1,305 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const quickCategories = [
+  { name: "Attractions", icon: "landmark", slug: "/attractions", description: "Iconic landmarks and hidden gems", color: "from-amber-400 to-orange-500" },
+  { name: "Food & Dining", icon: "utensils", slug: "/food", description: "Street eats to Michelin stars", color: "from-rose-400 to-red-500" },
+  { name: "Nightlife", icon: "martini", slug: "/nightlife", description: "Rooftop bars and speakeasies", color: "from-indigo-400 to-purple-500" },
+  { name: "Shopping", icon: "bag", slug: "/shopping", description: "Markets, malls, and boutiques", color: "from-emerald-400 to-teal-500" },
+  { name: "Day Trips", icon: "train", slug: "/day-trips", description: "Water towns and ancient cities", color: "from-sky-400 to-blue-500" },
+  { name: "With Kids", icon: "smile", slug: "/with-kids", description: "Family-friendly adventures", color: "from-pink-400 to-rose-400" },
+  { name: "Free Things", icon: "ticket", slug: "/free", description: "Amazing experiences at zero cost", color: "from-lime-400 to-green-500" },
+  { name: "Itineraries", icon: "map", slug: "/itinerary", description: "3-day and 5-day plans", color: "from-cyan-400 to-sky-500" },
+];
+
+const topPicks = [
+  { num: "01", title: "Walk the Bund", desc: "Shanghai's iconic waterfront promenade — colonial architecture on one side, futuristic Pudong skyline on the other. Best at golden hour.", img: "/images/picsum-1-25g4.webp", alt: "The Bund waterfront skyline at sunset" },
+  { num: "02", title: "Ascend Shanghai Tower", desc: "The world's second-tallest building. The 118th-floor observation deck delivers a vertigo-inducing view of the entire city.", img: "/images/picsum-2-27w6.webp", alt: "Shanghai Tower against blue sky" },
+  { num: "03", title: "Get Lost in Yu Garden", desc: "A 16th-century classical Chinese garden tucked in the Old City. Rockeries, pavilions, koi ponds — pure Ming-dynasty serenity.", img: "/images/picsum-3-2acj.webp", alt: "Yu Garden pavilions and pond" },
+  { num: "04", title: "Eat Xiaolongbao", desc: "Shanghai's signature soup dumplings. Thin-skinned, pork-filled, scalding-hot broth inside. Din Tai Fung for polish, Jia Jia Tang Bao for the real deal.", img: "/images/picsum-4-2crw.webp", alt: "Steamed xiaolongbao dumplings" },
+  { num: "05", title: "Stroll the French Concession", desc: "Plane-tree-lined streets, Art Deco apartments, and the city's best cafes and boutiques. Rent a bike and wander without a map.", img: "/images/picsum-5-2f7b.webp", alt: "Plane trees in the French Concession" },
+];
+
+const itineraryTeasers = [
+  { days: "3 Days", title: "The Essentials", desc: "Bund, Yu Garden, Shanghai Tower, French Concession, and a Huangpu River cruise. Perfect for a long weekend.", slug: "/itinerary" },
+  { days: "5 Days", title: "The Deep Dive", desc: "Everything in the 3-day plan plus day trips, museum visits, and neighborhood explorations. See Shanghai properly.", slug: "/itinerary" },
+];
+
+const faqs = [
+  { q: "When is the best time to visit Shanghai?", a: "Spring (March to May) and autumn (September to November) offer pleasant weather and clear skies. Summers are hot and humid; winters are chilly but manageable. Avoid Chinese New Year (late Jan/Feb) when many businesses close." },
+  { q: "How many days do I need in Shanghai?", a: "Three full days covers the essentials. Five days lets you explore neighborhoods, take a day trip, and discover the food scene at a relaxed pace." },
+  { q: "Is Shanghai safe for tourists?", a: "Yes — Shanghai is one of the safest major cities in the world. Violent crime is rare. Standard precautions apply: watch for pickpockets in crowded areas and use official taxis or ride-hailing apps." },
+  { q: "Do I need a visa for Shanghai?", a: "Most visitors need a Chinese visa. However, Shanghai offers a 144-hour (6-day) transit visa exemption for travelers from 53 countries who are transiting to a third country. Check current policy before booking." },
+  { q: "What's the best way to get around Shanghai?", a: "The Metro is clean, extensive, and cheap (RMB 3-9 per ride). Didi (Chinese Uber) is affordable and convenient. Avoid rush hour (7:30-9:00 AM and 5:00-7:00 PM)." },
+];
+---
+
+<BaseLayout
+ title="Home"
+  description="Discover the best things to do in Shanghai, China: iconic landmarks, food spots, nightlife, shopping, day trips. Plan your trip with our curated guide."
+>
+  <script slot="schema" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "When is the best time to visit Shanghai?", "acceptedAnswer": { "@type": "Answer", "text": "Spring (March to May) and autumn (September to November) offer pleasant weather and clear skies. Summers are hot and humid; winters are chilly but manageable. Avoid Chinese New Year (late Jan/Feb) when many businesses close." } },
+        { "@type": "Question", "name": "How many days do I need in Shanghai?", "acceptedAnswer": { "@type": "Answer", "text": "Three full days covers the essentials. Five days lets you explore neighborhoods, take a day trip, and discover the food scene at a relaxed pace." } },
+        { "@type": "Question", "name": "Is Shanghai safe for tourists?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — Shanghai is one of the safest major cities in the world. Violent crime is rare. Standard precautions apply: watch for pickpockets in crowded areas and use official taxis or ride-hailing apps." } },
+        { "@type": "Question", "name": "Do I need a visa for Shanghai?", "acceptedAnswer": { "@type": "Answer", "text": "Most visitors need a Chinese visa. However, Shanghai offers a 144-hour (6-day) transit visa exemption for travelers from 53 countries who are transiting to a third country. Check current policy before booking." } },
+        { "@type": "Question", "name": "What's the best way to get around Shanghai?", "acceptedAnswer": { "@type": "Answer", "text": "The Metro is clean, extensive, and cheap (RMB 3-9 per ride). Didi (Chinese Uber) is affordable and convenient. Avoid rush hour (7:30-9:00 AM and 5:00-7:00 PM)." } }
+      ]
+    }
+  </script>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-neutral-900">
+    <div class="absolute inset-0">
+      <img
+          src="/images/picsum-0-22lh.webp"
+          alt="Shanghai Pudong skyline at dusk"
+          class="h-full w-full object-cover opacity-60"
+          width="1200"
+          height="630"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      <div class="absolute inset-0 bg-gradient-to-b from-neutral-900/60 via-neutral-900/40 to-neutral-900/80"></div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-6 pb-24 pt-32 md:pb-32 md:pt-40">
+      <div class="max-w-2xl">
+        <p class="mb-4 text-sm font-medium uppercase tracking-widest text-brand-300">Shanghai Travel Guide</p>
+        <h1 class="text-4xl font-extrabold leading-none tracking-tight text-white md:text-6xl">
+          Things to Do in<br />Shanghai, China
+        </h1>
+        <p class="mt-6 max-w-lg text-lg leading-relaxed text-neutral-300">
+          From the futuristic Pudong skyline to hidden lane-house cafes, discover the best of Shanghai with our curated, locally-informed guide.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#categories" class="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition-all hover:bg-brand-600 active:scale-[0.98]">
+            Start Exploring
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+          <a href="/itinerary" class="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-[0.98]">
+            View Itineraries
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Categories -->
+  <section id="categories" class="py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-14">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Explore by Category</p>
+        <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">What kind of experience<br />are you looking for?</h2>
+      </div>
+      <div class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+        {quickCategories.map((cat) => (
+          <a href={cat.slug} class="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-lg hover:shadow-brand-100/50 md:p-6">
+            <div class={`mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${cat.color} text-white shadow-sm`}>
+              {cat.icon === "landmark" && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9v11"/><path d="M18 9v11"/><path d="M4 22h16"/><path d="M2 9h20"/><path d="M12 2l6 6"/><path d="M12 2l-6 6"/><path d="M12 2v7"/></svg>}
+              {cat.icon === "utensils" && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M3 6h18"/><path d="M3 18h18"/></svg>}
+              {cat.icon === "martini" && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22h12"/><path d="M21 3 12 14"/><path d="M3 3h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>}
+              {cat.icon === "bag" && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>}
+              {cat.icon === "train" && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><path d="M8 15h.01"/><path d="M16 15h.01"/></svg>}
+              {cat.icon === "smile" && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>}
+              {cat.icon === "ticket" && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9-4 4 4 4"/><path d="M6 13h14"/><path d="m18 9 4 4-4 4"/></svg>}
+              {cat.icon === "map" && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>}
+            </div>
+            <p class="text-base font-semibold text-neutral-900">{cat.name}</p>
+            <p class="mt-1 text-sm leading-relaxed text-neutral-500">{cat.description}</p>
+          </a>
+        ))}
+      </div>
+      <p class="mt-10 text-center text-sm leading-relaxed text-neutral-400 max-w-2xl mx-auto">
+        Every recommendation on this site comes from firsthand experience — meals eaten, neighborhoods explored on foot, and countless conversations with locals who have called Shanghai home for decades. Unlike algorithm-generated travel lists, our guide reflects the Shanghai we know: the one where the best soup dumpling shop is an unmarked door on a side street, and the most rewarding afternoon is getting intentionally lost in the French Concession.
+      </p>
+    </div>
+  </section>
+
+  <!-- Top Picks -->
+  <section class="bg-neutral-50 py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-14">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Top 5 Picks</p>
+        <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">The absolute must-dos</h2>
+        <p class="mt-3 max-w-xl text-neutral-500">If you only have time for a handful of experiences, start here. These are the ones that define Shanghai.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {topPicks.map((pick) => (
+          <article class="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src={pick.img} alt={pick.alt} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" width="1200" height="900" loading="lazy" decoding="async" />
+            </div>
+            <div class="p-5 md:p-6">
+              <span class="text-xs font-bold tracking-widest text-brand-400">{pick.num}</span>
+              <h3 class="mt-2 text-lg font-bold leading-snug text-neutral-900">{pick.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-neutral-500">{pick.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-6 text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Why Shanghai</p>
+      <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900">A city that defies easy description</h2>
+      <p class="mt-6 leading-relaxed text-neutral-600">
+        Shanghai is not one city — it is several stacked on top of each other. In a single day you can practice tai chi with retirees in a Ming-dynasty garden at dawn, eat a three-Michelin-star lunch in a 1920s mansion at noon, and sip a cocktail on the 58th floor of a skyscraper by midnight. The city moves faster than anywhere else in China, yet its greatest pleasures are slow: a long breakfast of <a href="/food" class="text-brand-600 underline underline-offset-2 hover:text-brand-700">soup dumplings and soy milk</a>, an afternoon wandering the <a href="/attractions" class="text-brand-600 underline underline-offset-2 hover:text-brand-700">French Concession's</a> plane-tree tunnels, an evening stroll along the <a href="/attractions" class="text-brand-600 underline underline-offset-2 hover:text-brand-700">Bund</a> as the Pudong skyline flickers to life.
+      </p>
+      <p class="mt-4 leading-relaxed text-neutral-600">
+        First-time visitors often arrive expecting either Blade Runner or a communist-era relic. They leave surprised by neither — Shanghai is somehow both, and neither, all at once. The futuristic skyline is real. So are the lane houses where families have lived for four generations, hanging laundry between Art Deco facades. The city does not resolve its contradictions. It thrives on them.
+      </p>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid gap-12 lg:grid-cols-5 lg:gap-16">
+        <div class="lg:col-span-2">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Interactive Map</p>
+          <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">Find your way</h2>
+          <p class="mt-4 leading-relaxed text-neutral-500">All major attractions, food streets, and neighborhoods marked. Click a pin to see details, opening hours, and nearby recommendations.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1.5 text-xs font-medium text-neutral-600">
+              <span class="h-2 w-2 rounded-full bg-amber-400"></span> Attractions
+            </span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1.5 text-xs font-medium text-neutral-600">
+              <span class="h-2 w-2 rounded-full bg-rose-400"></span> Food
+            </span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1.5 text-xs font-medium text-neutral-600">
+              <span class="h-2 w-2 rounded-full bg-indigo-400"></span> Nightlife
+            </span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1.5 text-xs font-medium text-neutral-600">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span> Shopping
+            </span>
+          </div>
+        </div>
+        <div class="overflow-hidden rounded-2xl border border-neutral-200 lg:col-span-3">
+          <div id="shanghai-map" class="aspect-[16/10]"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Itinerary Teasers -->
+  <section class="bg-neutral-50 py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-14">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Plan Your Trip</p>
+        <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">Ready-made itineraries</h2>
+        <p class="mt-3 max-w-xl text-neutral-500">Day-by-day plans built by people who know Shanghai. Pick your pace and go.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        {itineraryTeasers.map((item) => (
+          <a href={item.slug} class="group rounded-2xl border border-neutral-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl md:p-10">
+            <span class="inline-block rounded-lg bg-brand-50 px-3 py-1 text-xs font-semibold tracking-widest text-brand-600">{item.days}</span>
+            <h3 class="mt-4 text-2xl font-bold leading-snug text-neutral-900">{item.title}</h3>
+            <p class="mt-3 leading-relaxed text-neutral-500">{item.desc}</p>
+            <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 transition-all group-hover:gap-2">
+              View itinerary
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 md:py-28">
+    <div class="mx-auto max-w-3xl px-6">
+      <div class="mb-14 text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">FAQ</p>
+        <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">Common questions</h2>
+      </div>
+      <div class="divide-y divide-neutral-200">
+        {faqs.map((faq) => (
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+              <span class="text-base font-semibold text-neutral-900">{faq.q}</span>
+              <span class="flex-shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-180">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <p class="mt-3 pr-8 leading-relaxed text-neutral-500">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-600 py-20 md:py-24">
+    <div class="mx-auto max-w-3xl px-6 text-center">
+      <h2 class="text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">Ready to explore Shanghai?</h2>
+      <p class="mt-4 text-lg leading-relaxed text-brand-100">Start with our curated guides covering everything from first-timer essentials to off-the-beaten-path discoveries.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/attractions" class="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow-lg transition-all hover:bg-brand-50 active:scale-[0.98]">
+          Browse Attractions
+        </a>
+        <a href="/itinerary" class="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-brand-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-brand-400 active:scale-[0.98]">
+          See Itineraries
+        </a>
+      </div>
+    </div>
+  </section>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('shanghai-map');
+    if (!container) return;
+    const map = L.map('shanghai-map').setView([31.2304, 121.4737], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap',
+      maxZoom: 18,
+    }).addTo(map);
+    const colors = { attraction:'#f59e0b', food:'#f43f5e', nightlife:'#818cf8', shopping:'#34d399' };
+    const spots = [
+      { n:'The Bund', c:'attraction', d:'Iconic waterfront promenade with colonial architecture and Pudong skyline views.', a:31.2400, o:121.4900 },
+      { n:'Shanghai Tower', c:'attraction', d:"World's second-tallest building. 118th-floor observation deck.", a:31.2352, o:121.5013 },
+      { n:'Yu Garden', c:'attraction', d:'16th-century classical Chinese garden in the Old City.', a:31.2286, o:121.4875 },
+      { n:'Oriental Pearl Tower', c:'attraction', d:'Futuristic TV tower with observation decks and a glass floor.', a:31.2397, o:121.4998 },
+      { n:"Jing'an Temple", c:'attraction', d:'Ancient Buddhist temple surrounded by modern skyscrapers.', a:31.2234, o:121.4471 },
+      { n:'Shanghai Museum', c:'attraction', d:"World-class collection of ancient Chinese art in People's Square.", a:31.2310, o:121.4704 },
+      { n:'French Concession', c:'attraction', d:'Plane-tree-lined streets with Art Deco apartments and cafes.', a:31.2157, o:121.4684 },
+      { n:'Xintiandi', c:'attraction', d:'Stylish pedestrian district with restored shikumen houses.', a:31.2197, o:121.4745 },
+      { n:'Jia Jia Tang Bao', c:'food', d:"Legendary soup dumpling joint. Pork or crab — that's the menu.", a:31.2333, o:121.4750 },
+      { n:"Yang's Fried Dumplings", c:'food', d:'Gold standard for shengjianbao. Multiple locations citywide.', a:31.2280, o:121.4470 },
+      { n:'Fu 1088', c:'food', d:'Old-Shanghai fine dining in a restored 1920s mansion.', a:31.2120, o:121.4550 },
+      { n:'Mercato', c:'food', d:'Jean-Georges Italian on the Bund with Pudong skyline views.', a:31.2410, o:121.4910 },
+      { n:'Di Shui Dong', c:'food', d:'Hunanese institution famous for cumin-crusted ribs.', a:31.2180, o:121.4630 },
+      { n:'Nanjing Road Food Street', c:'food', d:'Pedestrian shopping street with street food stalls and snacks.', a:31.2365, o:121.4749 },
+      { n:'Flair Rooftop', c:'nightlife', d:"Ritz-Carlton Pudong's 58th-floor bar. Highest rooftop in Shanghai.", a:31.2410, o:121.5020 },
+      { n:'Speak Low', c:'nightlife', d:"Hidden speakeasy behind a bookshelf. Asia's 50 Best Bars regular.", a:31.2140, o:121.4660 },
+      { n:'Bar Rouge', c:'nightlife', d:'Bund-side club with skyline views. Dress code enforced.', a:31.2430, o:121.4900 },
+      { n:'The Odd Couple', c:'nightlife', d:'Retro 80s cocktail bar from the Speak Low team.', a:31.2130, o:121.4650 },
+      { n:'Arkham', c:'nightlife', d:'Underground venue for electronic, hip-hop, and indie acts.', a:31.2270, o:121.4520 },
+      { n:'Nanjing Road East', c:'shopping', d:"Shanghai's main commercial drag — 5.5 km of retail.", a:31.2365, o:121.4749 },
+      { n:'Huaihai Road', c:'shopping', d:'Upscale shopping with luxury brands and local boutiques.', a:31.2200, o:121.4650 },
+      { n:'South Bund Fabric Market', c:'shopping', d:'Three floors of tailors. Bring a photo, get a custom suit.', a:31.2185, o:121.4985 },
+      { n:'Tianzifang', c:'shopping', d:'Narrow alleyways with independent designers and craft shops.', a:31.2080, o:121.4680 },
+      { n:'AP Plaza', c:'shopping', d:'Underground market at Science & Tech Museum Metro station.', a:31.2200, o:121.5440 },
+      { n:'IFC Mall', c:'shopping', d:"Pudong's premier luxury shopping with every major brand.", a:31.2370, o:121.5020 },
+    ];
+    spots.forEach(s => {
+      const m = L.circleMarker([s.a, s.o], { radius:7, fillColor:colors[s.c], color:'#ffffff', weight:2, fillOpacity:0.9 }).addTo(map);
+      const lab = s.c.charAt(0).toUpperCase()+s.c.slice(1);
+      m.bindPopup('<strong>'+s.n+'</strong><br><span style="color:'+colors[s.c]+';font-size:11px">'+lab+'</span><br><span style="font-size:12px;color:#666">'+s.d+'</span>');
+    });
+  });
+</script>
+<style>
+  #shanghai-map { z-index:1; }
+  .leaflet-popup-content { font-family:'Outfit',sans-serif; }
+  .leaflet-popup-content strong { font-size:14px; color:#171717; }
+</style>
+
+</BaseLayout>

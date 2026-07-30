@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const attractions = [
+  {
+    name: "The Bund",
+    area: "Huangpu",
+    type: "Landmark",
+    desc: "Shanghai's most famous waterfront. Colonial-era buildings line one side of the Huangpu River, while Pudong's neon skyline glows on the other. Best at dusk.",
+    hours: "24/7 (best at sunset)",
+    ticket: "Free",
+    transport: "Metro Line 2/10, East Nanjing Road",
+    img: "/images/picsum-6-2hme.webp",
+  },
+  {
+    name: "Shanghai Tower",
+    area: "Pudong",
+    type: "Modern Landmark",
+    desc: "At 632 meters, it's China's tallest building. The observation deck on the 118th floor offers the highest view in the world. The elevator ride alone is an experience.",
+    hours: "8:30 AM - 9:30 PM",
+    ticket: "RMB 180",
+    transport: "Metro Line 2, Lujiazui",
+    img: "/images/picsum-7-2k1o.webp",
+  },
+  {
+    name: "Yu Garden",
+    area: "Old City",
+    type: "Historical",
+    desc: "A 400-year-old classical garden with intricate rockeries, pavilions, koi ponds, and dragon walls. An oasis of Ming-dynasty calm in the middle of the Old City.",
+    hours: "8:45 AM - 4:15 PM",
+    ticket: "RMB 40",
+    transport: "Metro Line 10/14, Yuyuan Garden",
+    img: "/images/picsum-8-2mhg.webp",
+  },
+  {
+    name: "Shanghai Disneyland",
+    area: "Pudong",
+    type: "Theme Park",
+    desc: "Mainland China's first Disney park. TRON Lightcycle Power Run and Pirates of the Caribbean are unique to this park. Plan a full day.",
+    hours: "8:30 AM - 9:30 PM",
+    ticket: "RMB 475+",
+    transport: "Metro Line 11, Disney Resort",
+    img: "/images/picsum-9-2oxj.webp",
+  },
+  {
+    name: "French Concession",
+    area: "Xuhui / Luwan",
+    type: "Neighborhood",
+    desc: "Plane-tree-lined streets, 1920s lane houses, and the city's best concentration of cafes, boutiques, and bars. Wandering aimlessly is the point.",
+    hours: "Always open",
+    ticket: "Free",
+    transport: "Metro Line 1/10/12, South Shaanxi Road",
+    img: "/images/picsum-10-2reh.webp",
+  },
+  {
+    name: "Shanghai Museum",
+    area: "Huangpu",
+    type: "Museum",
+    desc: "World-class collection of Chinese art and artifacts: ancient bronzes, ceramics, calligraphy, and jade. The building itself is shaped like a bronze ding.",
+    hours: "9:00 AM - 5:00 PM (closed Mon)",
+    ticket: "Free (reservation required)",
+    transport: "Metro Line 1/2/8, People's Square",
+    img: "/images/picsum-11-2tub.webp",
+  },
+  {
+    name: "Jing'an Temple",
+    area: "Jing'an",
+    type: "Temple",
+    desc: "A golden Buddhist temple surrounded by skyscrapers and luxury malls. The contrast is pure Shanghai. The incense and chanting are genuinely transportive.",
+    hours: "7:30 AM - 5:00 PM",
+    ticket: "RMB 50",
+    transport: "Metro Line 2/7, Jing'an Temple",
+    img: "/images/picsum-12-2w9m.webp",
+  },
+  {
+    name: "Tianzifang",
+    area: "Luwan",
+    type: "Arts District",
+    desc: "A maze of narrow alleyways filled with art studios, craft shops, and small eateries inside traditional shikumen houses. Tourist-heavy but still charming.",
+    hours: "10:00 AM - 10:00 PM",
+    ticket: "Free",
+    transport: "Metro Line 9, Dapuqiao",
+    img: "/images/picsum-13-2yp7.webp",
+  },
+];
+
+const areas = ["All", "Huangpu", "Pudong", "Old City", "Xuhui / Luwan", "Jing'an"];
+const types = ["All", "Landmark", "Historical", "Museum", "Neighborhood", "Temple", "Theme Park", "Arts District"];
+---
+
+<BaseLayout
+  title="Best Attractions in Shanghai"
+  description="Explore Shanghai's best attractions: the Bund, Yu Garden, Shanghai Tower, Disneyland and more. Complete guide with tips, tickets and transport info."
+>
+  <section class="bg-neutral-900 py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-300">Attractions</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold leading-none tracking-tight text-white md:text-6xl">
+        Best Attractions in Shanghai
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-300">
+        From centuries-old temples to record-breaking skyscrapers. Every attraction with practical details: opening hours, ticket prices, and how to get there.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-12 max-w-3xl">
+        <h2 class="text-2xl font-bold tracking-tight text-neutral-900">Shanghai attractions span centuries</h2>
+        <p class="mt-4 leading-relaxed text-neutral-600">
+          Few cities on earth pack as much architectural and cultural contrast into a single skyline. Shanghai's attractions range from a 400-year-old classical garden to the world's second-tallest building, often visible from each other. The key to enjoying them is pacing: do not try to cram all eight into two days. Pick three or four that match your interests, and give each one the time it deserves.
+        </p>
+        <p class="mt-3 leading-relaxed text-neutral-600">
+          If you are visiting for the first time, the non-negotiable trio is <strong>the Bund</strong>, <strong>Yu Garden</strong>, and <strong>Shanghai Tower</strong> — they give you the city's past, present, and future in three stops. Families with kids should prioritize <strong>Shanghai Disneyland</strong> and the <strong>Shanghai Natural History Museum</strong>. Culture-focused travelers will want to linger at the <strong>Shanghai Museum</strong> and <strong>Jing'an Temple</strong>. For a more local, less scripted experience, skip the tour buses and spend a morning getting lost in the <strong>French Concession</strong> or browsing independent galleries in <strong>Tianzifang</strong>.
+        </p>
+        <p class="mt-3 leading-relaxed text-neutral-600">
+          Below you will find every major attraction with practical details we wish we had known before visiting: actual opening hours (not the outdated ones from 2019), honest ticket prices, and the right Metro exit to take. We update this page every quarter — if a museum changes its hours or a landmark closes for renovation, you will see it reflected here first.
+        </p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {attractions.map((a) => (
+          <article class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src={a.img} alt={a.name} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" width="1200" height="750" loading="lazy" decoding="async" />
+            </div>
+            <div class="p-5 md:p-6">
+              <div class="mb-3 flex items-center gap-2">
+                <span class="rounded-md bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700">{a.type}</span>
+                <span class="text-xs text-neutral-400">{a.area}</span>
+              </div>
+              <h2 class="text-lg font-bold leading-snug text-neutral-900">{a.name}</h2>
+             <p class="mt-2 text-sm leading-relaxed text-neutral-500">{a.desc}</p>
+              <div class="mt-4 space-y-1.5 border-t border-neutral-100 pt-4">
+                <h3 class="mb-1.5 text-xs font-semibold uppercase tracking-wider text-neutral-400">Visitor Info</h3>
+                <div class="space-y-1.5 text-sm">
+                  <p class="flex items-center gap-2 text-neutral-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    {a.hours}
+                  </p>
+                  <p class="flex items-center gap-2 text-neutral-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+                    {a.ticket}
+                  </p>
+                  <p class="flex items-center gap-2 text-neutral-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><path d="M8 15h.01"/><path d="M16 15h.01"/></svg>
+                    {a.transport}
+                  </p>
+                </div>
+             </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-neutral-50 py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-6">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-900">Practical tips for visiting Shanghai attractions</h2>
+      <div class="mt-8 space-y-6">
+        <div>
+          <h3 class="font-semibold text-neutral-900">Book ahead whenever possible</h3>
+          <p class="mt-2 leading-relaxed text-neutral-600">The Shanghai Museum, Shanghai Tower observation deck, and the Natural History Museum all require or strongly recommend advance reservations. During national holidays (Golden Week in October, Chinese New Year in January/February), queues can exceed two hours without a booking. Use the official WeChat mini-programs or the museums' English-language websites to reserve.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-neutral-900">Go early or go late</h3>
+          <p class="mt-2 leading-relaxed text-neutral-600">Yu Garden is magical at 8:45 AM when the gates open — you will have the rockeries nearly to yourself for about 45 minutes before the tour buses arrive. The Bund is best at two opposite times: 6:30 AM when locals practice tai chi and the light is soft, or 6:00 PM when the Pudong skyline transitions from daylight to neon. Shanghai Tower is clearest on weekday mornings; weekends can mean a one-hour queue for the elevator.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-neutral-900">Use the Metro — it is faster than a taxi</h3>
+          <p class="mt-2 leading-relaxed text-neutral-600">Every attraction on this page is reachable by Metro. The system is clean, air-conditioned, and costs RMB 3–9 per ride. Station announcements are in English and Mandarin. Buy a Shanghai Public Transportation Card at any Metro station service counter for tap-and-go convenience across Metro, bus, and even some taxis.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-neutral-900">Combine nearby attractions into a single outing</h3>
+          <p class="mt-2 leading-relaxed text-neutral-600">Several attractions cluster naturally: the Bund, Nanjing Road, and People's Square are a 20-minute walk apart. Yu Garden and the City God Temple Bazaar share the same plaza. Jing'an Temple, the Natural History Museum, and the French Concession can be connected by a 15-minute Metro ride or a pleasant 40-minute walk. Plan your days geographically — Shanghai is vast, and cross-city taxi rides eat into sightseeing time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

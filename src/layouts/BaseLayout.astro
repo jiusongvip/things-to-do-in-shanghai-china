@@ -1,0 +1,148 @@
+---
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  noIndex?: boolean;
+  author?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage = "/og-default.jpg",
+  noIndex = false,
+  author = "Jamie Chen, Shanghai-based Travel Writer",
+} = Astro.props;
+
+const siteTitle = "Things to Do in Shanghai";
+const siteUrl = "https://www.things-to-do-in-shanghai-china.com";
+   const fullTitle = title === "Home"
+      ? "Things to Do in Shanghai, China \u2014 Ultimate Travel Guide"
+     : `${title} | ${siteTitle}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, siteUrl).href} />
+
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, siteUrl).href} />
+    <meta property="og:image" content={new URL(ogImage, siteUrl).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="author" content={author} />
+
+    {noIndex && <meta name="robots" content="noindex, follow" />}
+
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <link rel="alternate" type="application/rss+xml" title="Things to Do in Shanghai" href="/rss.xml" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ShanghaiGuide",
+        "url": "https://www.things-to-do-in-shanghai-china.com",
+        "description": "Independent travel guide to Shanghai with honest, firsthand recommendations from locals and frequent visitors."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Things to Do in Shanghai",
+        "url": "https://www.things-to-do-in-shanghai-china.com",
+        "description": "The ultimate guide to things to do in Shanghai, China. Discover top attractions, food, nightlife, and more."
+      }
+    </script>
+    <script type="application/ld+json" data-page-schema>
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.things-to-do-in-shanghai-china.com" }
+        ]
+      }
+    </script>
+    <slot name="schema" />
+  </head>
+  <body class="min-h-screen bg-white text-neutral-900 antialiased">
+    <header class="sticky top-0 z-50 border-b border-neutral-200/60 bg-white/80 backdrop-blur-md">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a href="/" class="flex items-center gap-2">
+          <span class="text-lg font-bold tracking-tight text-brand-700">Shanghai<span class="text-neutral-900">Guide</span></span>
+        </a>
+        <div class="hidden items-center gap-1 lg:flex">
+          <a href="/attractions" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Attractions</a>
+          <a href="/food" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Food</a>
+          <a href="/nightlife" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Nightlife</a>
+          <a href="/shopping" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Shopping</a>
+          <a href="/day-trips" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Day Trips</a>
+          <a href="/itinerary" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Itinerary</a>
+          <a href="/blog" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Blog</a>
+        </div>
+        <button class="flex flex-col gap-1.5 lg:hidden" aria-label="Toggle menu">
+          <span class="block h-0.5 w-5 rounded bg-neutral-700"></span>
+          <span class="block h-0.5 w-5 rounded bg-neutral-700"></span>
+          <span class="block h-0.5 w-5 rounded bg-neutral-700"></span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="border-t border-neutral-200 bg-neutral-50">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <div>
+            <p class="mb-4 text-sm font-semibold text-neutral-900">Explore</p>
+            <div class="flex flex-col gap-2">
+              <a href="/attractions" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Attractions</a>
+              <a href="/food" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Food</a>
+              <a href="/nightlife" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Nightlife</a>
+              <a href="/shopping" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Shopping</a>
+            </div>
+          </div>
+          <div>
+            <p class="mb-4 text-sm font-semibold text-neutral-900">Plan</p>
+            <div class="flex flex-col gap-2">
+              <a href="/itinerary" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Itineraries</a>
+              <a href="/day-trips" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Day Trips</a>
+              <a href="/with-kids" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">With Kids</a>
+              <a href="/free" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Free Things</a>
+            </div>
+          </div>
+          <div>
+            <p class="mb-4 text-sm font-semibold text-neutral-900">Read</p>
+            <div class="flex flex-col gap-2">
+              <a href="/guides" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Guides</a>
+              <a href="/blog" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Blog</a>
+              <a href="/about" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">About</a>
+            </div>
+          </div>
+          <div>
+            <p class="mb-4 text-sm font-semibold text-neutral-900">ShanghaiGuide</p>
+            <p class="text-sm leading-relaxed text-neutral-500">
+              The independent guide to Shanghai. Honest recommendations from locals and frequent visitors.
+            </p>
+            <p class="mt-3 text-xs text-neutral-400">Written by {author}</p>
+          </div>
+        </div>
+        <div class="mt-12 border-t border-neutral-200 pt-8">
+          <p class="text-xs text-neutral-400">&copy; {new Date().getFullYear()} ShanghaiGuide. Updated {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

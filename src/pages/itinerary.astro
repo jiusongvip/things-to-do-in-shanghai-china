@@ -1,0 +1,190 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const day3 = [
+  { time: "9:00 AM", title: "Yu Garden & Old City", desc: "Start the day in Ming-dynasty Shanghai. Explore the garden, then wander the bazaar and City God Temple area." },
+  { time: "12:00 PM", title: "Xiaolongbao Lunch", desc: "Head to Jia Jia Tang Bao near People's Square for the city's best soup dumplings. Go early; queues form fast." },
+  { time: "1:30 PM", title: "Shanghai Museum", desc: "Free, world-class Chinese art and artifacts. Focus on the bronze and ceramics galleries if time is tight." },
+  { time: "4:00 PM", title: "French Concession", desc: "Coffee at a lane-house cafe on Wukang Road, then wander the plane-tree-lined streets south to Tianzifang." },
+  { time: "7:00 PM", title: "Dinner in Xintiandi", desc: "Upscale dining in restored shikumen houses. Fu 1088 for classic Shanghainese, or Mercato for Italian with Bund views." },
+  { time: "9:30 PM", title: "Huangpu River Cruise", desc: "A 45-minute night cruise past the illuminated Bund and Pudong skyline. The definitive Shanghai nightcap." },
+];
+
+const day4to5 = [
+  { day: "Day 4", title: "Day Trip: Suzhou or Hangzhou", desc: "Take a morning high-speed train (30-45 min). Suzhou for classical gardens and canals. Hangzhou for West Lake and tea culture. Return by evening." },
+  { day: "Day 5", title: "Deep Cuts & Departure", desc: "Visit M50 art district in the morning. Brunch in the French Concession. Afternoon at the Propaganda Poster Art Centre or Longhua Temple. Souvenir shopping at the South Bund Fabric Market." },
+];
+
+const faqs = [
+  { q: "Is 3 days enough for Shanghai?", a: "Yes — 3 full days covers the Bund, Yu Garden, Shanghai Tower, French Concession, museums, and the food highlights. You'll leave feeling like you saw the city properly." },
+  { q: "Should I extend to 5 days?", a: "If you have the time, yes. Days 4-5 add a day trip (Suzhou or Hangzhou) and slower exploration of neighborhoods and museums. Shanghai rewards a relaxed pace." },
+  { q: "What's the best area to stay in Shanghai?", a: "The French Concession (Xuhui/Jing'an) for charm, cafes, and walkability. The Bund area for central location and views. Pudong for business hotels with skyline views." },
+];
+---
+
+<BaseLayout
+  title="Shanghai Itinerary: 3-5 Days"
+  description="Plan your Shanghai trip with 3-day and 5-day itineraries covering top sights, food, shopping and hidden gems. Day-by-day guide with transport tips."
+>
+  <section class="bg-neutral-900 py-20 md:py-24">
+    <div class="mx-auto max-w-7xl px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-300">Plan Your Trip</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold leading-none tracking-tight text-white md:text-6xl">
+        Shanghai Itinerary
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-neutral-300">
+        Day-by-day plans for 3 or 5 days. Built by people who know Shanghai — not generic algorithms.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16">
+    <div class="mx-auto max-w-3xl px-6">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-900">How to use this itinerary</h2>
+      <p class="mt-4 leading-relaxed text-neutral-600">
+        This plan is battle-tested — we have given versions of it to dozens of first-time visitors, and it works. The 3-day plan covers every essential sight without feeling rushed. Days are organized geographically so you spend minimal time in transit. Each day has a rhythm: a morning landmark, a lunch that is an experience in itself, an afternoon cultural stop, and an evening that shows you a different side of Shanghai after dark.
+      </p>
+      <p class="mt-3 leading-relaxed text-neutral-600">
+        Adjust the start times to your jet lag. If you wake up at 5:00 AM on Day 1 (most long-haul arrivals do), head to <a href="/attractions" class="text-brand-600 underline underline-offset-2 hover:text-brand-700">the Bund</a> for sunrise — you will share the promenade with tai chi groups and have perfect photos before the crowds arrive. If you are not a morning person, shift everything forward by two hours; Shanghai's <a href="/nightlife" class="text-brand-600 underline underline-offset-2 hover:text-brand-700">nightlife</a> and late-night <a href="/food" class="text-brand-600 underline underline-offset-2 hover:text-brand-700">food scene</a> mean that starting your day at 11:00 AM still leaves plenty of time.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3-Day Itinerary -->
+  <section class="py-20 md:py-24">
+    <div class="mx-auto max-w-3xl px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">The Classic</p>
+      <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">3-Day Shanghai Itinerary</h2>
+      <p class="mt-4 leading-relaxed text-neutral-500">Three perfectly-paced days covering the absolute essentials. This is the itinerary we give to friends visiting for the first time.</p>
+
+      <div class="mt-12 space-y-0">
+        <h3 class="mb-6 text-xl font-bold text-neutral-800">Day 1: The Bund & Pudong Skyline</h3>
+        <div class="space-y-0">
+          {[
+            { time: "10:00 AM", title: "Nanjing Road East Walk", desc: "Start at People's Square and walk the pedestrian strip east toward the Bund. Soak in the neon, the crowds, and the energy." },
+            { time: "11:30 AM", title: "The Bund Waterfront", desc: "Walk the full length of the promenade. Colonial architecture on your left, Pudong's future-city skyline across the river." },
+            { time: "1:00 PM", title: "Lunch: Yang's Fried Dumplings", desc: "Shengjianbao on Wujiang Road. Four dumplings for under RMB 10. Look for the yellow sign." },
+            { time: "2:30 PM", title: "Shanghai Tower", desc: "Cross to Pudong via the Bund Sightseeing Tunnel or Metro. Ride the world's fastest elevator to the 118th-floor observation deck." },
+            { time: "5:30 PM", title: "Sunset at Flair Rooftop", desc: "58th-floor bar at the Ritz-Carlton Pudong. The view of the Bund lighting up at dusk is unforgettable." },
+            { time: "8:00 PM", title: "Dinner & Bund Night View", desc: "Cross back to Puxi. Dinner at Lost Heaven (Yunnan cuisine) or Mercato. Then walk the Bund at night." },
+          ].map((item) => (
+            <div class="flex gap-4 border-l-2 border-brand-200 pb-6 pl-6 last:border-l-0 last:pb-0">
+              <div class="mt-0.5 flex-shrink-0">
+                <span class="text-xs font-semibold text-brand-400">{item.time}</span>
+              </div>
+              <div>
+                <p class="font-semibold text-neutral-900">{item.title}</p>
+                <p class="mt-1 text-sm leading-relaxed text-neutral-500">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h3 class="mb-6 mt-12 text-xl font-bold text-neutral-800">Day 2: History & Culture</h3>
+        <div class="space-y-0">
+          {[
+            { time: "9:00 AM", title: "Yu Garden", desc: "Arrive at opening to beat the crowds. Spend 90 minutes exploring pavilions, rockeries, and koi ponds from the Ming dynasty." },
+            { time: "11:00 AM", title: "City God Temple Bazaar", desc: "Adjacent to Yu Garden. Browse the snack alley, try tanghulu (candied hawthorn), and people-watch." },
+            { time: "12:30 PM", title: "Jing'an Temple", desc: "Metro to Jing'an. A golden temple surrounded by skyscrapers. The contrast is quintessential Shanghai." },
+            { time: "2:00 PM", title: "Lunch near Jing'an", desc: "Hole-in-the-wall noodle shops on nearby side streets. Look for the ones packed with locals." },
+            { time: "3:30 PM", title: "Shanghai Natural History Museum", desc: "Stunning modern museum with dinosaur skeletons and interactive exhibits. Even if you're not a museum person, the building is worth seeing." },
+            { time: "7:00 PM", title: "Dinner in the French Concession", desc: "Restaurants on Hunan Road or Wukang Road. Di Shui Dong for spicy Hunan, or one of the French bistros." },
+            { time: "9:30 PM", title: "Speak Low", desc: "Find the hidden entrance (it's behind a bookshelf) and climb four floors of award-winning cocktails." },
+          ].map((item) => (
+            <div class="flex gap-4 border-l-2 border-brand-200 pb-6 pl-6 last:border-l-0 last:pb-0">
+              <div class="mt-0.5 flex-shrink-0">
+                <span class="text-xs font-semibold text-brand-400">{item.time}</span>
+              </div>
+              <div>
+                <p class="font-semibold text-neutral-900">{item.title}</p>
+                <p class="mt-1 text-sm leading-relaxed text-neutral-500">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h3 class="mb-6 mt-12 text-xl font-bold text-neutral-800">Day 3: Neighborhoods & Souvenirs</h3>
+        <div class="space-y-0">
+          {day3.map((item) => (
+            <div class="flex gap-4 border-l-2 border-brand-200 pb-6 pl-6 last:border-l-0 last:pb-0">
+              <div class="mt-0.5 flex-shrink-0">
+                <span class="text-xs font-semibold text-brand-400">{item.time}</span>
+              </div>
+              <div>
+                <p class="font-semibold text-neutral-900">{item.title}</p>
+                <p class="mt-1 text-sm leading-relaxed text-neutral-500">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5-Day Extension -->
+  <section class="bg-neutral-50 py-20 md:py-24">
+    <div class="mx-auto max-w-3xl px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Extended Stay</p>
+      <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">5-Day Shanghai Itinerary</h2>
+      <p class="mt-4 leading-relaxed text-neutral-500">Have more time? Days 4 and 5 expand the 3-day plan with a day trip and deeper neighborhood exploration.</p>
+
+      <div class="mt-10 space-y-6">
+        {day4to5.map((d) => (
+          <div class="rounded-2xl border border-neutral-200 bg-white p-6 md:p-8">
+            <span class="rounded-md bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand-600">{d.day}</span>
+            <h3 class="mt-3 text-xl font-bold text-neutral-900">{d.title}</h3>
+            <p class="mt-2 leading-relaxed text-neutral-500">{d.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Budget -->
+  <section class="py-20 md:py-24">
+    <div class="mx-auto max-w-3xl px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Cost Estimate</p>
+      <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">What to budget</h2>
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6 text-center">
+          <p class="text-xs font-semibold uppercase tracking-widest text-neutral-400">Budget</p>
+          <p class="mt-2 text-3xl font-bold text-neutral-900">RMB 800</p>
+          <p class="mt-1 text-sm text-neutral-500">per day</p>
+          <p class="mt-3 text-xs leading-relaxed text-neutral-400">Hostels, street food, Metro, free attractions</p>
+        </div>
+        <div class="rounded-2xl border border-brand-200 bg-brand-50 p-6 text-center">
+          <p class="text-xs font-semibold uppercase tracking-widest text-brand-500">Comfortable</p>
+          <p class="mt-2 text-3xl font-bold text-neutral-900">RMB 2,000</p>
+          <p class="mt-1 text-sm text-neutral-500">per day</p>
+          <p class="mt-3 text-xs leading-relaxed text-neutral-400">Mid-range hotels, nice meals, taxis, all attractions</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6 text-center">
+          <p class="text-xs font-semibold uppercase tracking-widest text-neutral-400">Luxury</p>
+          <p class="mt-2 text-3xl font-bold text-neutral-900">RMB 5,000+</p>
+          <p class="mt-1 text-sm text-neutral-500">per day</p>
+          <p class="mt-3 text-xs leading-relaxed text-neutral-400">5-star hotels, fine dining, private guides</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-neutral-50 py-20 md:py-24">
+    <div class="mx-auto max-w-3xl px-6">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-900">Common questions about Shanghai itineraries</h2>
+      <div class="mt-8 divide-y divide-neutral-200">
+        {faqs.map((faq) => (
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+              <span class="text-base font-semibold text-neutral-900">{faq.q}</span>
+              <span class="flex-shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-180">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <p class="mt-3 pr-8 leading-relaxed text-neutral-500">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

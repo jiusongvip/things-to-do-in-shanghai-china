@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+Disallow: /404/
+
+Sitemap: https://www.things-to-do-in-shanghai-china.com/sitemap-index.xml
