@@ -109,7 +109,7 @@ Deliberately: yes. Breakfast is Shanghai's most affordable meal and its most aut
 
 ---
 
-**Related reading:** [Shanghai food guide](/food) · [Free things to do in Shanghai](/free) · [What to eat at the markets](/guides) · [Shanghai nightlife guide](/nightlife)
+**Related reading:** [Shanghai food guide](/food) · [Xiaolongbao guide](/xiaolongbao) · [Free things to do in Shanghai](/free) · [What to eat at the markets](/guides) · [Shanghai nightlife guide](/nightlife)
 
 ---
 

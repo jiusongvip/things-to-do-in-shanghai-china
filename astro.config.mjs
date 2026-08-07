@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://www.things-to-do-in-shanghai-china.com',
   trailingSlash: 'never',
-  integrations: [sitemap()],
+  integrations: [sitemap({ lastmod: new Date() })],
   vite: {
     plugins: [tailwindcss()],
   },

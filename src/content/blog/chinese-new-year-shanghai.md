@@ -90,4 +90,4 @@ If you plan your meals, book your travel early, and go for the festivals rather 
 
 ---
 
-**Related reading:** [Top things to do in Shanghai](/attractions) · [Free things to do in Shanghai](/free) · [Shanghai itinerary ideas](/itinerary) · [Where to stay](/guides)
+**Related reading:** [Top things to do in Shanghai](/attractions) · [Yu Garden](/yu-garden) · [Free things to do in Shanghai](/free) · [Shanghai itinerary ideas](/itinerary) · [Where to stay](/guides)

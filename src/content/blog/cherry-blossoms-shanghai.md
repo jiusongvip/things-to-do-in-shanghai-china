@@ -91,7 +91,7 @@ Gucun festival and Tongji national-day-style entry may need registration/QR. Che
 
 ---
 
-**Related reading:** [Free things to do in Shanghai](/free) · [Shanghai with kids](/with-kids) · [What to do in spring weather](/guides) · [Day trips from Shanghai](/day-trips)
+**Related reading:** [Free things to do in Shanghai](/free) · [Shanghai with kids](/with-kids) · [Yu Garden](/yu-garden) · [What to do in spring weather](/guides) · [Day trips from Shanghai](/day-trips)
 
 ---
 

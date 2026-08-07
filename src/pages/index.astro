@@ -628,50 +628,73 @@ const faqs = [
   })();
 </script>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('shanghai-map');
     if (!container) return;
-    const map = L.map('shanghai-map').setView([31.2304, 121.4737], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap',
-      maxZoom: 18,
-    }).addTo(map);
-    const colors = { attraction:'#f59e0b', food:'#f43f5e', nightlife:'#818cf8', shopping:'#34d399' };
-    const spots = [
-      { n:'The Bund', c:'attraction', d:'Iconic waterfront promenade with colonial architecture and Pudong skyline views.', a:31.2400, o:121.4900 },
-      { n:'Shanghai Tower', c:'attraction', d:"World's second-tallest building. 118th-floor observation deck.", a:31.2352, o:121.5013 },
-      { n:'Yu Garden', c:'attraction', d:'16th-century classical Chinese garden in the Old City.', a:31.2286, o:121.4875 },
-      { n:'Oriental Pearl Tower', c:'attraction', d:'Futuristic TV tower with observation decks and a glass floor.', a:31.2397, o:121.4998 },
-      { n:"Jing'an Temple", c:'attraction', d:'Ancient Buddhist temple surrounded by modern skyscrapers.', a:31.2234, o:121.4471 },
-      { n:'Shanghai Museum', c:'attraction', d:"World-class collection of ancient Chinese art in People's Square.", a:31.2310, o:121.4704 },
-      { n:'French Concession', c:'attraction', d:'Plane-tree-lined streets with Art Deco apartments and cafes.', a:31.2157, o:121.4684 },
-      { n:'Xintiandi', c:'attraction', d:'Stylish pedestrian district with restored shikumen houses.', a:31.2197, o:121.4745 },
-      { n:'Jia Jia Tang Bao', c:'food', d:"Legendary soup dumpling joint. Pork or crab — that's the menu.", a:31.2333, o:121.4750 },
-      { n:"Yang's Fried Dumplings", c:'food', d:'Gold standard for shengjianbao. Multiple locations citywide.', a:31.2280, o:121.4470 },
-      { n:'Fu 1088', c:'food', d:'Old-Shanghai fine dining in a restored 1920s mansion.', a:31.2120, o:121.4550 },
-      { n:'Mercato', c:'food', d:'Jean-Georges Italian on the Bund with Pudong skyline views.', a:31.2410, o:121.4910 },
-      { n:'Di Shui Dong', c:'food', d:'Hunanese institution famous for cumin-crusted ribs.', a:31.2180, o:121.4630 },
-      { n:'Nanjing Road Food Street', c:'food', d:'Pedestrian shopping street with street food stalls and snacks.', a:31.2365, o:121.4749 },
-      { n:'Flair Rooftop', c:'nightlife', d:"Ritz-Carlton Pudong's 58th-floor bar. Highest rooftop in Shanghai.", a:31.2410, o:121.5020 },
-      { n:'Speak Low', c:'nightlife', d:"Hidden speakeasy behind a bookshelf. Asia's 50 Best Bars regular.", a:31.2140, o:121.4660 },
-      { n:'Bar Rouge', c:'nightlife', d:'Bund-side club with skyline views. Dress code enforced.', a:31.2430, o:121.4900 },
-      { n:'The Odd Couple', c:'nightlife', d:'Retro 80s cocktail bar from the Speak Low team.', a:31.2130, o:121.4650 },
-      { n:'Arkham', c:'nightlife', d:'Underground venue for electronic, hip-hop, and indie acts.', a:31.2270, o:121.4520 },
-      { n:'Nanjing Road East', c:'shopping', d:"Shanghai's main commercial drag — 5.5 km of retail.", a:31.2365, o:121.4749 },
-      { n:'Huaihai Road', c:'shopping', d:'Upscale shopping with luxury brands and local boutiques.', a:31.2200, o:121.4650 },
-      { n:'South Bund Fabric Market', c:'shopping', d:'Three floors of tailors. Bring a photo, get a custom suit.', a:31.2185, o:121.4985 },
-      { n:'Tianzifang', c:'shopping', d:'Narrow alleyways with independent designers and craft shops.', a:31.2080, o:121.4680 },
-      { n:'AP Plaza', c:'shopping', d:'Underground market at Science & Tech Museum Metro station.', a:31.2200, o:121.5440 },
-      { n:'IFC Mall', c:'shopping', d:"Pudong's premier luxury shopping with every major brand.", a:31.2370, o:121.5020 },
-    ];
-    spots.forEach(s => {
-      const m = L.circleMarker([s.a, s.o], { radius:7, fillColor:colors[s.c], color:'#ffffff', weight:2, fillOpacity:0.9 }).addTo(map);
-      const lab = s.c.charAt(0).toUpperCase()+s.c.slice(1);
-      m.bindPopup('<strong>'+s.n+'</strong><br><span style="color:'+colors[s.c]+';font-size:11px">'+lab+'</span><br><span style="font-size:12px;color:#666">'+s.d+'</span>');
-    });
+    const initMap = () => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      document.head.appendChild(link);
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      script.onload = function () {
+        const map = L.map('shanghai-map').setView([31.2304, 121.4737], 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap',
+          maxZoom: 18,
+        }).addTo(map);
+        const colors = { attraction:'#f59e0b', food:'#f43f5e', nightlife:'#818cf8', shopping:'#34d399' };
+        const spots = [
+          { n:'The Bund', c:'attraction', d:'Iconic waterfront promenade with colonial architecture and Pudong skyline views.', a:31.2400, o:121.4900 },
+          { n:'Shanghai Tower', c:'attraction', d:"World's second-tallest building. 118th-floor observation deck.", a:31.2352, o:121.5013 },
+          { n:'Yu Garden', c:'attraction', d:'16th-century classical Chinese garden in the Old City.', a:31.2286, o:121.4875 },
+          { n:'Oriental Pearl Tower', c:'attraction', d:'Futuristic TV tower with observation decks and a glass floor.', a:31.2397, o:121.4998 },
+          { n:"Jing'an Temple", c:'attraction', d:'Ancient Buddhist temple surrounded by modern skyscrapers.', a:31.2234, o:121.4471 },
+          { n:'Shanghai Museum', c:'attraction', d:"World-class collection of ancient Chinese art in People's Square.", a:31.2310, o:121.4704 },
+          { n:'French Concession', c:'attraction', d:'Plane-tree-lined streets with Art Deco apartments and cafes.', a:31.2157, o:121.4684 },
+          { n:'Xintiandi', c:'attraction', d:'Stylish pedestrian district with restored shikumen houses.', a:31.2197, o:121.4745 },
+          { n:'Jia Jia Tang Bao', c:'food', d:"Legendary soup dumpling joint. Pork or crab — that's the menu.", a:31.2333, o:121.4750 },
+          { n:"Yang's Fried Dumplings", c:'food', d:'Gold standard for shengjianbao. Multiple locations citywide.', a:31.2280, o:121.4470 },
+          { n:'Fu 1088', c:'food', d:'Old-Shanghai fine dining in a restored 1920s mansion.', a:31.2120, o:121.4550 },
+          { n:'Mercato', c:'food', d:'Jean-Georges Italian on the Bund with Pudong skyline views.', a:31.2410, o:121.4910 },
+          { n:'Di Shui Dong', c:'food', d:'Hunanese institution famous for cumin-crusted ribs.', a:31.2180, o:121.4630 },
+          { n:'Nanjing Road Food Street', c:'food', d:'Pedestrian shopping street with street food stalls and snacks.', a:31.2365, o:121.4749 },
+          { n:'Flair Rooftop', c:'nightlife', d:"Ritz-Carlton Pudong's 58th-floor bar. Highest rooftop in Shanghai.", a:31.2410, o:121.5020 },
+          { n:'Speak Low', c:'nightlife', d:"Hidden speakeasy behind a bookshelf. Asia's 50 Best Bars regular.", a:31.2140, o:121.4660 },
+          { n:'Bar Rouge', c:'nightlife', d:'Bund-side club with skyline views. Dress code enforced.', a:31.2430, o:121.4900 },
+          { n:'The Odd Couple', c:'nightlife', d:'Retro 80s cocktail bar from the Speak Low team.', a:31.2130, o:121.4650 },
+          { n:'Arkham', c:'nightlife', d:'Underground venue for electronic, hip-hop, and indie acts.', a:31.2270, o:121.4520 },
+          { n:'Nanjing Road East', c:'shopping', d:"Shanghai's main commercial drag — 5.5 km of retail.", a:31.2365, o:121.4749 },
+          { n:'Huaihai Road', c:'shopping', d:'Upscale shopping with luxury brands and local boutiques.', a:31.2200, o:121.4650 },
+          { n:'South Bund Fabric Market', c:'shopping', d:'Three floors of tailors. Bring a photo, get a custom suit.', a:31.2185, o:121.4985 },
+          { n:'Tianzifang', c:'shopping', d:'Narrow alleyways with independent designers and craft shops.', a:31.2080, o:121.4680 },
+          { n:'AP Plaza', c:'shopping', d:'Underground market at Science & Tech Museum Metro station.', a:31.2200, o:121.5440 },
+          { n:'IFC Mall', c:'shopping', d:"Pudong's premier luxury shopping with every major brand.", a:31.2370, o:121.5020 },
+        ];
+        spots.forEach(s => {
+          const m = L.circleMarker([s.a, s.o], { radius:7, fillColor:colors[s.c], color:'#ffffff', weight:2, fillOpacity:0.9 }).addTo(map);
+          const lab = s.c.charAt(0).toUpperCase()+s.c.slice(1);
+          m.bindPopup('<strong>'+s.n+'</strong><br><span style="color:'+colors[s.c]+';font-size:11px">'+lab+'</span><br><span style="font-size:12px;color:#666">'+s.d+'</span>');
+        });
+      };
+      document.body.appendChild(script);
+    };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            io.disconnect();
+            initMap();
+          }
+        });
+      }, { rootMargin: '400px' });
+      io.observe(container);
+    } else {
+      initMap();
+    }
   });
 </script>
 <style>

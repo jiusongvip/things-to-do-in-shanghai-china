@@ -129,7 +129,7 @@ The heat usually breaks in the second half of September, occasionally lingering 
 
 ---
 
-**Related reading:** [Free things to do in Shanghai](/free) · [How to plan a day trip from Shanghai](/day-trips) · [Shanghai itinerary ideas](/itinerary) · [Nightlife guide](/nightlife)
+**Related reading:** [Free things to do in Shanghai](/free) · [The Bund](/the-bund) · [How to plan a day trip from Shanghai](/day-trips) · [Shanghai itinerary ideas](/itinerary) · [Nightlife guide](/nightlife)
 
 ---
 

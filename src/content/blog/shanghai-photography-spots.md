@@ -122,7 +122,7 @@ Check the weather in the morning and **shift your day to chase the golden hour**
 
 ---
 
-**Related reading:** [Top things to do in Shanghai](/attractions) · [Free things to do](/free) · [A day trip from Shanghai](/day-trips) · [Shanghai itineraries](/itinerary)
+**Related reading:** [Top things to do in Shanghai](/attractions) · [Shanghai Tower](/shanghai-tower) · [Free things to do](/free) · [A day trip from Shanghai](/day-trips) · [Shanghai itineraries](/itinerary)
 
 ---
 

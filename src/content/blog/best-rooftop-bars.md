@@ -85,7 +85,7 @@ Use your rooftop visit as an evening anchor, not a full stop. End dinner, catch 
 
 ---
 
-**Related reading:** [Shanghai nightlife guide](/nightlife) · [Shanghai itinerary ideas](/itinerary) · [Where to stay](/guides) · [Free things to do in Shanghai](/free)
+**Related reading:** [The Bund](/the-bund) · [Shanghai nightlife guide](/nightlife) · [Shanghai itinerary ideas](/itinerary) · [Where to stay](/guides) · [Free things to do in Shanghai](/free)
 
 ---
 
