@@ -32,6 +32,18 @@ const siteUrl = "https://www.things-to-do-in-shanghai-china.com";
      : `${title} | ${siteTitle}`;
 
   const articleHeadline = title === "Home" ? fullTitle : fullTitle.replace(/\|.*$/, "").trim();
+
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": articleHeadline,
+    "description": description,
+    "datePublished": datePublished,
+    "dateModified": dateModified,
+    "mainEntityOfPage": new URL(Astro.url.pathname, siteUrl).href,
+    "author": { "@type": "Person", "name": author.replace(/,.*$/, ""), "url": new URL(authorUrl, siteUrl).href },
+    "publisher": { "@type": "Organization", "name": "ShanghaiGuide", "url": siteUrl },
+  };
 ---
 
 <!doctype html>
@@ -84,23 +96,7 @@ const siteUrl = "https://www.things-to-do-in-shanghai-china.com";
       }
     </script>
     {isArticle && datePublished && (
-      <script type="application/ld+json" data-article-schema>
-        {
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": articleHeadline,
-          "description": description,
-          "datePublished": datePublished,
-          "dateModified": dateModified,
-          "mainEntityOfPage": new URL(Astro.url.pathname, siteUrl).href,
-          "author": { "@type": "Person", "name": author.replace(/,.*$/, ""), "url": new URL(authorUrl, siteUrl).href },
-          "publisher": {
-            "@type": "Organization",
-            "name": "ShanghaiGuide",
-            "url": siteUrl
-          }
-        }
-      </script>
+      <script type="application/ld+json" data-article-schema set:html={JSON.stringify(articleLd)}></script>
     )}
     <slot name="schema" />
   </head>
