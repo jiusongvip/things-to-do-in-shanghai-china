@@ -1,0 +1,101 @@
+---
+import DetailLayout from "../layouts/DetailLayout.astro";
+
+const facts = [
+  { label: "Where", value: "Shiliupu Pier, Zhongshan South Road (near the old customs house)" },
+  { label: "Opening hours", value: "Cruises run roughly 11:00 AM – 10:00 PM; sailings roughly every 20–30 minutes" },
+  { label: "Admission", value: "RMB 100–150 per person (1-hour standard cruise); VIP decks more" },
+  { label: "Nearest Metro", value: "Line 10, Yuyuan Garden Station (Exit 1, 10-minute walk) or Line 2, East Nanjing Road (Exit 6)" },
+  { label: "Time needed", value: "1 hour afloat, plus 30–45 minutes for boarding and the pier" },
+  { label: "Best time", value: "The 7:00–8:00 PM sailings, when both banks are fully lit" },
+];
+
+const faqs = [
+  { q: "Is the Huangpu River cruise worth it?", a: "For most first-time visitors, yes. It is the only way to see the two great skylines — the colonial Bund and the Pudong megatowers — as a single panorama, and at night it is genuinely spectacular. It is a moderate spend (RMB 100–150) for an hour. If you are short on time or money, the Bund promenade at night is free and 90% of the visual payoff — but the river view is the fuller experience." },
+  { q: "Which cruise should I book?", a: "The standard 1-hour cruise from Shiliupu or the Bund docks is the classic choice: it runs the loop between the Bund and the Pudong skyline, passing under the river bridges. Book the standard boat and, if you want, a VIP top-deck seat for the open-air view. Avoid the dinner cruises unless you specifically want a meal on board — you pay extra for food that is usually mediocre and you see the same skyline." },
+  { q: "When is the best time to take the cruise?", a: "The sailings between 7:00 and 8:30 PM, when both banks are fully illuminated, are the definitive experience. A 6:30–7:00 PM sailing gives you the sunset-and-lights transition. In summer the lights come on around 7:00 PM, in winter around 5:30 PM, so check the season and aim for after dark." },
+  { q: "Do I need to book the cruise in advance?", a: "Recommended on weekends and holidays, when boats sell out. Book a day ahead online (booking platforms and the official WeChat channels are easiest) or at the pier office. On weekday evenings you can usually walk up and board the next sailing, but the prime 7–8 PM boats can still fill." },
+  { q: "Are there English-language commentary and tours?", a: "Most cruises provide recorded commentary in English (and often Chinese and Japanese) describing the buildings and history as you pass. Audio is piped on deck or via headphones. It is enough to understand what you are seeing — do not expect a guided narrative." },
+  { q: "Is the cruise good with kids?", a: "Very — kids love boats and the light show. Dress warmly for the open deck (it is windier and cooler on the water, especially in the evenings and winter), and choose an open-deck seat if your child wants the best view. Life vests and standard safety provisions apply." },
+];
+
+const related = [
+  { href: "/the-bund", label: "The Bund", note: "The classic riverside promenade — free and the perfect pre-cruise stroll" },
+  { href: "/shanghai-tower", label: "Shanghai Tower", note: "The skyline you see from the water, from the highest deck in the world" },
+  { href: "/yu-garden", label: "Yu Garden & the Old City", note: "Shiliupu pier sits next to the historic docks district" },
+  { href: "/attractions", label: "All Shanghai attractions", note: "Hours, tickets, and Metro info for every major sight" },
+];
+---
+
+<DetailLayout
+  title="Huangpu River Night Cruise — The Best Way to See Shanghai's Two Skylines"
+  subtitle="One hour on the water, both banks lit to the skyline. Here is how to pick the right cruise, when to sail for the full effect, and how to get the best seats."
+  description="Complete Huangpu River cruise guide: night cruise times, prices, which boat to book, the best sailing time, how to get to the pier by Metro, and how to combine the cruise with the Bund."
+  image="/images/shanghai/bund-night.webp"
+  category="Tour & Experience"
+  {facts}
+  {faqs}
+  {related}
+>
+  <p>
+    Shanghai is a city of two skylines, and almost nothing shows that better than the <strong>Huangpu River cruise</strong>. From the water, the river becomes a dividing line through the heart of the city: on the west bank, the colonial-era buildings of the <a href="/the-bund">Bund</a> — the customs house, the old banks, the grand hotels — glowing gold against the night; on the east bank, the Pudong megatowers — the Oriental Pearl, the Jin Mao, and the twisting <a href="/shanghai-tower">Shanghai Tower</a> — rising in electric light. From a boat between them, you finally understand why everyone photographs this city at night.
+  </p>
+  <p>
+    The cruise is simple, dependable, and easy to fit into an evening. This guide covers the practical decisions — which sailing, when, how to book, how to get there — so the hour on the water is pure payoff.
+  </p>
+
+  <h2>Which cruise to choose</h2>
+  <p>
+    The standard offering is a <strong>1-hour cruise</strong> that leaves from the main piers on the south Bund (primarily <strong>Shiliupu Pier</strong>, near the old customs house) and loops between the Bund and Pudong, passing under the Nanpu and Yangpu bridges. This is the one to take: it covers the full skyline panorama, and the open upper decks give you unobstructed views and photo lines.
+  </p>
+  <p>
+    Upgrades to consider:
+  </p>
+  <ul>
+    <li><strong>VIP top-deck seating</strong> — a reserved seat on the open upper deck instead of standing; worth the small premium if you want to sit with a view.</li>
+    <li><strong>Dinner cruises</strong> — skip these unless you specifically want dinner afloat; you pay a significant markup for food that is usually unremarkable, and the scenery is the same.</li>
+    <li><strong>Short morning/day cruises</strong> — calmer and cheaper, with good daylight views, but they miss the night show. If you can only do one, do the night one.</li>
+  </ul>
+
+  <h2>When to sail</h2>
+  <p>
+    The definitive experience is a sailing <strong>after full darkness</strong>. The windows change with the seasons:
+  </p>
+  <ul>
+    <li><strong>Summer (June–August):</strong> lights come on around 7:00 PM; aim for a 7:00–8:30 PM sailing.</li>
+    <li><strong>Winter (December–February):</strong> lights come on around 5:30 PM; a 6:00–7:30 PM sailing is ideal.</li>
+    <li><strong>Spring and autumn:</strong> 6:30–8:00 PM, catching the dusk transition if you want it.</li>
+  </ul>
+  <p>
+    A sailing about 30 minutes after sunset gives you the best of both: the last glow of dusk over the river, then the city switching on. Weekday evenings are quieter; weekend and holiday sailings are busier and sell out sooner.
+  </p>
+
+  <h2>Getting to the pier</h2>
+  <p>
+    The main boarding point is <strong>Shiliupu Pier</strong> on the south Bund. The easiest Metro access is <strong>Yuyuan Garden Station (Line 10), Exit 1</strong> — a 10-minute walk through the historic docks district, with the pier clearly signed. From the Bund promenade itself, walk south along the riverfront about 15 minutes; from East Nanjing Road (Line 2), take the tunnel crossing or a short taxi. The pier has ticket offices and snack vendors; arrive <strong>30–45 minutes before your sailing</strong> to board calmly and grab a good spot.
+  </p>
+
+  <h2>What you will see</h2>
+  <p>
+    Leaving the pier, the boat swings north along the Bund side first, giving you a low-angle, up-close pass of the colonial facades — the customs house clock tower, the HSBC Building, the Peace Hotel — all floodlit gold. Then the boat crosses to the Pudong side, and the perspective flips: now you are looking at the megatowers head-on, the Oriental Pearl's pink spheres and the Shanghai Tower's glass spiral filling the frame. The commentary (recorded, in English among other languages) points out the landmarks as you pass. Mid-route you slip under the illuminated bridges, which are themselves part of the show.
+  </p>
+  <p>
+    Practical notes for the deck: it is noticeably cooler and windier over the water than on the street, especially in the evening — bring a jacket even in summer. The best photo spot is the bow on the upper deck; the stern is more sheltered if the wind bites. Hold onto hats and phone straps; the breeze is persistent.
+  </p>
+
+  <h2>Combining the cruise with your evening</h2>
+  <p>
+    The classic evening combines the cruise with the Bund promenade. A good plan: arrive at the Bund around 6:00 PM, walk the riverside as the light fades, take a 7:00–7:30 PM sailing from Shiliupu, and finish with dinner in the Old City or back on the Bund's restaurant stretch. It is one of the most satisfying self-contained evenings in Shanghai, and it layers perfectly onto a day that includes <a href="/yu-garden">Yu Garden</a> and the historic district.
+  </p>
+
+  <h2>Practical notes</h2>
+  <ul>
+    <li><strong>Price:</strong> standard tickets run RMB 100–150 per person; VIP deck seating adds roughly RMB 50–100.</li>
+    <li><strong>Booking:</strong> book online a day ahead on weekends and holidays; walk-up is usually fine on weekday evenings.</li>
+    <li><strong>Cash and mobile pay:</strong> Alipay, WeChat Pay, and bank cards are all accepted at the ticket office.</li>
+    <li><strong>Duration:</strong> about 60 minutes afloat, plus boarding time. The full loop is worth taking once.</li>
+  </ul>
+  <p>
+    The Huangpu River cruise is the rare tourist classic that fully delivers. It turns Shanghai's two skylines — the colonial past and the megacity future — into one unbroken panorama, and it does it from the only place you can see them together: the water between them. Book the night sailing, dress for the deck, and enjoy the hour.
+  </p>
+</DetailLayout>

@@ -1,0 +1,99 @@
+---
+import DetailLayout from "../layouts/DetailLayout.astro";
+
+const facts = [
+  { label: "Where", value: "1 Fuzhou Road, Huangpu District (Bund end of Fuzhou Road)" },
+  { label: "Opening hours", value: "10:00 AM – 10:00 PM, daily" },
+  { label: "Admission", value: "Free to enter; dumplings from RMB 25 per basket (6 pieces)" },
+  { label: "Nearest Metro", value: "Line 2 or 10, Nanjing East Road Station (Exit 1, 8-minute walk)" },
+  { label: "Time needed", value: "30–60 minutes for a proper sit-down session" },
+  { label: "Best time", value: "Lunch (11:30 AM–1:00 PM) or early dinner (5:30–7:00 PM)" },
+];
+
+const faqs = [
+  { q: "What exactly is xiaolongbao?", a: "Xiaolongbao — 'small basket bun' — is a steamed soup dumpling: a thin wheat wrapper pleated into a topknot, filled with pork (often with crab or hairy crab roe added), and containing a spoonful of hot savoury broth that bursts when you bite it. The soup is the point: it is jellied stock that melts into liquid inside the steamer, which is why eating them correctly matters." },
+  { q: "How do you eat xiaolongbao without burning your mouth?", a: "The classic method: pick the dumpling up with chopsticks (or the provided spoon), bite a tiny hole in the top pleats, slurp or sip the hot broth out, then dip the dumpling in black vinegar with shredded ginger and eat the rest in one or two bites. The soup is near-boiling — the 'bite the top, sip, then eat' sequence is not a ceremony, it is survival." },
+  { q: "What's the difference between xiaolongbao and the famous 'soup dumplings' you see elsewhere?", a: "Very little — 'soup dumpling' is the Western name for xiaolongbao. Be aware, though, that Shanghai xiaolongbao are small, delicate, and thin-skinned, distinct from the bigger, thicker-skinned shengjianbao (pan-fried buns) and from Cantonese siu long bao, which are larger and served with different fillings. In Shanghai, the small thin-skinned version is the local standard." },
+  { q: "Which is the best xiaolongbao shop in Shanghai?", a: "The classic local answer is Nanxiang Steamed Bun Restaurant at the Yu Garden Bazaar, which invented the style in 1875 — it is iconic and touristy, and the queues are long. Serious locals often prefer Din Tai Fung (Taiwanese, extremely consistent and clean), Jia Jia Tang Bao on the Bund's edge, and Fu Chun for a no-frills neighbourhood version. For a first-timer, Nanxiang is the bucket-list stop and Din Tai Fung is the reliable upgrade." },
+  { q: "How much should xiaolongbao cost?", a: "A basket of six pork dumplings runs RMB 25–40 at a good shop; the crab-and-pork versions cost more (RMB 40–60 a basket). The famous 'Golden Man' Nanxiang version is priced higher as a premium set meal. If a place charges far less, the dumplings are probably machine-made and reheated — worth skipping." },
+  { q: "Are there vegetarian xiaolongbao options?", a: "Yes, at most good shops. Look for 'vegetable xiaolongbao' (usually chives and egg or cabbage), and some places offer a mushroom version. Din Tai Fung reliably has a vegetarian option with clear labelling. The classic pork and crab versions are the stars, but vegetarians are not left out." },
+];
+
+const related = [
+  { href: "/yu-garden", label: "Yu Garden Bazaar", note: "Nanxiang, the 150-year-old origin shop, is here" },
+  { href: "/the-bund", label: "The Bund", note: "Jia Jia Tang Bao sits right on its edge" },
+  { href: "/food", label: "All Shanghai food guide", note: "Shengjianbao, noodles, breakfast, and the full local menu" },
+  { href: "/attractions", label: "All Shanghai attractions", note: "Hours, tickets, and Metro info for every major sight" },
+];
+---
+
+<DetailLayout
+  title="Xiaolongbao in Shanghai — Where to Eat the Original Soup Dumpling"
+  subtitle="Shanghai's most famous food was invented here in 1875, and nothing you have eaten elsewhere quite prepares you. Here are the five best places to try it, how to eat it without scalding yourself, and what to order."
+  description="The complete Shanghai xiaolongbao guide: what it is, the five best places to eat it (from the 1875 original at Yu Garden to Din Tai Fung), how to eat a soup dumpling without burning your mouth, prices, and tips."
+  image="/images/shanghai/xiaolongbao.webp"
+  category="Food & Drink"
+  {facts}
+  {faqs}
+  {related}
+>
+  <p>
+    Every city has its signature dish, and Shanghai's is <strong>xiaolongbao</strong> — the small steamed soup dumpling that was invented in this city in the 1870s and has since conquered the world. But the versions you find abroad are rarely the real thing. True Shanghai xiaolongbao is a study in precision: a wheat-flour wrapper pleated into a perfect topknot (the classic count is 18–20 pleats), a filling of seasoned pork or pork-and-crab, and — the crucial trick — a spoonful of hot, savoury broth sealed inside. The soup comes from jellied stock mixed into the filling, which melts into liquid as the basket steams. Bite into it carelessly and you will remember the lesson; eat it properly and you understand why Shanghai never stops talking about it.
+  </p>
+  <p>
+    The good news for visitors: xiaolongbao is everywhere, cheap, and quick to learn to love. This guide covers the five places worth your time — from the historic birthplace to modern masters — plus exactly how to eat them like a local.
+  </p>
+
+  <h2>How to eat xiaolongbao (read this first)</h2>
+  <p>
+    The broth inside a fresh basket is <strong>near-boiling</strong>, so technique matters:
+  </p>
+  <ul>
+    <li>Lift a dumpling gently with chopsticks — the skin is delicate and tearing it spills the prize.</li>
+    <li>Hold it over the spoon (or place it directly in the spoon) and <strong>bite a small hole in the top pleats</strong>.</li>
+    <li><strong>Sip the broth</strong> through the hole, savouring it. This is the whole point.</li>
+    <li>Dip the rest in <strong>black vinegar and shredded ginger</strong> — the classic accompaniment — and eat it in one or two bites.</li>
+  </ul>
+  <p>
+    Do not pierce the dumpling's side first, and never skip the 'sip' step. Also remember that xiaolongbao are meant to be eaten immediately, straight from the bamboo steamer — they lose their charm fast, so order a basket at a time rather than a huge pile.
+  </p>
+
+  <h2>The five best places to eat xiaolongbao</h2>
+
+  <h3>1. Nanxiang Steamed Bun Restaurant — the 1875 original</h3>
+  <p>
+    The <strong>Nanxiang Steamed Bun Restaurant</strong> (<em>Nanxiang Mantou Dian</em>) at the <a href="/yu-garden">Yu Garden Bazaar</a> is where it all began — the shop invented the thin-skinned soup dumpling in 1875, and it still sits on the same spot by the zigzag bridge. It is touristy, the queues can be long, and you may share a table, but eating a basket in the place that created the dish, with the Old City all around, is a genuine Shanghai bucket-list moment. The signature is the <strong>crab roe xiaolongbao</strong> — seasonal, pricier, and unforgettable. Go at opening or mid-afternoon to skip the worst of the line.
+  </p>
+  <h3>2. Din Tai Fung — the reliable global master</h3>
+  <p>
+    Din Tai Fung, the Taiwanese chain, is the most consistent xiaolongbao on the planet, and its Shanghai branches (at the Bund's <strong>IAPM mall</strong> and elsewhere) hold up to the hype. The wrappers are uniformly thin, the broth is clean and savoury, and the service is impeccable. It is pricier than the local shops — expect RMB 60–80 a person — but it is the safest introduction for first-timers and the rare tourist restaurant that locals also genuinely rate. The chocolate xiaolongbao dessert is a fun novelty if you have space.
+  </p>
+  <h3>3. Jia Jia Tang Bao — the Bund's neighbourhood legend</h3>
+  <p>
+    Tucked on a small lane steps from the <a href="/the-bund">Bund</a>, <strong>Jia Jia Tang Bao</strong> is a beloved local institution with a Michelin recommendation and queues to match. It does one thing — exceptional pork and crab xiaolongbao with impossibly thin skins — and the no-frills room fills with office workers and devoted regulars. Order by the basket, go early (11:00 AM or 4:30 PM) to beat the crowd, and treat the crab version as the highlight. Cash and WeChat Pay are standard; the staff are friendly even when busy.
+  </p>
+  <h3>4. Fu Chun — the neighbourhood classic</h3>
+  <p>
+    <strong>Fu Chun</strong>, with branches around the city, is the place locals mention when you ask for 'real' xiaolongbao without the tourist markup. The dumplings are sturdy, generously filled, and served fast in a canteen-style setting. Order a basket of pork, a bowl of <em>shengjianbao</em> (pan-fried pork buns, another Shanghai classic) to compare, and you have eaten like a resident. It is cheap, satisfying, and exactly what a food-obsessed visitor wants.
+  </p>
+  <h3>5. Small and seasonal: the crab season special</h3>
+  <p>
+    If you visit between October and December, <strong>hairy crab season</strong> means the city's xiaolongbao shops reach peak form, with <strong>crab roe dumplings</strong> (<em>xie fen xiaolong</em>) appearing on every menu. The sweet, intense roe raises the dumpling from excellent to extraordinary. It is the single best seasonal food moment in Shanghai — book it at any of the shops above and thank yourself later.
+  </p>
+
+  <h2>What to order and how much it costs</h2>
+  <p>
+    The standard order is simple: one basket of <strong>pork xiaolongbao</strong> (six pieces, RMB 25–40) and, if you can find it, a basket of <strong>crab xiaolongbao</strong> (RMB 40–60). Add a small dish of vinegar and ginger, and, at many shops, a bowl of clear soup or a side of <em>shengjianbao</em>. Prices at the big-name tourist spots run higher; the neighbourhood shops are cheaper. One basket is a snack for one, two baskets make a light meal — xiaolongbao are eaten fresh and small, not in quantity.
+  </p>
+
+  <h2>Practical tips</h2>
+  <ul>
+    <li><strong>Go off-peak:</strong> lunch (11:30 AM–1:00 PM) and early dinner are the busy windows at the famous shops; mid-afternoon (2:00–4:00 PM) is the quiet slot.</li>
+    <li><strong>Bring cash or WeChat Pay:</strong> some famous old shops (Jia Jia included) take cash first; ATMs are nearby but a little Alipay or WeChat setup saves hassle.</li>
+    <li><strong>Eat them hot:</strong> xiaolongbao are best in the first five minutes out of the steamer. Order in batches rather than piling baskets.</li>
+    <li><strong>Pair with the neighbourhood:</strong> Nanxiang slots naturally into a <a href="/yu-garden">Yu Garden</a> morning, and Jia Jia into a <a href="/the-bund">Bund</a> afternoon — both are perfectly located for a food-first itinerary.</li>
+  </ul>
+  <p>
+    Xiaolongbao is the perfect visitor food: cheap, iconic, and easy to love. Eat it at the source, eat it properly, and you will spend the rest of your trip ordering more. The full local menu — from <a href="/food">shengjianbao to noodle shops</a> — is worth exploring too, but this is where you start.
+  </p>
+</DetailLayout>

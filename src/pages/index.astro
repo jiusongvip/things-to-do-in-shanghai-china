@@ -13,16 +13,76 @@ const quickCategories = [
 ];
 
 const topPicks = [
-  { num: "01", title: "Walk the Bund", desc: "Shanghai's iconic waterfront promenade — colonial architecture on one side, futuristic Pudong skyline on the other. Best at golden hour.", img: "/images/picsum-1-25g4.webp", alt: "The Bund waterfront skyline at sunset" },
-  { num: "02", title: "Ascend Shanghai Tower", desc: "The world's second-tallest building. The 118th-floor observation deck delivers a vertigo-inducing view of the entire city.", img: "/images/picsum-2-27w6.webp", alt: "Shanghai Tower against blue sky" },
-  { num: "03", title: "Get Lost in Yu Garden", desc: "A 16th-century classical Chinese garden tucked in the Old City. Rockeries, pavilions, koi ponds — pure Ming-dynasty serenity.", img: "/images/picsum-3-2acj.webp", alt: "Yu Garden pavilions and pond" },
-  { num: "04", title: "Eat Xiaolongbao", desc: "Shanghai's signature soup dumplings. Thin-skinned, pork-filled, scalding-hot broth inside. Din Tai Fung for polish, Jia Jia Tang Bao for the real deal.", img: "/images/picsum-4-2crw.webp", alt: "Steamed xiaolongbao dumplings" },
-  { num: "05", title: "Stroll the French Concession", desc: "Plane-tree-lined streets, Art Deco apartments, and the city's best cafes and boutiques. Rent a bike and wander without a map.", img: "/images/picsum-5-2f7b.webp", alt: "Plane trees in the French Concession" },
+  { num: "01", title: "Walk the Bund", desc: "Shanghai's iconic waterfront promenade — colonial architecture on one side, futuristic Pudong skyline on the other. Best at golden hour.", img: "/images/shanghai/bund-day.webp", alt: "The Bund waterfront and Pudong skyline at golden hour", slug: "/the-bund" },
+  { num: "02", title: "Ascend Shanghai Tower", desc: "The world's second-tallest building. The 118th-floor observation deck delivers a vertigo-inducing view of the entire city.", img: "/images/shanghai/shanghai-tower.webp", alt: "View from the Shanghai Tower observation deck", slug: "/shanghai-tower" },
+  { num: "03", title: "Get Lost in Yu Garden", desc: "A 16th-century classical Chinese garden tucked in the Old City. Rockeries, pavilions, koi ponds — pure Ming-dynasty serenity.", img: "/images/shanghai/yu-garden.webp", alt: "Yu Garden classical pavilions and pond", slug: "/yu-garden" },
+  { num: "04", title: "Eat Xiaolongbao", desc: "Shanghai's signature soup dumplings. Thin-skinned, juicy, scalding-hot broth inside. Din Tai Fung for polish, Jia Jia Tang Bao for the real deal.", img: "/images/shanghai/xiaolongbao.webp", alt: "Steamed xiaolongbao soup dumplings in a basket", slug: "/xiaolongbao" },
+  { num: "05", title: "Stroll the French Concession", desc: "Plane-tree-lined streets, Art Deco apartments, and the city's best cafes and boutiques. Rent a bike and wander without a map.", img: "/images/shanghai/wukang-road.webp", alt: "Plane trees along Wukang Road in the French Concession", slug: "/french-concession" },
+];
+
+const topThings = [
+  { t: "01", title: "Walk the Bund", cat: "Attraction", desc: "Shanghai's iconic waterfront promenade. Colonial buildings on one side, Pudong skyline on the other. Free to stroll; best at golden hour.", info: "Free forever-time | Nearest Metro: Line 2 & 10, East Nanjing Road | Allow 1–2 hrs", slug: "/the-bund" },
+  { t: "02", title: "Ascend Shanghai Tower", cat: "Attraction", desc: "World's second-tallest building. The 118th-floor observation deck delivers a vertigo-inducing view across the whole city.", info: "RMB 180–220 · Open daily 08:30–22:00 · Allow 1.5 hrs", slug: "/shanghai-tower" },
+  { t: "03", title: "Get Lost in Yu Garden", cat: "Attraction", desc: "A 16th-century classical Chinese garden tucked in the Old City. Rockeries, pavilions, koi ponds — pure Ming-dynasty serenity.", info: "RMB 40 · Open 09:00–16:30 · Allow 1–2 hrs", slug: "/yu-garden" },
+  { t: "04", title: "Eat Xiaolongbao at Jia Jia Tang Bao", cat: "Food", desc: "Shanghai's signature soup dumplings. Thin-skinned, pork-filled, scalding broth inside. Tiny shop with one item on the menu.", info: "RMB 20–60 · Seat from 10:00, queues start from 11:00", slug: "/xiaolongbao" },
+  { t: "05", title: "Stroll the French Concession", cat: "Attraction", desc: "Plane-tree-lined streets, Art Deco apartments, the city's best cafes. Rent a bike and wander without a map.", info: "Free · Start at Wukang Road · Allow half a day", slug: "/french-concession" },
+  { t: "06", title: "Ride the Shanghai Maglev", cat: "Transport", desc: "The fastest commercial train on Earth — 431 km/h from Pudong Airport to the city in 8 minutes. A fun, practical ride.", info: "RMB 50 single / RMB 30 with same-day air ticket · Every 15 min", slug: "/attractions" },
+  { t: "07", title: "Take a Huangpu River Night Cruise", cat: "Attraction", desc: "Watch Bund and Lujiazui skylines light up from the water. Book the 19:00 onwards sailings for the full effect.", info: "RMB 100–150 · Boats depart from Shiliupu Wharf", slug: "/huangpu-river-cruise" },
+  { t: "08", title: "Shanghai Old Street & City God Temple", cat: "Attraction", desc: "Winding alleys of teas, crafts and snacks around the City God Temple, next to Yu Garden.", info: "Free entry · Streets open all day · Temple RMB 10", slug: "/attractions" },
+  { t: "09", title: "Ride the Bund Sightseeing Tunnel", cat: "Attraction", desc: "A kitschy sci-fi light tunnel under the Huangpu River. Tourist fun, best for kids and gamblers of kitsch.", info: "RMB 50 · Rides both ways all day", slug: "/with-kids" },
+  { t: "10", title: "Zhongshan Park Weekend Markets", cat: "Shopping", desc: "Lantern markets, bubble tea and street snacks that fill landmarks from Friday afternoon.", info: "Free · Weekends only", slug: "/shopping" },
+  { t: "11", title: "Eat Shengjianbao at Yang's Fried Dumplings", cat: "Food", desc: "The gold standard for pan-fried soup dumplings. Tender, crispy, dripping with broth. Multiple locations citywide.", info: "RMB 8 for 4 ⸏ Try the pork+ginger", slug: "/food" },
+  { t: "12", title: "Xintiandi's Shikumen Lane Houses", cat: "Attraction", desc: "Restored stone-gate courtyard houses turned into stylish bars, boutiques and the site of the city's first Communist meeting.", info: "Free · Open all day", slug: "/attractions" },
+  { t: "13", title: "Jing'an Temple", cat: "Attraction", desc: "A Song-dynasty Buddhist temple squeezed between skyscrapers. Calm, atmospheric and worth the incense crowd.", info: "RMB 50 · Open 07:00–17:00", slug: "/attractions" },
+  { t: "14", title: "Shanghai Museum (People's Square)", cat: "Attraction", desc: "One of the world's best collection of ancient Chinese bronze, ceramics, calligraphy and jade.", info: "Free (reserve) · Open Tue–Sun 09:00–17:00", slug: "/attractions" },
+  { t: "15", title: "Flair Rooftop, Ritz-Carlton Pudong", cat: "Nightlife", desc: "Highest rooftop bar in Shanghai, on the 58th floor with sweeping skyline views over both banks.", info: "Dress code · Book ahead · Happy hour 17:00–20:00", slug: "/nightlife" },
+  { t: "16", title: "Speak Low Speakeasy", cat: "Nightlife", desc: "A hidden bar behind a barbershop bookshelf. Regular on Asia's 50 Best Bars list.", info: "No reservation · Go early · Take the back door", slug: "/nightlife" },
+  { t: "17", title: "Nanjing Road Pedestrian Street", cat: "Shopping", desc: "Shanghai's famous 5.5 km retail drag. Neon, malls, and an endless strip of shops and snacks for day or night.", info: "Free · Busiest by early evening", slug: "/shopping" },
+  { t: "18", title: "Tianzifang's Hidden Alleys", cat: "Shopping", desc: "Maze of narrow lanes stuffed with artisan studios, indie boutiques and craft shops in the former French Concession.", info: "Free · Crowded weekends · Allow 2 hrs", slug: "/shopping" },
+  { t: "19", title: "The Long Quan Wharf & Silos", cat: "Attraction", desc: "Converted art precinct of brick silos and galleries along the water — unexpected and quietly beautiful.", info: "Free · Open daily · Good cafe nearby", slug: "/attractions" },
+  { t: "20", title: "Longhua Temple", cat: "Attraction", desc: "Shanghai's oldest and largest Buddhist temple, a quieter counterpoint to Jing'an.", info: "RMB 10 · Open 07:00–16:30", slug: "/attractions" },
+  { t: "21", title: "Yuyuan Bazaar Craft Market", cat: "Shopping", desc: "Shops are souvenirs, umbrellas, tea sets and jade around the historic garden.", info: "Free · Combine with Yu Garden", slug: "/shopping" },
+  { t: "22", title: "The Bund History Museum (free)", cat: "Free", desc: "A small but free museum tracing how the Bund's skyline and port were built up over 150 years.", info: "Free · Open Tue–Sun · Allow 1 hr", slug: "/free" },
+  { t: "23", title: "M50 Art District", cat: "Attraction", desc: "Shanghai's creative hub of independent galleries, studios and painters in converted warehouses.", info: "Free · Open 10:00–18:00 · Closes Mondays", slug: "/attractions" },
+  { t: "24", title: "Waitan North / North Bund riverside", cat: "Attraction", desc: "A quiet waterfront boardwalk on the opposite bank with calm views back at the Pudong skyline.", info: "Free · At sunset", slug: "/free" },
+  { t: "25", title: "Explore the M50 Water Town day trip", cat: "Day Trip", desc: "For a half-day out of Shanghai, try Zhujiajiao or Qibao — canals, bridges and tea houses a short metro ride away.", info: "Train/subway ~1 hr · Free entry", slug: "/day-trips" },
+  { t: "26", title: "Trip the Longhua Pagoda Park", cat: "Attraction", desc: "A peaceful Buddhist park with the famed Longhua Pagoda ringed by incense and locals.", info: "Free · Open daily", slug: "/attractions" },
+  { t: "27", title: "Shanghai Grand Theatre evening", cat: "Nightlife", desc: "Catch a symphony, ballet or Chinese opera in People's Square — book online, dress well.", info: "From RMB 80 · Book ahead", slug: "/nightlife" },
+  { t: "28", title: "Sip Coffee in the Fuxing Park lanes", cat: "Food", desc: "Brunch and third-wave coffee at slow cafes facing the plane-tree parks of the old French Concession.", info: "Free to stroll · Cafés vary", slug: "/food" },
+  { t: "29", title: "Take in the view from Sheshan hill", cat: "Day Trip", desc: "Shanghai's only real hill — a short rail hop out west with forest hikes and a basil church on top.", info: "Metro Line 9 · Free", slug: "/day-trips" },
+  { t: "30", title: "Night markets on the Old City lanes", cat: "Food", desc: "A buzzing strip of seafood stalls, dumplings and skewers that comes alive as the lanterns switch on around Yu Garden.", info: "Dinner from around 18:00 → late", slug: "/food" },
 ];
 
 const itineraryTeasers = [
   { days: "3 Days", title: "The Essentials", desc: "Bund, Yu Garden, Shanghai Tower, French Concession, and a Huangpu River cruise. Perfect for a long weekend.", slug: "/itinerary" },
   { days: "5 Days", title: "The Deep Dive", desc: "Everything in the 3-day plan plus day trips, museum visits, and neighborhood explorations. See Shanghai properly.", slug: "/itinerary" },
+];
+
+const budgetTiers = [
+  { tier: "Budget", perDay: "RMB 800", desc: "Hostels, street food, the Metro, and free attractions. You can see nearly everything on the budget plan — you just sleep and eat simply.", accent: "" },
+  { tier: "Comfortable", perDay: "RMB 2,000", desc: "Mid-range hotels, sit-down meals, occasional taxis, and paid entry to every major site. The sweet spot for most trips.", accent: "ring-brand-200 bg-brand-50 border-brand-200" },
+  { tier: "Luxury", perDay: "RMB 5,000+", desc: "Best hotels, fine dining, private guides, and hassle-free transport. Zero compromises.", accent: "" },
+];
+
+const freeThings = [
+  { name: "The Bund at sunset", slug: "/free" },
+  { name: "French Concession wander", slug: "/free" },
+  { name: "Shanghai Museum", slug: "/free" },
+  { name: "M50 Art District", slug: "/free" },
+  { name: "People's Park Marriage Market", slug: "/free" },
+  { name: "Power Station of Art", slug: "/free" },
+];
+
+const dayTrips = [
+  { name: "Suzhou", time: "30 min", slug: "/day-trips", desc: "UNESCO classical gardens and canals." },
+  { name: "Hangzhou", time: "45 min", slug: "/day-trips", desc: "West Lake mist and tea plantations." },
+  { name: "Zhujiajiao", time: "1 hr", slug: "/day-trips", desc: "Shanghai's closest water town." },
+  { name: "Wuzhen", time: "2 hrs", slug: "/day-trips", desc: "Ancient canals lit by lanterns at night." },
+];
+
+const kidsGroups = [
+  { label: "Under 6", picks: "Shanghai Ocean Aquarium, Century Park, Bund Sightseeing Tunnel", note: "Stroller-friendly, gentle, and never overwhelming." },
+  { label: "Ages 6+", picks: "Science & Tech Museum, Shanghai Circus World, Disneyland", note: "Unforgettable, high-energy adventures." },
 ];
 
 const faqs = [
@@ -35,9 +95,34 @@ const faqs = [
 ---
 
 <BaseLayout
- title="Home"
-  description="Discover the best things to do in Shanghai, China: iconic landmarks, food spots, nightlife, shopping, day trips. Plan your trip with our curated guide."
+  title="Home"
+  description="The best things to do in Shanghai, China in 2026: top 30 attractions, food, nightlife, shopping and day trips, mapped and rated by a local travel writer. Free 3-day and 5-day itineraries inside."
+  author="Jamie Chen, Shanghai-based Travel Writer"
+  datePublished="2026-01-15"
+  dateModified="2026-08-01"
+  isArticle
 >
+  <script slot="schema" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Top 30 Things to Do in Shanghai, China",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 30,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Walk the Bund" },
+        { "@type": "ListItem", "position": 2, "name": "Ascend Shanghai Tower" },
+        { "@type": "ListItem", "position": 3, "name": "Get Lost in Yu Garden" },
+        { "@type": "ListItem", "position": 4, "name": "Eat Xiaolongbao at Jia Jia Tang Bao" },
+        { "@type": "ListItem", "position": 5, "name": "Stroll the French Concession" },
+        { "@type": "ListItem", "position": 6, "name": "Ride the Shanghai Maglev" },
+        { "@type": "ListItem", "position": 7, "name": "Huangpu River Night Cruise" },
+        { "@type": "ListItem", "position": 8, "name": "Shanghai Old Street & City God Temple" },
+        { "@type": "ListItem", "position": 9, "name": "Bund Sightseeing Tunnel" },
+        { "@type": "ListItem", "position": 10, "name": "Zhongshan Park Weekend Markets" }
+      ]
+    }
+  </script>
   <script slot="schema" type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -55,7 +140,7 @@ const faqs = [
   <section class="relative overflow-hidden bg-neutral-900">
     <div class="absolute inset-0">
       <img
-          src="/images/picsum-0-22lh.webp"
+          src="/images/shanghai/hero-bund.webp"
           alt="Shanghai Pudong skyline at dusk"
           class="h-full w-full object-cover opacity-60"
           width="1200"
@@ -73,17 +158,40 @@ const faqs = [
           Things to Do in<br />Shanghai, China
         </h1>
         <p class="mt-6 max-w-lg text-lg leading-relaxed text-neutral-300">
-          From the futuristic Pudong skyline to hidden lane-house cafes, discover the best of Shanghai with our curated, locally-informed guide.
+          From the futuristic Pudong skyline to hidden lane-house cafes, discover the best of Shanghai with our curated, locally-informed guide — every spot mapped and ranked for 2026.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href="#categories" class="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition-all hover:bg-brand-600 active:scale-[0.98]">
-            Start Exploring
+          <a href="#top-30" class="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition-all hover:bg-brand-600 active:scale-[0.98]">
+            See the Top 30 List
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
           </a>
+          <a href="#map" class="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-[0.98]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Open Interactive Map
+          </a>
           <a href="/itinerary" class="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-[0.98]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
             View Itineraries
           </a>
+          <a href="#planner" class="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 active:scale-[0.98]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+            Take the Quiz
+          </a>
         </div>
+        <dl class="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-white/15 pt-8">
+          <div>
+            <dt class="text-2xl font-extrabold text-white md:text-3xl">30</dt>
+            <dd class="mt-1 text-xs font-medium uppercase tracking-widest text-neutral-400">Ranked things to do</dd>
+          </div>
+          <div>
+            <dt class="text-2xl font-extrabold text-white md:text-3xl">25+</dt>
+            <dd class="mt-1 text-xs font-medium uppercase tracking-widest text-neutral-400">Map pins</dd>
+          </div>
+          <div>
+            <dt class="text-2xl font-extrabold text-white md:text-3xl">3 &amp; 5</dt>
+            <dd class="mt-1 text-xs font-medium uppercase tracking-widest text-neutral-400">Day itineraries</dd>
+          </div>
+        </dl>
       </div>
     </div>
   </section>
@@ -119,6 +227,40 @@ const faqs = [
     </div>
   </section>
 
+  <!-- Top Things To Do (hub listicle) -->
+  <section id="top-30" class="py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-14">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Updated for 2026</p>
+        <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">The 30 best things to do in Shanghai, China</h2>
+        <p class="mt-3 max-w-2xl leading-relaxed text-neutral-500">
+          Ranked by a writer who has eaten, wandered and slept in Shanghai for over a decade. Practical info included so you can actually plan your day — not just window-shop ideas.
+        </p>
+      </div>
+      <ol class="divide-y divide-neutral-200 border-y border-neutral-200">
+        {topThings.map((item) => (
+          <li class="group py-6 md:py-7">
+            <a href={item.slug} class="flex flex-col gap-2 md:flex-row md:items-start md:gap-8">
+              <span class="text-2xl font-extrabold tracking-tight text-brand-300 transition-colors group-hover:text-brand-500 md:w-14 md:pt-1">{item.t}</span>
+              <div class="flex-1">
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="text-lg font-bold leading-snug text-neutral-900 group-hover:text-brand-700 md:text-xl">{item.title}</h3>
+                  <span class="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-semibold text-neutral-500">{item.cat}</span>
+                </div>
+                <p class="mt-1.5 leading-relaxed text-neutral-600">{item.desc}</p>
+                <p class="mt-2 text-sm font-medium text-neutral-400">{item.info}</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-1 hidden shrink-0 text-neutral-300 transition-all group-hover:translate-x-1 group-hover:text-brand-500 md:block"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <p class="mt-8 text-center text-sm text-neutral-400">
+        Every recommendation is firsthand — meals eaten, streets walked, tickets bought. <a href="/about" class="font-medium text-brand-600 underline underline-offset-2 hover:text-brand-700">Read how we research.</a>
+      </p>
+    </div>
+  </section>
+
   <!-- Top Picks -->
   <section class="bg-neutral-50 py-20 md:py-28">
     <div class="mx-auto max-w-7xl px-6">
@@ -129,16 +271,20 @@ const faqs = [
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {topPicks.map((pick) => (
-          <article class="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+          <a href={pick.slug} class="group relative block overflow-hidden rounded-2xl border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
             <div class="aspect-[4/3] overflow-hidden">
               <img src={pick.img} alt={pick.alt} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" width="1200" height="900" loading="lazy" decoding="async" />
             </div>
             <div class="p-5 md:p-6">
               <span class="text-xs font-bold tracking-widest text-brand-400">{pick.num}</span>
-              <h3 class="mt-2 text-lg font-bold leading-snug text-neutral-900">{pick.title}</h3>
+              <h3 class="mt-2 text-lg font-bold leading-snug text-neutral-900 group-hover:text-brand-700">{pick.title}</h3>
               <p class="mt-2 text-sm leading-relaxed text-neutral-500">{pick.desc}</p>
+              <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 transition-all group-hover:gap-2">
+                Read the guide
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
             </div>
-          </article>
+          </a>
         ))}
       </div>
     </div>
@@ -158,7 +304,7 @@ const faqs = [
   </section>
 
   <!-- Map Section -->
-  <section class="py-20 md:py-28">
+  <section id="map" class="py-20 md:py-28">
     <div class="mx-auto max-w-7xl px-6">
       <div class="grid gap-12 lg:grid-cols-5 lg:gap-16">
         <div class="lg:col-span-2">
@@ -193,7 +339,7 @@ const faqs = [
       <div class="mb-14">
         <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Plan Your Trip</p>
         <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">Ready-made itineraries</h2>
-        <p class="mt-3 max-w-xl text-neutral-500">Day-by-day plans built by people who know Shanghai. Pick your pace and go.</p>
+        <p class="mt-3 max-w-xl text-neutral-500">Day-by-day plans built by people who know Shanghai. These are battle-tested — we have handed versions of them to dozens of first-time visitors, and they work.</p>
       </div>
       <div class="grid gap-6 md:grid-cols-2">
         {itineraryTeasers.map((item) => (
@@ -207,6 +353,102 @@ const faqs = [
             </span>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Budget Module -->
+  <section class="py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-14 max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Cost Estimate</p>
+        <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">How much does a trip to Shanghai cost?</h2>
+        <p class="mt-3 leading-relaxed text-neutral-500">A realistic daily budget, per person, including accommodation, food, transport, and attractions. Figures are from our own trips — updated for 2026.</p>
+      </div>
+      <div class="grid gap-4 md:grid-cols-3">
+        {budgetTiers.map((b) => (
+          <div class={`rounded-2xl border ${b.accent || "border-neutral-200"} bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}>
+            <p class="text-xs font-semibold uppercase tracking-widest text-neutral-400">{b.tier}</p>
+            <p class="mt-2 text-3xl font-bold text-neutral-900">{b.perDay}</p>
+            <p class="mt-1 text-sm text-neutral-500">per day</p>
+            <p class="mt-4 text-sm leading-relaxed text-neutral-500">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="mt-8 text-center text-sm text-neutral-400">
+        Full day-by-day breakdown with hotels, meals and prices: <a href="/itinerary" class="font-medium text-brand-600 underline underline-offset-2 hover:text-brand-700">see the 3-day &amp; 5-day itineraries</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Free + Day Trips + Kids modules -->
+  <section class="bg-neutral-50 py-20 md:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <div class="rounded-2xl border border-neutral-200 bg-white p-8 md:p-10">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Free &amp; Cheap</p>
+          <h3 class="mt-3 text-2xl font-bold leading-snug text-neutral-900">Shanghai's best experiences cost nothing</h3>
+          <p class="mt-3 leading-relaxed text-neutral-500">The city's most memorable moments — dawn tai chi on the Bund, contemporary art in a converted power station — are free.</p>
+          <ul class="mt-6 grid gap-2.5 sm:grid-cols-2">
+            {freeThings.map((f) => (
+              <li>
+                <a href={f.slug} class="inline-flex items-start gap-2 text-sm font-medium text-neutral-700 transition-colors hover:text-brand-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-brand-500"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  {f.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="/free" class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 transition-all hover:gap-2">
+            See all free things to do in Shanghai
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="rounded-2xl border border-neutral-200 bg-white p-8 md:p-10">
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Day Trips</p>
+          <h3 class="mt-3 text-2xl font-bold leading-snug text-neutral-900">Escape the city in under two hours</h3>
+          <p class="mt-3 leading-relaxed text-neutral-500">China's high-speed rail turns the region into your playground. Water towns, imperial gardens, misty lakes — all a short train ride away.</p>
+          <div class="mt-6 space-y-3">
+            {dayTrips.map((t) => (
+              <a href={t.slug} class="group flex items-center justify-between gap-4 rounded-xl border border-neutral-200 px-4 py-3 transition-all hover:border-brand-200 hover:bg-brand-50/50">
+                <div>
+                  <p class="text-sm font-bold text-neutral-900 group-hover:text-brand-700">{t.name}</p>
+                  <p class="text-xs text-neutral-500">{t.desc}</p>
+                </div>
+                <span class="shrink-0 rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-500">{t.time}</span>
+              </a>
+            ))}
+          </div>
+          <a href="/day-trips" class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 transition-all hover:gap-2">
+            Explore all day trips from Shanghai
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- With Kids -->
+      <div class="mt-6 rounded-2xl border border-neutral-200 bg-white p-8 md:p-10">
+        <div class="grid gap-8 lg:grid-cols-[1fr_1.5fr] lg:items-center">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Traveling with Kids</p>
+            <h3 class="mt-3 text-2xl font-bold leading-snug text-neutral-900">Shanghai is surprisingly family-friendly</h3>
+            <p class="mt-3 leading-relaxed text-neutral-500">Restaurants welcome children, Metro stations have family restrooms, and the city is full of world-class kid-scale adventures.</p>
+            <a href="/with-kids" class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 transition-all hover:gap-2">
+              Full family guide
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="space-y-4">
+            {kidsGroups.map((k) => (
+              <div class="rounded-xl bg-neutral-50 p-5">
+                <p class="text-sm font-bold text-neutral-900">{k.label}</p>
+                <p class="mt-1.5 text-sm leading-relaxed text-neutral-600">{k.picks}</p>
+                <p class="mt-1 text-xs text-neutral-400">{k.note}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -249,6 +491,142 @@ const faqs = [
       </div>
     </div>
   </section>
+
+  <!-- Trip Planner (Quiz) -->
+  <section id="planner" class="border-t border-neutral-100 bg-brand-700/5 py-20 md:py-24">
+    <div class="mx-auto max-w-5xl px-6">
+      <div class="text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Trip Planner</p>
+        <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-4xl">What are you in the mood for in Shanghai?</h2>
+        <p class="mx-auto mt-3 max-w-xl text-neutral-500">Answer four quick questions and we'll hand you a shortlist with the map, prices, and links to our full guides.</p>
+      </div>
+
+      <div class="mx-auto mt-10 max-w-4xl rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm md:p-10">
+        <div class="grid gap-8 md:grid-cols-2">
+          <div class="space-y-6">
+            <div>
+              <p class="mb-2 text-sm font-bold text-neutral-900">1 · How are you traveling?</p>
+              <div class="flex flex-wrap gap-2" data-q="group">
+                <button type="button" data-opt="couple" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">Couple</button>
+                <button type="button" data-opt="solo" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">Solo</button>
+                <button type="button" data-opt="family" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">Family with kids</button>
+                <button type="button" data-opt="friends" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">Friends</button>
+              </div>
+            </div>
+            <div>
+              <p class="mb-2 text-sm font-bold text-neutral-900">2 · How long?</p>
+              <div class="flex flex-wrap gap-2" data-q="days">
+                <button type="button" data-opt="1" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">1–2 days</button>
+                <button type="button" data-opt="3" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">3 days</button>
+                <button type="button" data-opt="5" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">5+ days</button>
+              </div>
+            </div>
+            <div>
+              <p class="mb-2 text-sm font-bold text-neutral-900">3 · Budget?</p>
+              <div class="flex flex-wrap gap-2" data-q="budget">
+                <button type="button" data-opt="free" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">Free / cheap</button>
+                <button type="button" data-opt="mid" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">Mid</button>
+                <button type="button" data-opt="lux" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">Luxury</button>
+              </div>
+            </div>
+            <div>
+              <p class="mb-2 text-sm font-bold text-neutral-900">4 · What matters most?</p>
+              <div class="flex flex-wrap gap-2" data-q="interest">
+                <button type="button" data-opt="icons" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">Iconic sights</button>
+                <button type="button" data-opt="food" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">Food</button>
+                <button type="button" data-opt="shopping" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">Shopping</button>
+                <button type="button" data-opt="night" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">Nightlife</button>
+                <button type="button" data-opt="nature" class="rounded-xl border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-700">Parks &amp; chill</button>
+              </div>
+            </div>
+            <button id="planner-go" type="button" disabled class="w-full rounded-xl bg-brand-600 px-6 py-3 text-sm font-semibold text-white opacity-40 transition-all hover:bg-brand-700 md:w-auto">
+              Build my plan
+            </button>
+          </div>
+
+          <div class="rounded-2xl border border-neutral-100 bg-neutral-50/60 p-6">
+            <p class="text-xs font-semibold uppercase tracking-widest text-neutral-400">Your picks</p>
+            <div id="planner-results" class="mt-4 space-y-3">
+              <p class="text-sm text-neutral-500">Answer the questions, then hit <strong>Build my plan</strong>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<script is:inline>
+  (function () {
+    var PLAN = [
+      { t:"Bund sunset stroll", tag:"icons", slug:"/attractions", price:0, fam:true, d:"The iconic free promenade — do it at golden hour." },
+      { t:"Shanghai Tower deck", tag:"icons", slug:"/attractions", price:1, fam:false, d:"World's second-tallest building; vertigo-inducing views." },
+      { t:"Yu Garden", tag:"icons", slug:"/attractions", price:1, fam:true, d:"A Ming-dynasty garden calm in the Old City." },
+      { t:"French Concession walk", tag:"icons", slug:"/attractions", price:0, fam:true, d:"Plane-tree lanes, Art Deco, and the city's best cafes." },
+      { t:"Jia Jia Tang Bao xiaolongbao", tag:"food", slug:"/food", price:0, fam:true, d:"The legendary soup-dumpling shop, pork or crab." },
+      { t:"Yang's shengjianbao", tag:"food", slug:"/food", price:0, fam:true, d:"Golden, crisp pan-fried buns for under RMB 10." },
+      { t:"Food crawl on Yunnan Road", tag:"food", slug:"/food", price:1, fam:true, d:"Hairy crab, hot pot, and late-night eats." },
+      { t:"Nanjing Road shopping", tag:"shopping", slug:"/shopping", price:1, fam:true, d:"5.5 km of neon retail drag." },
+      { t:"Tianzifang arts & crafts", tag:"shopping", slug:"/shopping", price:0, fam:true, d:"Artisan studios in hidden lane houses." },
+      { t:"South Bund Fabric Market", tag:"shopping", slug:"/shopping", price:1, fam:false, d:"Custom suits tailored in 48 hours." },
+      { t:"Flair Rooftop bar", tag:"night", slug:"/nightlife", price:2, fam:false, d:"Shanghai's highest rooftop, skyline to both banks." },
+      { t:"Speak Low speakeasy", tag:"night", slug:"/nightlife", price:2, fam:false, d:"Hidden bar behind a bookshelf; Asia's 50 Best." },
+      { t:"Shanghai Museum (free)", tag:"icons", slug:"/free", price:0, fam:true, d:"World-class bronze & ceramics, free with reservation." },
+      { t:"M50 Art District", tag:"nature", slug:"/free", price:0, fam:true, d:"Galleries in a converted textile mill." },
+      { t:"Century Park", tag:"nature", slug:"/with-kids", price:1, fam:true, d:"Shanghai's largest park; picnic and play lawns." },
+      { t:"Huangpu night cruise", tag:"night", slug:"/attractions", price:1, fam:true, d:"Best after 8 PM, both skylines lit." },
+      { t:"Zhujiajiao water town", tag:"nature", slug:"/day-trips", price:1, fam:true, d:"Canal town an hour away by Metro." },
+    ];
+    var sel = { group:'', days:'', budget:'', interest:'' };
+    var boxes = document.querySelectorAll('#planner [data-q]');
+    var go = document.getElementById('planner-go');
+    var results = document.getElementById('planner-results');
+    Array.prototype.forEach.call(boxes, function (box) {
+      Array.prototype.forEach.call(box.querySelectorAll('button'), function (btn) {
+        btn.addEventListener('click', function () {
+          var parent = btn.parentNode;
+          Array.prototype.forEach.call(parent.querySelectorAll('button'), function (b) {
+            b.classList.remove('border-brand-500', 'text-brand-700', 'bg-brand-50');
+            b.classList.add('border-neutral-200', 'text-neutral-700');
+          });
+          btn.classList.add('border-brand-500', 'text-brand-700', 'bg-brand-50');
+          btn.classList.remove('border-neutral-200', 'text-neutral-700');
+          sel[parent.getAttribute('data-q')] = btn.getAttribute('data-opt');
+          go.disabled = !(sel.group && sel.days && sel.budget && sel.interest);
+          go.style.opacity = go.disabled ? '0.4' : '1';
+        });
+      });
+    });
+    go.addEventListener('click', function () {
+      var list = PLAN.filter(function (p) {
+        if (sel.budget === 'free' && p.price > 0) return false;
+        if (sel.budget === 'mid' && p.price > 1) return false;
+        if (sel.budget === 'lux' && p.price < 1) return false;
+        return true;
+      });
+      var tagCap = { icons:4, food:3, shopping:3, night:3, nature:3 };
+      list = list.sort(function (a, b) {
+        var score = function (p) {
+          var s = 0;
+          if (p.tag === sel.interest) s += 40;
+          return s;
+        };
+        return score(b) - score(a);
+      });
+      if (sel.group === 'family') list = list.filter(function(p){ return p.fam; });
+      var max = sel.days === '1' ? 5 : sel.days === '3' ? 8 : 10;
+      var top = list.slice(0, max);
+      if (!top.length) top = PLAN.slice(0, 5);
+      results.innerHTML = '';
+      top.forEach(function (p, i) {
+        var el = document.createElement('a');
+        el.href = p.slug;
+        el.className = 'flex items-center justify-between gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 transition hover:border-brand-200 hover:shadow-sm';
+        el.innerHTML = '<div><span class="mr-2 text-xs font-bold text-brand-400">' + (i+1) + '</span><span class="text-sm font-semibold text-neutral-800">' + p.t + '</span><p class="mt-0.5 text-xs text-neutral-500">' + p.d + '</p></div><span class="text-brand-600">\u2192</span>';
+        results.appendChild(el);
+      });
+    });
+  })();
+</script>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

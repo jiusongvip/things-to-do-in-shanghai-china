@@ -2,12 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const guides = [
-  { title: "The Bund: Complete Visitor's Guide", desc: "History, best photo spots, what to see, where to eat nearby, and when to go for the best light.", img: "/images/picsum-47-59lg.webp" },
-  { title: "Shanghai Metro: How to Use It", desc: "A complete guide to navigating Shanghai's subway system — lines, tickets, apps, and etiquette.", img: "/images/picsum-48-5c1p.webp" },
-  { title: "Yu Garden: History and Tips", desc: "Everything you need to know before visiting Shanghai's most famous classical garden.", img: "/images/picsum-49-5efn.webp" },
-  { title: "Shanghai Food Dictionary", desc: "A visual guide to 20 Shanghainese dishes — what they are, how to order them, and where to find the best.", img: "/images/picsum-50-5gtz.webp" },
-  { title: "Pudong vs Puxi: Which Side to Stay On", desc: "The pros and cons of Shanghai's two halves — views vs character, business vs culture.", img: "/images/picsum-51-5j9p.webp" },
-  { title: "Shanghai on a Budget", desc: "How to experience Shanghai for under RMB 500 per day — accommodation, food, transport, and attractions.", img: "/images/picsum-52-5lor.webp" },
+  { title: "The Bund: Complete Visitor's Guide", cat: "Landmark", desc: "History, best photo spots, what to see, where to eat nearby, and when to go for the best light. We walked every section so you don't guess — including the quieter stretches most guides skip. Learn the colonial architecture facing Pudong, when the sunset light is best (just before 7 PM June, closer to 5 PM in winter), and the one trick for getting a clean photo of the skyline without tourists in frame (go mid-morning on a weekday, walk south past the Peace Hotel).", img: "/images/picsum-47-59lg.webp" },
+  { title: "Shanghai Metro: How to Use It", desc: "A complete guide to navigating Shanghai's subway system — lines, tickets, apps, and etiquette. We explain how to buy a Public Transportation Card, top it up, and pass through the country's fastest-growing network of 20 lines. Tips on avoid peak crush, reading English signs, the best exits for key attractions, and how to pay with Alipay or WeChat. Includes a beginner's error: the difference between Line 2 stations that look close on the map but are a long walk apart.", img: "/images/picsum-48-5c1p.webp" },
+  { title: "Yu Garden: History and Tips", desc: "Everything you need to know before visiting Shanghai's most famous classical garden. Built over a 20-year span in the 1500s by Pan Yunduan, a Ming official, the garden was nearly destroyed during the Taiping Rebellion and again in the 20th century. We cover how to arrive before the tour-bus rush (the gates open at 8:45), which pavilions to linger at, the symbolism of the rockeries, and how to combine it with the adjoining City God Temple bazaar.", img: "/images/shanghai/yu-garden.webp" },
+  { title: "Shanghai Food Dictionary", desc: "A visual guide to the essential Shanghainese dishes — what they are, how to order them, and where to find the best. From xiaolongbao and shengjianbao to hairy crab, hongshao rou, and cong you bing. Learn the difference between steamed vs pan-fried dumplings, which spice to add, and the phrases to say at a local counter. Pair it with our restaurant page for a full eating itinerary.", img: "/images/shanghai/xiaolongbao.jpg" },
+  { title: "Pudong vs Puxi: Which Side to Stay On", desc: "The pros and cons of Shanghai's two halves — views vs character, business vs culture. Puxi (west): the old city, French Concession, coolest neighborhoods and best food. Pudong (east): the skyscrapers, Lujiazui views, and luxury hotels. We recommend where to base yourself based on budget, itinerary style, and what you care about most — plus the transit reality of crossing the river every day.", img: "/images/picsum-51-5j9p.webp" },
+  { title: "Shanghai on a Budget", desc: "How to experience Shanghai for under RMB 500 per day — accommodation, food, transport, and attractions. Sleep in a hostel near People's Square, eat like a local for pennies, use the Metro, and enjoy world-class museums for free with advance reservations. We'll show you where the cheap-but-good noodle shops are and which paid attractions are genuinely worth it.", img: "/images/picsum-52-5lor.webp" },
 ];
 ---
 
@@ -32,6 +32,13 @@ const guides = [
       <h2 class="text-2xl font-bold tracking-tight text-neutral-900">Deepen your Shanghai knowledge</h2>
       <p class="mt-4 leading-relaxed text-neutral-600">
         These guides go beyond the surface-level recommendations you find on most travel sites. Each one dives deep into a specific aspect of experiencing Shanghai — from navigating the world's largest Metro system to decoding a Shanghainese menu. They are written for travelers who want to understand the city, not just check landmarks off a list. Pair the Bund guide with a visit to our <a href="/attractions" class="text-brand-600 underline underline-offset-2 hover:text-brand-700">attractions page</a>, or use the Food Dictionary alongside our <a href="/food" class="text-brand-600 underline underline-offset-2 hover:text-brand-700">restaurant recommendations</a>.
+      </p>
+      <p class="mt-3 leading-relaxed text-neutral-600">
+        Every guide is built from repeated firsthand visits, not a single rushed pass. We revisit each subject regularly so the hours, prices, and practical details stay current. That is why the numbers here are reliable when older blog posts are not: restaurants change, Metro lines extend, and opening hours shift with the seasons. If you only read one thing from each guide, read the "practical tips" at the end — that is where we put the details that only show up after you have actually done it wrong once.
+      </p>
+      <h2 class="mt-12 text-2xl font-bold tracking-tight text-neutral-900">How these guides are structured</h2>
+      <p class="mt-4 leading-relaxed text-neutral-600">
+        Think of each guide as the answer to one question you would ask a friend who lives here. The Bund guide answers "what should I actually do and see along this famous waterfront?" The Metro guide answers "how do I not get lost in Shanghai's enormous subway?" The budget guide answers "can I afford this trip?" Read the ones that match the decisions you are making, in the order you are making them. Most travelers start with the Metro guide before arrival, save the Food Dictionary for when they are hungry, and read the Pudong-vs-Puxi guide the night before they book a hotel.
       </p>
     </div>
   </section>

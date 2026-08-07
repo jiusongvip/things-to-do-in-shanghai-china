@@ -1,0 +1,100 @@
+---
+import DetailLayout from "../layouts/DetailLayout.astro";
+
+const facts = [
+  { label: "Where", value: "218 Anren Street, Huangpu District (Old City)" },
+  { label: "Opening hours", value: "9:00 AM – 4:30 PM, daily (last entry ~3:30 PM)" },
+  { label: "Admission", value: "RMB 40 (reduced to RMB 30 in low season; free for seniors over 60 with ID)" },
+  { label: "Nearest Metro", value: "Line 10 or 14, Yuyuan Garden Station (Exit 1, 5-minute walk)" },
+  { label: "Time needed", value: "1.5–2 hours in the garden, half a day with the bazaar" },
+  { label: "Best time", value: "Right at the 9:00 AM opening, before the tour buses arrive" },
+];
+
+const faqs = [
+  { q: "Is Yu Garden worth the ticket price?", a: "Yes — RMB 40 for a genuinely beautiful 400-year-old classical garden is a bargain by world standards. The rockeries, koi ponds, and pavilions are dense and intricate, and you can spend an hour and a half happily lost in it. The free street area around it (the City God Temple Bazaar) is a bonus, not a substitute." },
+  { q: "How long do I need at Yu Garden?", a: "Plan 1.5–2 hours inside the garden itself. With the surrounding bazaar, Old Street, and a stop for xiaolongbao, most visitors spend half a day. If you are combining it with the Bund, it becomes a full morning or afternoon." },
+  { q: "Do I need to book Yu Garden tickets in advance?", a: "Not strictly — walk-up ticket purchases are normally fine outside national holidays. But during Golden Week (October 1–7), Chinese New Year, and the May Day holiday, queues can exceed an hour and daily caps sometimes sell out. During those windows, book online a day ahead through the official WeChat mini-program." },
+  { q: "What is the best time of day to visit Yu Garden?", a: "Be there at 9:00 AM when the gates open. You will have the rockeries and ponds nearly to yourself for about 45 minutes before the tour buses arrive. Midday is busy, and late afternoon is pleasant but often still crowded." },
+  { q: "Is Yu Garden accessible?", a: "The garden is old and much of it involves steps, stone bridges, and narrow paths — full wheelchair access is not practical in the main areas. The surrounding bazaar is flat and accessible. If mobility is a concern, the garden itself may be challenging." },
+  { q: "Is Yu Garden the same as the Yu Garden Bazaar?", a: "No. Yu Garden is the paid classical garden. The Yu Garden Bazaar (or City God Temple Bazaar) is the free surrounding shopping-and-food area with the famous snake-shaped zigzag bridge and the Shanghai Old Street. You can wander the bazaar for hours without entering the garden." },
+];
+
+const related = [
+  { href: "/the-bund", label: "The Bund", note: "A 20-minute walk away — see both in one outing" },
+  { href: "/xiaolongbao", label: "Where to eat xiaolongbao", note: "The Old City is the spiritual home of the soup dumpling" },
+  { href: "/shanghai-tower", label: "Shanghai Tower", note: "The skyline view from the world's second-tallest building" },
+  { href: "/attractions", label: "All Shanghai attractions", note: "Hours, tickets, and Metro info for every major sight" },
+];
+---
+
+<DetailLayout
+  title="Yu Garden — Shanghai's Ming-Dynasty Masterpiece"
+  subtitle="A 400-year-old classical garden hiding in the middle of the Old City. Rockeries, pavilions, koi ponds, and dragon walls — here is how to see it at its best and skip the crowds."
+  description="Complete Yu Garden guide: opening hours, ticket prices, best time to visit, how to get there by Metro, what to see inside, and how to combine it with the City God Temple Bazaar and the Bund."
+  image="/images/shanghai/yu-garden.webp"
+  category="Historical Garden"
+  {facts}
+  {faqs}
+  {related}
+>
+  <p>
+    Tucked behind the clamour of the City God Temple Bazaar, behind the stalls selling tea sets and plastic toy swords, behind the crowds on the snake-shaped zigzag bridge, sits one of the finest classical gardens in China. <strong>Yu Garden</strong> (<em>Yù Yuán</em>, "Garden of Peace and Comfort") was built between 1559 and 1577 by Pan Yunduan, a Ming-dynasty official, as a private garden for his father. It has survived fires, wars, and four centuries of Shanghai's relentless rebuilding — and walking through its stone gates feels like stepping out of the city entirely.
+  </p>
+  <p>
+    The garden is small by classical Chinese standards — about two hectares — but it is almost aggressively dense. Paths wind and double back, rockeries rise above your head, pavilions tuck into corners, and every turn hides a new pond, a new view, or a calligraphy inscription. The designers' goal was not to be photographed from a single viewpoint but to be discovered piece by piece. That is how you should visit: slowly, in no particular order, letting the garden lead.
+  </p>
+
+  <h2>Getting to Yu Garden</h2>
+  <p>
+    The easiest arrival is <strong>Yuyuan Garden Metro Station (Lines 10 and 14), Exit 1</strong>. From the exit you will see the signs for the bazaar almost immediately; the garden entrance is a five-minute walk through the crowd. If you are coming from the <a href="/the-bund">Bund</a>, it is a pleasant 20-minute walk southwest, or one stop on Line 10. From the French Concession or Jing'an, a taxi or Didi takes roughly 20 minutes (RMB 30–40).
+  </p>
+  <p>
+    The entrance is at <strong>218 Anren Street</strong>, on the west side of the bazaar complex. Follow the signs marked "Yu Garden 豫园" — the paid garden entrance is distinct from the free bazaar, and the ticket office is clearly separate. Look for the queue at the garden's main gate, not the people wandering the market.
+  </p>
+
+  <h2>What to see inside</h2>
+  <h3>The Exquisite Jade Rock</h3>
+  <p>
+    The garden's most famous single object is the <strong>Exquisite Jade Rock</strong> (<em>Yulinglong</em>), a 3.3-metre perforated limestone boulder displayed in the eastern courtyard. It is one of three "exquisite jade rocks" famed across China, valued for the thousands of naturally formed holes that riddle its surface. Local legend claims it was intended for the imperial garden in Beijing and lost at sea before ending up here. Stand in front of it for a minute and you will see why scholars have written poems about a rock: it looks at once like a mountain, a wave, and a piece of frozen smoke.
+  </p>
+  <h3>The dragon walls</h3>
+  <p>
+    Yu Garden is famous for its dragon walls — undulating grey-tile ridges topped with dragon heads that appear to coil along the tops of the perimeter walls. The dragons are a Ming-dynasty touch (the dragon was the emperor's symbol, and a private citizen displaying it was a bold statement), and their heads face the garden, a deliberate symbol of guardianship. The best ones are near the north and west walls; look up as you walk and you will spot them coiling overhead.
+  </p>
+  <h3>Pavilions, ponds, and the grand rockery</h3>
+  <p>
+    The heart of the garden is the <strong>Grand Rockery</strong> — a 14-metre artificial mountain of yellow stone built to represent a mountain landscape in miniature, complete with caves, bridges, and a climbable peak. It is the tallest such rockery from the Ming period still standing in China. Around it, the garden unfolds in a series of connected courtyards: the Hall of Heralding Spring, the Garden of the Thousand Flowers, the inner halls where Pan's family once lived. The koi ponds are scattered throughout, and the fish are old, fat, and highly photographed — you will see them surface for the scraps tourists drop.
+  </p>
+
+  <h2>The surrounding bazaar: half a day, not an hour</h2>
+  <p>
+    Most visitors treat Yu Garden and the <strong>City God Temple Bazaar</strong> as one experience, and you should too. The bazaar is the free market district wrapped around the garden, and it rewards wandering:
+  </p>
+  <ul>
+    <li><strong>The Nine Zigzag Bridge</strong> over the lotus pond — built on a zigzag path because, traditionally, evil spirits travel only in straight lines. It is always busy and always worth one slow crossing.</li>
+    <li><strong>Shanghai Old Street</strong> (<em>Shanghai Laojie</em>) — a restored lane of tea houses, craft shops, and snack vendors leading southwest toward the Bund. The most atmospheric street in the area.</li>
+    <li><strong>The food</strong> — the bazaar is where Shanghainese go for local snacks. The classic stop is <a href="/xiaolongbao">xiaolongbao</a> (soup dumplings), and the <em>wangjiasha</em> crab-and-pork version from the famous dumpling shop here is the benchmark version. Also try the stinky tofu, the sweet-scented osmanthus cakes, and the candied hawthorn.</li>
+  </ul>
+  <p>
+    The whole area — garden plus bazaar plus Old Street — is a natural half-day. Go early for the garden, then let the bazaar absorb the rest of your morning. If you add the Bund afterward, you have one of the best self-contained walking days in Shanghai.
+  </p>
+
+  <h2>Best time to visit</h2>
+  <p>
+    The single most important tip for Yu Garden is to be inside when the gates open at <strong>9:00 AM</strong>. For the first 45 minutes the garden is genuinely calm — you can photograph the Grand Rockery and the Exquisite Jade Rock without strangers in the frame. From about 10:00 AM the tour buses arrive and the pathways fill. By midday the bridges are queues rather than paths.
+  </p>
+  <p>
+    Season matters less than time of day, but two notes: spring (March–May) and autumn (September–November) are the most pleasant months, with mild temperatures and clear light. Summer is hot and humid, and the garden's narrow stone paths trap the heat — go even earlier, or accept that you will be warm. Golden Week and Chinese New Year should be avoided entirely if you have any flexibility; the bazaar becomes a wall of people, and the garden's daily entry cap can sell out.
+  </p>
+
+  <h2>Practical notes</h2>
+  <p>
+    The garden is not fully wheelchair-accessible — it involves steps, narrow bridges, and steep rockery paths. Strollers are workable on the main paths but not in the inner courtyards. There are public restrooms near the entrance and scattered through the bazaar. Water and snacks are available everywhere in the bazaar, and several teahouses on the Old Street are worth a pause — the <strong>Hubinglou Teahouse</strong> on the zigzag bridge pond is the most famous, though you pay for the view.
+  </p>
+  <p>
+    Entrance tickets are RMB 40 in high season (April–June, September–November), RMB 30 otherwise. Seniors over 60 with ID enter free, and there are discounted tickets for children and students. Cash, Alipay, and WeChat Pay are all accepted at the ticket office.
+  </p>
+  <p>
+    Yu Garden is one half of the classic Shanghai first-day circuit: start at the <a href="/the-bund">Bund</a> at sunrise, spend the morning here, then finish the day with a <a href="/shanghai-tower">view from Shanghai Tower</a> across the river. It is the most human, most historical, and most photographed of the three — and the one that rewards returning to at least once.
+  </p>
+</DetailLayout>

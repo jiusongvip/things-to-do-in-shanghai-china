@@ -1,0 +1,80 @@
+---
+import DetailLayout from "../layouts/DetailLayout.astro";
+
+const facts = [
+  { label: "Where", value: "Roughly between Middle Huaihai Road and Fuxing Road, west of the Bund" },
+  { label: "Opening hours", value: "Open streets — walk anytime; shops mostly 10:00 AM – 10:00 PM" },
+  { label: "Admission", value: "Free to wander; cafe and shop prices vary" },
+  { label: "Nearest Metro", value: "Lines 1, 10, or 12 — South Shaanxi Road or Xintiandi stations" },
+  { label: "Time needed", value: "Half a day to a full day of wandering" },
+  { label: "Best time", value: "Weekday mornings, or late afternoon for cafe light" },
+];
+
+const faqs = [
+  { q: "Where exactly is the French Concession?", a: "The former French Concession was Shanghai's old French-administered quarter, centred on today's Huangpu and Xuhui districts. The most scenic area runs roughly from Middle Huai Road (Huaihai Lu) down to Fuxing Road, with the leafy heart around Xintiandi, Wukang Road, and Anfu Road. It is not an officially defined zone today — it is the district of old plane trees, lanes, and villas everyone calls 'the French Concession'." },
+  { q: "What is there actually to do in the French Concession?", a: "The enjoyment is mostly in wandering: tree-lined streets, hidden lanes and courtyards, vintage shops, bookshops, cafes, and preserved Art Deco and Shikumen houses. Highlights include the Wukang Road (Wukang Mansion) skyline photo stop, the boutiques of Anfu Road, the former residence of Sun Yat-sen, and the fake-Rhineland lanes of Xintiandi. It is the best area in Shanghai for slow, unstructured exploring." },
+  { q: "How much time do I need for the French Concession?", a: "A half-day covers the classic loop (Wukang Road to Anfu Road to Xintiandi) comfortably. A full day allows street-by-street wandering, cafe stops, and a few museums or boutiques. It is not an attractions-in-a-row district — the value comes from lingering." },
+  { q: "Is the French Concession good for families?", a: "Very. The streets are quiet, the lanes are easy to stroll, and there are parks, the Fuxing Park, and plenty of cafes. The museums (Sun Yat-sen's home, the Former Residence) are small and kid-friendly. It is a far calmer, greener day than the Bund-heavy itinerary." },
+  { q: "What is the best Metro stop for the French Concession?", a: "Hop off at South Shaanxi Road (Lines 1, 10, 12) to be in the heart of it, or Xintiandi (Lines 10, 13) for the eastern end. Both put you an easy walk from the classic scenery. Then it is best explored on foot or by bike." },
+  { q: "Is the French Concession good for shopping and food?", a: "Excellent on both counts. Anfu Road and the surrounding area are a boutique and vintage-shopping district, with cafes, bakeries, and no shortage of excellent coffee. Xintiandi and the bigger malls on Huaihai Road hold the mainstream shopping. For food, the area is packed with great restaurants and the famous Shanghai breakfast shops." },
+];
+
+const related = [
+  { href: "/the-bund", label: "The Bund", note: "The riverfront's grand colonial architecture, 15 minutes away" },
+  { href: "/yu-garden", label: "Yu Garden & the Old City", note: "Ming dynasty alleys and the food bazaar, the other side of old Shanghai" },
+  { href: "/xiaolongbao", label: "Where to eat xiaolongbao", note: "Soup dumplings to fuel your wandering" },
+  { href: "/attractions", label: "All Shanghai attractions", note: "Hours, tickets, and Metro info for every major sight" },
+];
+---
+
+<DetailLayout
+  title="The French Concession — Shanghai's Most Charming Quarter"
+  subtitle="Plane trees, hidden lanes, Art Deco villas, and the best cafe district in China. The former French Concession is where Shanghai slows down — here is how to explore it the right way."
+  description="Complete French Concession guide: the best streets to wander (Wukang Road, Anfu Road), how to get there by Metro, top sights like Xintiandi and Sun Yat-sen's former residence, shopping, food, and family tips."
+  image="/images/shanghai/wukang-road.webp"
+  category="Neighbourhood"
+  {facts}
+  {faqs}
+  {related}
+>
+  <p>
+    Every big city has a district the locals point visitors toward when they want to see 'the real place' — and in Shanghai, that district is the <strong>French Concession</strong>. From 1849 to 1943 this wedge of the city west of the Huangpu River was administered by France, and the legacy is architectural: plane-tree-lined avenues, cream-and-grey Art Deco apartment buildings, red-brick Shikumen lanes, and quiet villas that survived the city's skyscraper boom. Today it is Shanghai's most atmospheric quarter — the place to slow down, wander, and feel the city breathe.
+  </p>
+  <p>
+    Unlike the <a href="/the-bund">Bund</a> or <a href="/shanghai-tower">Shanghai Tower</a>, the Concession has no single must-see monument. Its attractions are cumulative: a street corner, a doorway, a courtyard cafe, a shop selling vintage furniture. The right approach is to give it time, pick one or two anchor points, and let the streets do the rest. This guide gives you the anchors.
+  </p>
+
+  <h2>The best streets to wander</h2>
+  <h3>Wukang Road</h3>
+  <p>
+    The Concession's most famous street is <strong>Wukang Road</strong>, anchored by the iconic <strong>Wukang Mansion</strong> — a 1924 wedge-shaped apartment block in the French Renaissance style that has become a top social-media photo spot. Start there, then walk the street's length through some of the best-preserved villa-lined blocks in Shanghai, passing the Former Residence of Ba Jin (the famous novelist) and the art galleries that now fill several old houses. The traffic-light island opposite Wukang Mansion is the classic photo angle; arrive early for it to yourself.
+  </p>
+  <h3>Anfu Road</h3>
+  <p>
+    <strong>Anfu Road</strong> is the Concession's style spine — a short street of boutiques, vintage shops, indie fashion, and the city's best cafes packed into low-rise buildings. It is the centre of Shanghai's 'shopping while walking' culture, and it is genuinely delightful rather than mawkishly touristy. Pick one cafe, order a flat white, and watch the neighbourhood go about its day.
+  </p>
+  <h3>Fuxing Road and the villa lanes</h3>
+  <p>
+    Around <strong>Fuxing Road</strong> the streets open into grander residential blocks with hidden courtyards and gated lanes. Take any inviting-looking alley and you will likely find Shikumen houses, walled gardens, or a surprise boutique. The Former Residence of Sun Yat-sen on Xiangshan Road — a modest, perfectly preserved home where the revolutionary lived from 1918 — is a highlight and one of the few 'real sights' on this itinerary.
+  </p>
+
+  <h2>Xintiandi: the pretty re-creation</h2>
+  <p>
+    At the Concession's eastern edge, <strong>Xintiandi</strong> is a restored Shikumen district turned into a car-free open-air shopping and dining quarter. The red-brick lanes look authentically old — and were carefully rebuilt as a heritage-style development — but they are effortlessly pleasant: boutiques, terrace restaurants, and the <strong>Site of the First National Congress of the Communist Party of China</strong> (the small red-brick museum on the square is genuinely worth 30 minutes). Locals debate its authenticity; visitors tend to love it, and it is the easiest, most accessible taste of Concession-era architecture for first-timers.
+  </p>
+
+  <h2>Getting there</h2>
+  <p>
+    The Concession is served by several Metro lines. The most useful stops are <strong>South Shaanxi Road (Lines 1, 10, 12)</strong> — the hub in the heart of it — and <strong>Xintiandi (Lines 10, 13)</strong> for the eastern end. From either, the classic streets are a short walk. The area is flat, compact, and far better on foot or by shared bike than by taxi; rent a bike at any station and you can cover the whole quarter in an afternoon.
+  </p>
+
+  <h2>Food and coffee</h2>
+  <p>
+    This is Shanghai's premier cafe district — expect world-class flat whites at dozens of independent shops (Anfu Road alone has a handful worth queuing for) and plenty of bakeries and brunch spots. For a fuller Shanghainese meal, the Concession has some of the city's best local restaurants alongside its Western options. The classic <a href="/xiaolongbao">xiaolongbao</a> shops are a short ride away, and for the complete local food picture, see the <a href="/food">full Shanghai food guide</a>.
+  </p>
+
+  <h2>How long to spend and how to combine it</h2>
+  <p>
+    Give the Concession a half day at minimum — a full day is easy to fill with wandering, cafes, and a museum or two. It combines naturally with a <a href="/the-bund">Bund</a> morning and a <a href="/yu-garden">Yu Garden</a> visit in the same day: both are a 15-minute Metro ride away. For a slower, calmer Shanghai experience than the skyscraper circuit, the Concession is the single best thing on the itinerary — the place where the city's European layers and its modern, coffee-obsessed present meet.
+  </p>
+</DetailLayout>

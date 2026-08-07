@@ -7,14 +7,22 @@ export interface Props {
   ogImage?: string;
   noIndex?: boolean;
   author?: string;
+  authorUrl?: string;
+  datePublished?: string;
+  dateModified?: string;
+  isArticle?: boolean;
 }
 
 const {
   title,
   description,
-  ogImage = "/og-default.jpg",
+  ogImage = "/og-default.webp",
   noIndex = false,
   author = "Jamie Chen, Shanghai-based Travel Writer",
+  authorUrl = "/about",
+  datePublished,
+  dateModified = datePublished,
+  isArticle = false,
 } = Astro.props;
 
 const siteTitle = "Things to Do in Shanghai";
@@ -22,6 +30,8 @@ const siteUrl = "https://www.things-to-do-in-shanghai-china.com";
    const fullTitle = title === "Home"
       ? "Things to Do in Shanghai, China \u2014 Ultimate Travel Guide"
      : `${title} | ${siteTitle}`;
+
+  const articleHeadline = title === "Home" ? fullTitle : fullTitle.replace(/\|.*$/, "").trim();
 ---
 
 <!doctype html>
@@ -73,22 +83,41 @@ const siteUrl = "https://www.things-to-do-in-shanghai-china.com";
         ]
       }
     </script>
+    {isArticle && datePublished && (
+      <script type="application/ld+json" data-article-schema>
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": articleHeadline,
+          "description": description,
+          "datePublished": datePublished,
+          "dateModified": dateModified,
+          "mainEntityOfPage": new URL(Astro.url.pathname, siteUrl).href,
+          "author": { "@type": "Person", "name": author.replace(/,.*$/, ""), "url": new URL(authorUrl, siteUrl).href },
+          "publisher": {
+            "@type": "Organization",
+            "name": "ShanghaiGuide",
+            "url": siteUrl
+          }
+        }
+      </script>
+    )}
     <slot name="schema" />
   </head>
   <body class="min-h-screen bg-white text-neutral-900 antialiased">
-    <header class="sticky top-0 z-50 border-b border-neutral-200/60 bg-white/80 backdrop-blur-md">
-      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <header class="sticky top-0 z-50 border-b border-neutral-200/60 bg-white/85 backdrop-blur-md">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
         <a href="/" class="flex items-center gap-2">
-          <span class="text-lg font-bold tracking-tight text-brand-700">Shanghai<span class="text-neutral-900">Guide</span></span>
+          <span class="font-display text-2xl font-medium tracking-tight text-brand-700">Shanghai<span class="text-neutral-900">Guide</span></span>
         </a>
         <div class="hidden items-center gap-1 lg:flex">
-          <a href="/attractions" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Attractions</a>
-          <a href="/food" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Food</a>
-          <a href="/nightlife" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Nightlife</a>
-          <a href="/shopping" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Shopping</a>
-          <a href="/day-trips" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Day Trips</a>
-          <a href="/itinerary" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Itinerary</a>
-          <a href="/blog" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Blog</a>
+          <a href="/attractions" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Attractions</a>
+          <a href="/food" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Food</a>
+          <a href="/nightlife" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Nightlife</a>
+          <a href="/shopping" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Shopping</a>
+          <a href="/day-trips" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Day Trips</a>
+          <a href="/itinerary" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Itinerary</a>
+          <a href="/blog" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Blog</a>
         </div>
         <button class="flex flex-col gap-1.5 lg:hidden" aria-label="Toggle menu">
           <span class="block h-0.5 w-5 rounded bg-neutral-700"></span>

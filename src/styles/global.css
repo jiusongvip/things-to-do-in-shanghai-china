@@ -1,40 +1,72 @@
 @import "tailwindcss";
-@import "@fontsource/outfit/300.css";
-@import "@fontsource/outfit/400.css";
-@import "@fontsource/outfit/500.css";
-@import "@fontsource/outfit/600.css";
-@import "@fontsource/outfit/700.css";
-@import "@fontsource/outfit/800.css";
+@import "@fontsource-variable/newsreader/index.css";
+@import "@fontsource-variable/inter/index.css";
+
+/* light-weight Maps? Keep variable latin subset only for size:
+   these variable fonts load a broad unicode-range automatically. */
 
 @theme {
-  --color-brand-50: #f0f7f4;
-  --color-brand-100: #dceee6;
-  --color-brand-200: #bbddcd;
-  --color-brand-300: #8ec5ab;
-  --color-brand-400: #5da885;
-  --color-brand-500: #3c8c68;
-  --color-brand-600: #2d7153;
-  --color-brand-700: #265b44;
-  --color-brand-800: #214937;
-  --color-brand-900: #1c3c2f;
-  --color-brand-950: #0e211a;
-  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  /* Deep editorial crimson-red accent (single accent color) */
+  --color-brand-50: #fff5f3;
+  --color-brand-100: #ffe3dd;
+  --color-brand-200: #ffc5ba;
+  --color-brand-300: #f99b8c;
+  --color-brand-400: #ef6a58;
+  --color-brand-500: #e0483a;
+  --color-brand-600: #c93a30;
+  --color-brand-700: #a1281f;
+  --color-brand-800: #7c211a;
+  --color-brand-900: #5c1e18;
+  --color-brand-950: #320d09;
+
+  /* Warm editorial neutrals (paper + ink) */
+  --color-paper: #faf6f0;
+  --color-paper-2: #f4ede3;
+
+  /* Display serif for headlines */
+  --font-display: "Newsreader Variable", ui-serif, Georgia, serif;
+  /* Clean grotesque for body/UI */
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
 }
 
+/* ————— Base ————— */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* accelerate headings */
+  font-feature-settings: "cv11", "ss01", "ss03";
 }
 
 body {
   font-family: var(--font-sans);
-  color: #1a1a1a;
-  background: #fafafa;
+  color: #211c17;
+  background: var(--color-paper);
+  letter-spacing: -0.006em;
+  line-height: 1.65;
+}
+
+/* ————— Typography: serif display for headings ————— */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #1a1512;
 }
 
 ::selection {
-  background: var(--color-brand-400);
-  color: white;
+  background: var(--color-brand-500);
+  color: #fff;
+}
+
+/* Hairline base for magazine feel */
+:where(hr) {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Reduce UI chrome: softer shadows, no boxy defaults */
+:where(button, a[class*="btn"], a) {
+  -webkit-tap-highlight-color: transparent;
 }

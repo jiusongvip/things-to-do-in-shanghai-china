@@ -1,0 +1,117 @@
+---
+import DetailLayout from "../layouts/DetailLayout.astro";
+
+const facts = [
+  { label: "Where", value: "Zhongshan East 1st Road, Huangpu District (east bank of the Huangpu River)" },
+  { label: "Opening hours", value: "24/7 — promenade never closes. Best at golden hour and after dark." },
+  { label: "Admission", value: "Free" },
+  { label: "Nearest Metro", value: "Line 2 or 10, East Nanjing Road (Exit 1, 10-minute walk)" },
+  { label: "Time needed", value: "45 minutes to 2 hours on foot" },
+  { label: "Best time", value: "5:30–7:00 PM for the sunset-to-neon transition" },
+];
+
+const faqs = [
+  { q: "Is the Bund free to visit?", a: "Yes. The entire riverside promenade is open to the public, 24 hours a day, at no cost. The only paid option is the optional Bund Sightseeing Tunnel or a Huangpu River cruise, neither of which you need to enjoy the promenade itself." },
+  { q: "What time do the Bund lights come on?", a: "Pudong's skyline lights typically switch on around sunset, roughly 6:30–7:00 PM in summer and 5:00–5:30 PM in winter. For the full effect, arrive about 30 minutes before sunset so you catch the buildings mid-transition and the neon fully lit." },
+  { q: "How long should I spend at the Bund?", a: "A quick visit is 45 minutes: walk the full promenade, take photos, and cross back. But most first-timers enjoy 1.5–2 hours, especially at golden hour. If you add a Huangpu River cruise (40–50 minutes) or the Bund History Museum, budget half a day." },
+  { q: "Which side of the Bund is best for photos?", a: "For the classic skyline shot with the colonial buildings behind you and Pudong ahead, stand on the west bank near the Huangpu Park observation deck. For a skyline reflection and fewer crowds, cross to the east bank boardwalk (North Bund). Early morning is empty; sunset is packed." },
+  { q: "Is it worth doing a Huangpu River cruise at night?", a: "Yes — a night cruise (RMB 100–150) is the best way to see both skylines at once, and the boats are most dramatic after dark. Book the 7:00–8:30 PM sailings from Shiliupu Wharf. Day cruises are quieter but far less spectacular." },
+  { q: "How do I get from the Bund to Yu Garden?", a: "It is a pleasant 20-minute walk southwest through the Old City, or one stop on Metro Line 10 (East Nanjing Road to Yuyuan Garden). Walking lets you pass the City God Temple Bazaar and Shanghai Old Street along the way." },
+];
+
+const related = [
+  { href: "/yu-garden", label: "Yu Garden & the Old City", note: "A 20-minute walk from the Bund — Shanghai's Ming-dynasty heart" },
+  { href: "/shanghai-tower", label: "Shanghai Tower observation deck", note: "The skyline from the other side — the world's second-tallest building" },
+  { href: "/huangpu-river-cruise", label: "Huangpu River night cruise", note: "Both skylines at once, best after dark" },
+  { href: "/french-concession", label: "French Concession", note: "Plane trees, lane houses, and the city's best cafes" },
+  { href: "/attractions", label: "All Shanghai attractions", note: "Hours, tickets, and Metro info for every major sight" },
+];
+---
+
+<DetailLayout
+  title="The Bund — Shanghai's Iconic Waterfront Promenade"
+  subtitle="Colonial architecture on one side, a neon skyline on the other. The Bund is the single most photographed spot in Shanghai — here is how to see it right, beat the crowds, and get the photo everyone wants."
+  description="Complete guide to the Bund in Shanghai: opening hours, how to get there by Metro, the best time for photos, free things to do, and how to combine it with Yu Garden and a Huangpu River cruise."
+  image="/images/shanghai/bund-day.webp"
+  category="Iconic Landmark"
+  {facts}
+  {faqs}
+  {related}
+>
+  <p>
+    The Bund (<em>Wàitān</em>, literally "the waterfront") is where Shanghai's two lives face each other across the Huangpu River. On the west bank stand the weathered stone and granite facades of the colonial banking houses — the 1920s-era buildings that once made Shanghai Asia's financial capital. On the east bank rises Pudong's glass and neon skyline, capped by the 632-metre Shanghai Tower. Neither side is the whole story. The Bund is the space between them.
+  </p>
+  <p>
+    For first-time visitors it is the essential Shanghai experience — and unlike most iconic sights in world cities, it is completely free, open around the clock, and impossible to get wrong. But "impossible to get wrong" is not the same as "impossible to do well." The promenade is nearly two kilometres long, the crowds at sunset are dense, and the best spots are easy to miss if you are just following the tour groups. This guide covers exactly what to see, when to go, and how to make the walk the highlight of your trip rather than a quick photo stop.
+  </p>
+
+  <h2>Why the Bund matters</h2>
+  <p>
+    The stretch you will walk was the western edge of the old International Settlement. Between the 1840s and the 1930s, the great trading houses and banks of the British, French, American, and Japanese concessions built their headquarters here along the riverfront, competing to see who could build taller and grander. The result is a 1.5-kilometre open-air museum of 1920s architecture: the Renaissance Revival <strong>Hongkong and Shanghai Banking Corporation</strong> (now the Shanghai Pudong Development Bank, with a famously domed roof), the neoclassical <strong>Customs House</strong> with its clock tower, and the Art Deco <strong>Peace Hotel</strong>, originally the Cathay Hotel where jazz bands played into the small hours.
+  </p>
+  <p>
+    Look closely at the facades as you walk and you will notice how different each building is — the Bund was never designed as a unified set, and its charm is precisely that inconsistency. Each building tells a different story of ambition, and together they trace how a fishing village on a mudflat became, within a century, one of the world's great ports.
+  </p>
+
+  <h2>How to get to the Bund</h2>
+  <p>
+    The most convenient arrival point is <strong>East Nanjing Road Metro station (Lines 2 and 10), Exit 1</strong>. From the exit, walk east along Nanjing Road for about 10 minutes; the road runs straight into the Bund. The walk itself is worth doing at least once — East Nanjing Road is Shanghai's great shopping drag, and its eastern end delivers you right onto the promenade.
+  </p>
+  <p>
+    Alternative stations include <strong>Yuyuan Garden (Line 10/14)</strong> if you are coming from the Old City, and <strong>Lujiazui (Line 2)</strong> on the Pudong side, which puts you across the river with the skyline at your back. If you are staying in the French Concession or Jing'an, a taxi or Didi costs roughly RMB 30–50 and takes 20–30 minutes depending on traffic. Avoid the rush-hour window (5:00–7:00 PM) if you are in a hurry — Zhongshan East 1st Road is one of the most congested streets in the city at that hour.
+  </p>
+
+  <h2>The best time to visit</h2>
+  <p>
+    The Bund genuinely looks different at every hour, and each version is worth seeing. But if you can only choose one moment, aim for <strong>about 40 minutes before sunset</strong>. Here is why: you arrive while the light is still warm, watch the sky deepen as the sun drops behind the western buildings, and then stay as the Pudong skyline begins to glow. That single golden-hour-plus-neon transition is the shot every postcard of Shanghai is trying to recreate, and it happens on the promenade every single day.
+  </p>
+  <ul>
+    <li><strong>Dawn (6:00–7:00 AM):</strong> Nearly empty. Locals practice tai chi along the river, and the light is soft and cool. The best time for a crowd-free classic photo.</li>
+    <li><strong>Late morning to afternoon:</strong> Busy but manageable. Harsh light flattens the skyline, so midday is the weakest moment photographically.</li>
+    <li><strong>Golden hour (roughly 5:00–7:00 PM depending on season):</strong> The classic. Expect company — the promenade fills up fast, especially on weekends.</li>
+    <li><strong>After 9:00 PM:</strong> The lights are on, the crowds have thinned, and the skyline looks its most cinematic. A completely different experience from the daytime Bund.</li>
+  </ul>
+  <p>
+    Summer sunsets (around 7:00 PM) draw the largest crowds, including tour buses. Winter sunsets fall earlier (around 5:00 PM) and the promenade is far quieter — if you want the classic photo without the crush, a clear winter evening is your best bet.
+  </p>
+
+  <h2>What to do on the Bund</h2>
+  <h3>Walk the full promenade</h3>
+  <p>
+    Start at the north end near <strong>Huangpu Park</strong> (the small green at the river bend where the Bund meets the Suzhou Creek) and walk south to the Shiliupu Wharf. This is the classic route and takes about 30 minutes at a strolling pace. Along the way you pass all 52 of the listed Bund buildings, the historical plaques that explain them, and several open-air viewing terraces where you can lean on the railing and watch the ferries cross.
+  </p>
+  <h3>Photo spots worth planning around</h3>
+  <p>
+    The single best vantage point is the <strong>elevated walkway outside the Peace Hotel</strong>, which gives you an unobstructed line of sight down the river. For the famous low-angle shot with the colonial buildings lining up on the left, stand at the rail near the Custom House clock tower. For a cleaner, less busy composition, walk south of the main tourist zone — the promenade continues past Shiliupu and the crowds thin out quickly.
+  </p>
+  <h3>Free things on and around the Bund</h3>
+  <p>
+    The promenade itself is the free attraction, but the area rewards a little extra time. The <strong>Bund History Museum</strong> (free, open Tuesday to Sunday) sits in the underpass at the north end and traces 150 years of the waterfront's story — a genuinely good small museum. For a quiet riverside walk with the skyline reflected across the water, cross the river to the <strong>North Bund boardwalk</strong>, which is almost always emptier than the main promenade.
+  </p>
+  <h3>The classic combination: Bund + Huangpu cruise</h3>
+  <p>
+    The natural Shanghai evening is to walk the Bund at golden hour, then board a <strong>Huangpu River cruise</strong> from Shiliupu Wharf for the 40–50 minute loop that shows you both skylines from the water. Day cruises run all afternoon; night cruises are the more spectacular option. Tickets cost roughly RMB 100–150 depending on the boat and time slot, and you can book at the wharf or online a day ahead. It is one of the few paid experiences on the Shanghai tourist trail that is actually worth the money.
+  </p>
+
+  <h2>The Bund, then Yu Garden: a perfect half-day</h2>
+  <p>
+    The Bund and the Old City pair naturally, and the walk between them is as interesting as either stop. From the south end of the promenade, head southwest along <strong>Shanghai Old Street</strong> — a restored lane of tea houses, snack stalls, and craft shops — and in about 20 minutes you reach the <strong>City God Temple Bazaar</strong> and <strong>Yu Garden</strong>. If you time it as a morning outing, you get the quiet promenade first and the garden before the tour buses arrive. Start early and this half-day is one of the best free-ish (the garden itself is RMB 40) experiences in the city.
+  </p>
+
+  <h2>Common mistakes to avoid</h2>
+  <ul>
+    <li><strong>Treating the Bund as a 10-minute photo stop.</strong> The promenade rewards walking its full length. A quick picture at the rail and a retreat to the bus is how you miss everything.</li>
+    <li><strong>Paying for the "Bund Sightseeing Tunnel."</strong> It is a short, dated light-show ride under the river, and most locals consider it a tourist trap. Walk across via Metro, or just enjoy the view.</li>
+    <li><strong>Expecting to see the skyline at midday.</strong> Harsh sun flattens the glass towers. If your only Bund slot is midday, it will still be impressive — just know the postcard version happens at either end of the day.</li>
+    <li><strong>Standing at the most crowded rail spot.</strong> Everyone clusters at the central terraces. Walk 100 metres south and you get the same view with a fraction of the crowd.</li>
+    <li><strong>Forgetting the Pudong side.</strong> Cross the river for the reverse view — the colonial buildings look equally striking from the east bank, and the North Bund boardwalk is far calmer.</li>
+  </ul>
+
+  <h2>Practical notes</h2>
+  <p>
+    There are public restrooms at both ends of the promenade and near Huangpu Park. Food and drink stalls line Zhongshan East 1st Road, and several historic hotel bars — most famously the Peace Hotel's jazz bar — are an easy step off the walkway if you want a drink with the view. Everything on the promenade itself is wheelchair-accessible via the ramps at the north and south ends. In summer, bring water; the open promenade has little shade and the concrete holds the day's heat well into the evening.
+  </p>
+  <p>
+    Pair the Bund with the rest of the classic Shanghai circuit: the <a href="/shanghai-tower">skyline from Shanghai Tower</a>, the <a href="/yu-garden">old city of Yu Garden</a>, and the <a href="/french-concession">lane-house calm of the French Concession</a>. Together they give you the full arc of what Shanghai is — and the Bund is where that arc begins.
+  </p>
+</DetailLayout>

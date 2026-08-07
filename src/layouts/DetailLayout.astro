@@ -1,0 +1,212 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Fact {
+  label: string;
+  value: string;
+}
+
+interface RelatedLink {
+  href: string;
+  label: string;
+  note?: string;
+}
+
+interface Faq {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  description: string;
+  image?: string;
+  category?: string;
+  facts?: Fact[];
+  faqs?: Faq[];
+  related?: RelatedLink[];
+  author?: string;
+  datePublished?: string;
+  dateModified?: string;
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  image,
+  category,
+  facts = [],
+  faqs = [],
+  related = [],
+  author = "Jamie Chen, Shanghai-based Travel Writer",
+  datePublished = "2026-01-15",
+  dateModified = "2026-08-01",
+} = Astro.props;
+
+const siteUrl = "https://www.things-to-do-in-shanghai-china.com";
+const pathname = Astro.url.pathname;
+const pageUrl = new URL(pathname, siteUrl).href;
+
+const segments = pathname.split("/").filter(Boolean);
+const breadcrumbs = [
+  { position: 1, name: "Home", item: siteUrl },
+  { position: 2, name: "Things to Do in Shanghai", item: new URL("/", siteUrl).href },
+  ...segments.map((seg, i) => {
+    const href = "/" + segments.slice(0, i + 1).join("/");
+    return { position: i + 3, name: title, item: new URL(href, siteUrl).href };
+  }),
+];
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((b) => ({ "@type": "ListItem", "position": b.position, "name": b.name, "item": b.item })),
+};
+
+const articleLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "mainEntityOfPage": pageUrl,
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "author": { "@type": "Person", "name": author.replace(/,.*$/, ""), "url": new URL("/about", siteUrl).href },
+  "publisher": { "@type": "Organization", "name": "ShanghaiGuide", "url": siteUrl },
+  "image": image ? new URL(image, siteUrl).href : undefined,
+};
+
+const faqLd = faqs.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+    }
+  : null;
+---
+
+<BaseLayout title={title} description={description} ogImage={image} author={author} datePublished={datePublished} dateModified={dateModified}>
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)}></script>
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(articleLd)}></script>
+  {faqLd && <script slot="schema" type="application/ld+json" set:html={JSON.stringify(faqLd)}></script>}
+
+  <article class="mx-auto max-w-3xl px-6 py-16 md:py-20">
+    <nav aria-label="Breadcrumb" class="mb-8 flex flex-wrap items-center gap-1.5 text-sm text-neutral-500">
+      <a href="/" class="transition-colors hover:text-brand-600">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="/attractions" class="transition-colors hover:text-brand-600">Attractions</a>
+      <span aria-hidden="true">/</span>
+      <span class="font-medium text-neutral-700">{title}</span>
+    </nav>
+
+    <header class="mb-10">
+      {category && (
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">{category}</p>
+      )}
+      <h1 class="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-neutral-900 md:text-5xl">{title}</h1>
+      {subtitle && <p class="mt-5 text-lg leading-relaxed text-neutral-600 md:text-xl">{subtitle}</p>}
+      <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-neutral-500">
+        <span>{author}</span>
+        <span aria-hidden="true">·</span>
+        <time datetime={dateModified}>{dateModified}</time>
+        <span aria-hidden="true">·</span>
+        <span>Updated {dateModified}</span>
+      </div>
+    </header>
+
+    {image && (
+      <div class="mb-10 overflow-hidden rounded-2xl">
+        <img src={image} alt={title} class="aspect-[21/9] w-full object-cover" width="1200" height="514" loading="eager" decoding="async" />
+      </div>
+    )}
+
+    {facts.length > 0 && (
+      <div class="mb-10 rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-neutral-400">At a Glance</p>
+        <dl class="mt-4 grid gap-4 sm:grid-cols-2">
+          {facts.map((f) => (
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-wide text-neutral-400">{f.label}</dt>
+              <dd class="mt-1 text-sm font-medium text-neutral-800">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    )}
+
+    <div class="landing-content">
+      <slot />
+    </div>
+
+    {faqs.length > 0 && (
+      <section class="mt-14">
+        <h2 class="text-2xl font-bold tracking-tight text-neutral-900">Frequently asked questions</h2>
+        <div class="mt-6 divide-y divide-neutral-200 border-y border-neutral-200">
+          {faqs.map((f) => (
+            <details class="group py-5">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+                <span class="text-base font-semibold text-neutral-900">{f.q}</span>
+                <span class="flex-shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-180">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </span>
+              </summary>
+              <p class="mt-3 pr-8 leading-relaxed text-neutral-500">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {related.length > 0 && (
+      <section class="mt-14">
+        <h2 class="text-2xl font-bold tracking-tight text-neutral-900">Related guides</h2>
+        <div class="mt-6 space-y-3">
+          {related.map((r) => (
+            <a href={r.href} class="group flex items-center justify-between gap-4 rounded-xl border border-neutral-200 bg-white px-5 py-4 transition-all hover:border-brand-200 hover:bg-brand-50/40">
+              <div>
+                <p class="text-sm font-bold text-neutral-900 group-hover:text-brand-700">{r.label}</p>
+                {r.note && <p class="mt-0.5 text-xs text-neutral-500">{r.note}</p>}
+              </div>
+              <span class="shrink-0 text-neutral-300 transition-all group-hover:translate-x-1 group-hover:text-brand-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <div class="mt-14 flex justify-between gap-4 border-t border-neutral-200 pt-6 text-sm">
+      <a href="/attractions" class="font-semibold text-brand-600 hover:underline">← All attractions</a>
+      <a href="/" class="font-semibold text-brand-600 hover:underline">Home →</a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  /* Editorial landing typography, mirrors blog-content */
+  .landing-content { font-size: 1.0625rem; line-height: 1.95; }
+  .landing-content :is(h2, h3, h4) {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    color: #171313;
+  }
+  .landing-content h2 { margin-top: 3rem; font-size: 1.75rem; font-weight: 600; }
+  .landing-content h3 { margin-top: 2.25rem; font-size: 1.35rem; font-weight: 600; }
+  .landing-content h4 { margin-top: 2rem; font-size: 1.15rem; font-weight: 700; }
+  .landing-content p { margin-top: 1.4rem; color: #3a342e; }
+  .landing-content ul, .landing-content ol { margin-top: 1.4rem; padding-left: 1.5rem; }
+  .landing-content li { margin-top: 0.65rem; line-height: 1.85; color: #3a342e; }
+  .landing-content li::marker { color: var(--color-brand-600); }
+  .landing-content ul { list-style: disc; }
+  .landing-content strong { font-weight: 700; color: #171313; }
+  .landing-content a { color: var(--color-brand-700); text-decoration: underline; text-decoration-thickness: 0.06em; text-underline-offset: 3px; }
+  .landing-content a:hover { color: var(--color-brand-600); }
+  .landing-content table { margin-top: 1.5rem; width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  .landing-content th { text-align: left; font-weight: 700; color: #171313; }
+  .landing-content :is(th, td) { padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(0,0,0,0.1); }
+  .landing-content tr:last-child td { border-bottom: 0; }
+</style>

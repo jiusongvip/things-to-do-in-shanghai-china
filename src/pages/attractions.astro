@@ -11,6 +11,7 @@ const attractions = [
     ticket: "Free",
     transport: "Metro Line 2/10, East Nanjing Road",
     img: "/images/picsum-6-2hme.webp",
+    slug: "/the-bund",
   },
   {
     name: "Shanghai Tower",
@@ -21,6 +22,7 @@ const attractions = [
     ticket: "RMB 180",
     transport: "Metro Line 2, Lujiazui",
     img: "/images/picsum-7-2k1o.webp",
+    slug: "/shanghai-tower",
   },
   {
     name: "Yu Garden",
@@ -31,6 +33,7 @@ const attractions = [
     ticket: "RMB 40",
     transport: "Metro Line 10/14, Yuyuan Garden",
     img: "/images/picsum-8-2mhg.webp",
+    slug: "/yu-garden",
   },
   {
     name: "Shanghai Disneyland",
@@ -51,6 +54,7 @@ const attractions = [
     ticket: "Free",
     transport: "Metro Line 1/10/12, South Shaanxi Road",
     img: "/images/picsum-10-2reh.webp",
+    slug: "/french-concession",
   },
   {
     name: "Shanghai Museum",
@@ -115,21 +119,28 @@ const types = ["All", "Landmark", "Historical", "Museum", "Neighborhood", "Templ
           If you are visiting for the first time, the non-negotiable trio is <strong>the Bund</strong>, <strong>Yu Garden</strong>, and <strong>Shanghai Tower</strong> — they give you the city's past, present, and future in three stops. Families with kids should prioritize <strong>Shanghai Disneyland</strong> and the <strong>Shanghai Natural History Museum</strong>. Culture-focused travelers will want to linger at the <strong>Shanghai Museum</strong> and <strong>Jing'an Temple</strong>. For a more local, less scripted experience, skip the tour buses and spend a morning getting lost in the <strong>French Concession</strong> or browsing independent galleries in <strong>Tianzifang</strong>.
         </p>
         <p class="mt-3 leading-relaxed text-neutral-600">
-          Below you will find every major attraction with practical details we wish we had known before visiting: actual opening hours (not the outdated ones from 2019), honest ticket prices, and the right Metro exit to take. We update this page every quarter — if a museum changes its hours or a landmark closes for renovation, you will see it reflected here first.
+          Below you will find every major attraction with practical details we wish we had known before visiting: actual opening hours (not the outdated ones from tour blogs), honest ticket prices, and the right Metro exit to take. We update this page every quarter — if a museum changes its hours or a landmark closes for renovation, you will see it reflected here first.
+        </p>
+        <p class="mt-3 leading-relaxed text-neutral-600">
+          One framing point up front: <strong>Shanghai rewards a slower pace than most big-city itineraries assume.</strong> The attractions are scattered across a sprawling metropolis, and travel time between them is often the real cost of a day. Rather than a checklist mentality, think in terms of "neighborhood days" — grouping the Bund, the Old City, and the French Concession into separate, focused outings. That approach turns a rushed list of eight sights into a genuinely pleasant stay.
         </p>
       </div>
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {attractions.map((a) => (
           <article class="group overflow-hidden rounded-2xl border border-neutral-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-            <div class="aspect-[16/10] overflow-hidden">
-              <img src={a.img} alt={a.name} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" width="1200" height="750" loading="lazy" decoding="async" />
-            </div>
-            <div class="p-5 md:p-6">
-              <div class="mb-3 flex items-center gap-2">
-                <span class="rounded-md bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700">{a.type}</span>
-                <span class="text-xs text-neutral-400">{a.area}</span>
+            <a href={a.slug || "#"} class="block">
+              <div class="aspect-[16/10] overflow-hidden">
+                <img src={a.img} alt={a.name} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" width="1200" height="750" loading="lazy" decoding="async" />
               </div>
-              <h2 class="text-lg font-bold leading-snug text-neutral-900">{a.name}</h2>
+              <div class="p-5 md:p-6">
+                <div class="mb-3 flex items-center gap-2">
+                  <span class="rounded-md bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700">{a.type}</span>
+                  <span class="text-xs text-neutral-400">{a.area}</span>
+                </div>
+                <h2 class="text-lg font-bold leading-snug text-neutral-900">{a.name}</h2>
+              </div>
+            </a>
+             <div class="px-5 pb-5 md:px-6 md:pb-6">
              <p class="mt-2 text-sm leading-relaxed text-neutral-500">{a.desc}</p>
               <div class="mt-4 space-y-1.5 border-t border-neutral-100 pt-4">
                 <h3 class="mb-1.5 text-xs font-semibold uppercase tracking-wider text-neutral-400">Visitor Info</h3>
@@ -146,11 +157,68 @@ const types = ["All", "Landmark", "Historical", "Museum", "Neighborhood", "Templ
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><path d="M8 15h.01"/><path d="M16 15h.01"/></svg>
                     {a.transport}
                   </p>
-                </div>
+</div>
+              </div>
              </div>
             </div>
           </article>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-12 max-w-3xl">
+        <h2 class="text-2xl font-bold tracking-tight text-neutral-900">How to route three realistic days</h2>
+        <p class="mt-4 leading-relaxed text-neutral-600">
+          Here is the pattern that works for most first-time visitors — it groups attractions by geography so you spend your time looking at Shanghai, not sitting in a Metro car between districts.
+        </p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <h3 class="text-lg font-semibold text-neutral-900">Day 1 · The classic east</h3>
+          <p class="mt-2 text-sm leading-relaxed text-neutral-500">Start at the <strong>Bund</strong> at sunrise, cross the river to <strong>Shanghai Tower</strong> for the highest view in the world, then end on the east bank as the skyline lights up. This is the postcard day — bring a camera and expect it to be the most photographed 24 hours of your trip.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <h3 class="text-lg font-semibold text-neutral-900">Day 2 · The old city &amp; culture</h3>
+          <p class="mt-2 text-sm leading-relaxed text-neutral-500">Spend the morning inside the walls of <strong>Yu Garden</strong> and the City God Temple Bazaar, then walk to the <strong>Shanghai Museum</strong> or <strong>Jing'an Temple</strong>. Slow, shaded, and culturally rich — a good counterweight to the glass towers.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <h3 class="text-lg font-semibold text-neutral-900">Day 3 · Lanes &amp; neighborhoods</h3>
+          <p class="mt-2 text-sm leading-relaxed text-neutral-500">A relaxed morning in the <strong>French Concession</strong> (coffee, plane trees, boutique lanes), then <strong>Tianzifang</strong> for art studios and craft shops. This is the "local Shanghai" day — leave room to wander without a plan.</p>
+        </div>
+      </div>
+      <p class="mt-8 max-w-3xl leading-relaxed text-neutral-600">
+        If you have only a half-day, compress to the essentials: <strong>Yu Garden</strong> in the morning and the <strong>Bund</strong> at sunset — the two bookends of Shanghai's story, joined by a pleasant walk through the Old City. Everything else can wait for a return trip.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-6">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-900">Frequently asked questions about Shanghai attractions</h2>
+      <div class="mt-8 space-y-6">
+        <div>
+          <h3 class="font-semibold text-neutral-900">Are Shanghai's top attractions worth the ticket prices?</h3>
+          <p class="mt-2 leading-relaxed text-neutral-600">Mostly, yes — but choose deliberately. The Bund and the French Concession are free and among the best things the city offers. Shanghai Tower's RMB 180 is expensive but justifiable once for the world-record view. Yu Garden's RMB 40 is a bargain for a genuinely beautiful Ming-era garden. Skip the premium if it isn't your thing, but these are the fair-value picks.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-neutral-900">Do I need to book museum tickets in advance?</h3>
+          <p class="mt-2 leading-relaxed text-neutral-600">The Shanghai Museum, Shanghai Tower, and the Natural History Museum all require or strongly recommend advance reservations, often through WeChat mini-programs or their English websites. During Golden Week and Chinese New Year, unreserved visitors can face two-hour waits or miss out entirely. Book a few days ahead.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-neutral-900">Which Metro stations serve the main attractions?</h3>
+          <p class="mt-2 leading-relaxed text-neutral-600">Each card above lists the exact station and line. As a rule: the Bund (Line 2/10, East Nanjing Road), Yu Garden (Line 10/14, Yuyuan Garden), Shanghai Tower (Line 2, Lujiazui), Jing'an Temple (Line 2/7, Jing'an Temple). All are a short walk from the exit.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-neutral-900">How long does Shanghai Disneyland really take?</h3>
+          <p class="mt-2 leading-relaxed text-neutral-600">A full day, realistically 8–12 hours including travel from central Shanghai. The unique rides (TRON Lightcycle Power Run and the Pirates of the Caribbean water ride) mean most visitors spend the whole day there. Build it as its own trip, not an add-on.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-neutral-900">What is the best time of year to visit these attractions?</h3>
+          <p class="mt-2 leading-relaxed text-neutral-600">Spring (March–May) and autumn (September–November) offer the clearest skies and most comfortable temperatures. Summer is hot but the evening Bund and the indoor museums handle it well. Winter is quiet and cheap, with crisp light for the skyline — just bring layers.</p>
+        </div>
       </div>
     </div>
   </section>

@@ -1,0 +1,132 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => data.draft !== true);
+  return posts.map((post) => ({
+    params: { slug: post.id.replace(/\.md$/, "") },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const { title, description, datePublished, dateModified, category, image, author } = post.data;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={image}
+  author={author}
+  authorUrl="/about"
+  datePublished={datePublished.toISOString().split("T")[0]}
+  dateModified={dateModified ? dateModified.toISOString().split("T")[0] : datePublished.toISOString().split("T")[0]}
+  isArticle
+>
+  <article class="mx-auto max-w-3xl px-6 py-16 md:py-20">
+    <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">{category}</p>
+    <h1 class="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-neutral-900 md:text-4xl">{title}</h1>
+    <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-neutral-500">
+      <span>{author}</span>
+      <span aria-hidden="true">·</span>
+      <time datetime={datePublished.toISOString().split("T")[0]}>{datePublished.toISOString().split("T")[0]}</time>
+    </div>
+    <img src={image} alt={title} class="mt-8 aspect-[16/9] w-full rounded-2xl object-cover" width="1200" height="675" loading="eager" decoding="async" />
+    <div class="blog-content mt-8">
+      <Content />
+    </div>
+    <div class="mt-10 flex justify-between gap-4 border-t border-neutral-200 pt-6 text-sm">
+      <a href="/blog" class="font-semibold text-brand-600 hover:underline">← All blog posts</a>
+      <a href="/attractions" class="font-semibold text-brand-600 hover:underline">Top things to do →</a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .blog-content {
+    font-size: 1.0625rem;
+    line-height: 1.95;
+  }
+  .blog-content :is(h2, h3, h4) {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    color: #171313;
+  }
+  .blog-content h2 {
+    margin-top: 3rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+  .blog-content h3 {
+    margin-top: 2.25rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+  .blog-content h4 {
+    margin-top: 2rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .blog-content p {
+    margin-top: 1.4rem;
+    color: #3a342e;
+  }
+  .blog-content ul,
+  .blog-content ol {
+    margin-top: 1.4rem;
+    padding-left: 1.5rem;
+  }
+  .blog-content li {
+    margin-top: 0.65rem;
+    line-height: 1.85;
+    color: #3a342e;
+  }
+  .blog-content li::marker {
+    color: var(--color-brand-600);
+  }
+  .blog-content ul {
+    list-style: disc;
+  }
+  .blog-content strong {
+    font-weight: 700;
+    color: #171313;
+  }
+  .blog-content a {
+    color: var(--color-brand-700);
+    text-decoration: underline;
+    text-decoration-thickness: 0.06em;
+    text-underline-offset: 3px;
+  }
+  .blog-content a:hover {
+    color: var(--color-brand-600);
+  }
+  .blog-content hr {
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+    border-color: #0000001f;
+  }
+  .blog-content :is(ul, ol) + p {
+    margin-top: 1.4rem;
+  }
+  .blog-content table {
+    margin-top: 1.5rem;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  .blog-content th {
+    text-align: left;
+    font-weight: 700;
+    color: #171313;
+  }
+  .blog-content :is(th, td) {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .blog-content tr:last-child td {
+    border-bottom: 0;
+  }
+</style>
