@@ -27,6 +27,9 @@ const {
 
 const siteTitle = "Things to Do in Shanghai";
 const siteUrl = "https://www.things-to-do-in-shanghai-china.com";
+const canonicalUrl = Astro.url.pathname === "/"
+  ? new URL("/", siteUrl).href.replace(/\/$/, "")
+  : new URL(Astro.url.pathname, siteUrl).href;
    const fullTitle = title === "Home"
       ? "Things to Do in Shanghai, China \u2014 Ultimate Travel Guide"
      : `${title} | ${siteTitle}`;
@@ -61,7 +64,7 @@ const siteUrl = "https://www.things-to-do-in-shanghai-china.com";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, siteUrl).href} />
+    <link rel="canonical" href={canonicalUrl} />
 
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
@@ -115,13 +118,13 @@ const siteUrl = "https://www.things-to-do-in-shanghai-china.com";
           <span class="font-display text-2xl font-medium tracking-tight text-brand-700">Shanghai<span class="text-neutral-900">Guide</span></span>
         </a>
         <div class="hidden items-center gap-1 lg:flex">
-          <a href="/attractions" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Attractions</a>
-          <a href="/food" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Food</a>
-          <a href="/nightlife" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Nightlife</a>
-          <a href="/shopping" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Shopping</a>
-          <a href="/day-trips" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Day Trips</a>
-          <a href="/itinerary" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Itinerary</a>
-          <a href="/blog" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Blog</a>
+          <a href="/attractions/" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Attractions</a>
+          <a href="/food/" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Food</a>
+          <a href="/nightlife/" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Nightlife</a>
+          <a href="/shopping/" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Shopping</a>
+          <a href="/day-trips/" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Day Trips</a>
+          <a href="/itinerary/" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Itinerary</a>
+          <a href="/blog/" class="rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900">Blog</a>
         </div>
         <button class="flex flex-col gap-1.5 lg:hidden" aria-label="Toggle menu">
           <span class="block h-0.5 w-5 rounded bg-neutral-700"></span>
@@ -141,27 +144,27 @@ const siteUrl = "https://www.things-to-do-in-shanghai-china.com";
           <div>
             <p class="mb-4 text-sm font-semibold text-neutral-900">Explore</p>
             <div class="flex flex-col gap-2">
-              <a href="/attractions" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Attractions</a>
-              <a href="/food" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Food</a>
-              <a href="/nightlife" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Nightlife</a>
-              <a href="/shopping" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Shopping</a>
+              <a href="/attractions/" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Attractions</a>
+              <a href="/food/" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Food</a>
+              <a href="/nightlife/" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Nightlife</a>
+              <a href="/shopping/" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Shopping</a>
             </div>
           </div>
           <div>
             <p class="mb-4 text-sm font-semibold text-neutral-900">Plan</p>
             <div class="flex flex-col gap-2">
-              <a href="/itinerary" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Itineraries</a>
-              <a href="/day-trips" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Day Trips</a>
-              <a href="/with-kids" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">With Kids</a>
-              <a href="/free" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Free Things</a>
+              <a href="/itinerary/" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Itineraries</a>
+              <a href="/day-trips/" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Day Trips</a>
+              <a href="/with-kids/" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">With Kids</a>
+              <a href="/free/" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Free Things</a>
             </div>
           </div>
           <div>
             <p class="mb-4 text-sm font-semibold text-neutral-900">Read</p>
             <div class="flex flex-col gap-2">
-              <a href="/guides" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Guides</a>
-              <a href="/blog" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Blog</a>
-              <a href="/about" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">About</a>
+              <a href="/guides/" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Guides</a>
+              <a href="/blog/" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">Blog</a>
+              <a href="/about/" class="text-sm text-neutral-500 transition-colors hover:text-brand-600">About</a>
             </div>
           </div>
           <div>
