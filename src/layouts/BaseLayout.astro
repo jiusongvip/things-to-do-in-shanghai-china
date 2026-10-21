@@ -32,7 +32,9 @@ const canonicalUrl = Astro.url.pathname === "/"
   : new URL(Astro.url.pathname, siteUrl).href;
    const fullTitle = title === "Home"
       ? "Things to Do in Shanghai, China \u2014 Ultimate Travel Guide"
-     : `${title} | ${siteTitle}`;
+     : title.includes("Shanghai")
+       ? title
+       : `${title} | ${siteTitle}`;
 
   const articleHeadline = title === "Home" ? fullTitle : fullTitle.replace(/\|.*$/, "").trim();
 

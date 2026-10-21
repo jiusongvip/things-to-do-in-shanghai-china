@@ -1,6 +1,6 @@
 ---
 title: "Shanghai in Summer: A Complete Survival Guide (2026)"
-description: "How to survive Shanghai's July–August heat and humidity while still enjoying the city. The best air-conditioned attractions, evening plans, and cooling local foods — with exact timings and costs."
+description: "Shanghai in July and August hits 35°C, with 40°C humidity. Plan indoors at midday, evenings outside, and these cooling foods — timings and costs included."
 datePublished: 2026-07-01
 dateModified: 2026-08-01
 category: "Seasonal"

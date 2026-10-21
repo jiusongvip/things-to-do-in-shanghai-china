@@ -1,6 +1,6 @@
 ---
-title: "A Local's Guide to Shanghai Breakfast: What, Where & How Much"
-description: "Congee, youtiao, jianbing, shengjianbao and soy milk. Where to find the best traditional Shanghai breakfast before 10 AM, exactly what to order, and what it costs."
+title: "Shanghai Breakfast: What to Eat, Where & Cost"
+description: "Shanghai breakfast costs about ¥15 for congee, youtiao, jianbing and soy milk. Where locals eat before 10 AM, what to order and how much it costs."
 datePublished: 2026-04-08
 dateModified: 2026-04-20
 category: "Food"

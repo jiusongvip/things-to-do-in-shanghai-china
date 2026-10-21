@@ -1,6 +1,6 @@
 ---
 title: "Chinese New Year in Shanghai: The Complete 2026 Planner"
-description: "In 2026 Chinese New Year falls on February 17 — and the city empties out. Expect near-empty museums, banned fireworks, and magical lantern displays. Here's exactly what to plan, what to book, and what to skip."
+description: "Chinese New Year 2026 falls on February 17. Shanghai empties out: near-empty museums, banned fireworks, lantern displays. What to book and what to skip."
 datePublished: 2026-01-15
 dateModified: 2026-01-22
 category: "Events"
